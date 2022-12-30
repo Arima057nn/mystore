@@ -1,5 +1,6 @@
 .wrapper {
-  height: 80px;
+  width: 100%;
+  height: var(--header-height);
   box-shadow: 0 1px 1px rgb(0 0 0 / 12%);
   display: flex;
   justify-content: center;
@@ -7,6 +8,8 @@
 
 .inner {
   height: 100%;
-  width: 1280px;
-  background-color: aquamarine;
+  width: var(--default-layout-width);
+  background-color: rgb(64, 137, 112);
+  padding-left: 24px;
+  padding-right: 24px;
 }
