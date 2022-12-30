@@ -1,7 +1,8 @@
-import { HeaderOnly } from "../components/Layouts/";
+import { HeaderOnly, Dev } from "../components/Layouts/";
 import Home from "../pages/Home";
 import Following from "../pages/Following";
 import Upload from "../pages/Upload";
+import DevProduct from "../pages/Dev";
 
 const publicRoutes = [
   {
@@ -18,6 +19,12 @@ const publicRoutes = [
     path: "/upload",
     component: Upload,
     layout: HeaderOnly,
+  },
+
+  {
+    path: "/dev",
+    component: DevProduct,
+    layout: Dev,
   },
 ];
 const privateRoutes = [];
