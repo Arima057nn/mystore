@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 920px;
+  display: flex;
+  margin-bottom: 64px;
+}
+
+.container {
+  width: 920px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--header-color);
+}
+
+.description {
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 28px;
+  color: var(--description-color);
+}

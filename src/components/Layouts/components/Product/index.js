@@ -26,39 +26,37 @@ function Product() {
     setShowOptions(false);
   };
   return (
-    <div className={cx("wrapper")}>
-      <div
-        className={cx("container")}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img className={cx("img")} src={ImgCoffee}></img>
-        <div className={cx("info-container")}>
-          <div className={cx("info")}>
-            <p className={cx("title")}>Fresh Line</p>
-            <div className={cx("star-container")}>
-              <FontAwesomeIcon icon={faStar} className={cx("star1")} />
-              <FontAwesomeIcon icon={faStar} className={cx("star1")} />
-              <FontAwesomeIcon icon={faStar} className={cx("star1")} />
-              <FontAwesomeIcon icon={faStar} className={cx("star2")} />
-              <FontAwesomeIcon icon={faStar} className={cx("star2")} />
-            </div>
-            <p className={cx("price")}>$ 135.79</p>
+    <div
+      className={cx("container")}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img className={cx("img")} src={ImgCoffee}></img>
+      <div className={cx("info-container")}>
+        <div className={cx("info")}>
+          <p className={cx("title")}>Fresh Line</p>
+          <div className={cx("star-container")}>
+            <FontAwesomeIcon icon={faStar} className={cx("star1")} />
+            <FontAwesomeIcon icon={faStar} className={cx("star1")} />
+            <FontAwesomeIcon icon={faStar} className={cx("star1")} />
+            <FontAwesomeIcon icon={faStar} className={cx("star2")} />
+            <FontAwesomeIcon icon={faStar} className={cx("star2")} />
           </div>
-          <div className={cx("button-container")}>
-            <div onClick={() => setCount(count - 1)}>
-              {show && <Add faicon={faMinus} />}
-            </div>
-            <div className={cx("count")}>{show && count}</div>
-            <div onClick={() => setCount(count + 1)}>
-              <Add faicon={faAdd} />
-            </div>
+          <p className={cx("price")}>$ 135.79</p>
+        </div>
+        <div className={cx("button-container")}>
+          <div onClick={() => setCount(count - 1)}>
+            {show && <Add faicon={faMinus} />}
+          </div>
+          <div className={cx("count")}>{show && count}</div>
+          <div onClick={() => setCount(count + 1)}>
+            <Add faicon={faAdd} />
           </div>
         </div>
+      </div>
 
-        <div className={cx("action")}>
-          {shopOptions && <Add faicon={faAdd} />}
-        </div>
+      <div className={cx("action")}>
+        {shopOptions && <Add faicon={faAdd} />}
       </div>
     </div>
   );

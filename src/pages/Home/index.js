@@ -1,7 +1,48 @@
-import DefaultLayout from "../../components/Layouts/DefaultLayout";
-import Content from "../../../src/components/Layouts/DefaultLayout/Content";
-function Home(children = { Content }) {
-  return <h1>Home</h1>;
+import classNames from "classnames/bind";
+import styles from "./Home.module.scss";
+import Product from "../../components/Layouts/components/Product";
+const cx = classNames.bind(styles);
+
+function Home() {
+  return (
+    <>
+      <div className={cx("wrapper")}>
+        <h2 className={cx("title")}>Popular Books</h2>
+        <p className={cx("description")}>Best collection in 2021 for you!</p>
+        <div className={cx("container")}>
+          <Product />
+          <Product />
+          <Product />
+        </div>
+      </div>
+
+      <div className={cx("wrapper")}>
+        <h2 className={cx("title")}>Trending Books</h2>
+        <p className={cx("description")}>Best collection in 2021 for you!</p>
+        <div className={cx("container")}>
+          <Product />
+          <Product />
+          <Product />
+        </div>
+      </div>
+
+      <div className={cx("wrapper")}>
+        <h2 className={cx("title")}>All Books</h2>
+        <p className={cx("description")}>Best collection in 2021 for you!</p>
+        <div className={cx("container")}>
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Home;
