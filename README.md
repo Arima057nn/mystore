@@ -1,5 +1,6 @@
 npm i react-router-dom:
 npm i --save @fortawesome/free-solid-svg-icons
+npm install react-slick --save
 
 # Getting Started with Create React App
 

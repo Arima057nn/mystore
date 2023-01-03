@@ -1,0 +1,28 @@
+.wrapper {
+  //   background-color: rgb(204, 136, 136);
+  //   width: 23%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding-bottom: 12px;
+  border-bottom: 4px solid #f8c7cf;
+  margin-bottom: 20px;
+  color: var(--header-color);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  color: var(--header-color2);
+  padding: 8px 0;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    color: var(--primary);
+  }
+}
