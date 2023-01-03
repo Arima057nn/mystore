@@ -1,4 +1,5 @@
 npm i react-router-dom:
+npm i --save @fortawesome/free-solid-svg-icons
 
 # Getting Started with Create React App
 
