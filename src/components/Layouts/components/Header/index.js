@@ -15,8 +15,7 @@ function Header() {
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
         <div>
-          <a className={cx("logo")} href="#">
-            {" "}
+          <a className={cx("logo")} href="/">
             BookStore
           </a>
         </div>

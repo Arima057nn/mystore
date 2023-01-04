@@ -1,9 +1,9 @@
 import { HeaderOnly, Dev } from "../components/Layouts/";
 import Home from "../pages/Home";
-import Following from "../pages/Following";
+import Cart from "../pages/Cart";
 import Upload from "../pages/Upload";
 import DevProduct from "../pages/Dev";
-
+import ProductDetail from "../pages/ProductDetail";
 const publicRoutes = [
   {
     path: "/",
@@ -11,10 +11,15 @@ const publicRoutes = [
   },
 
   {
-    path: "/following",
-    component: Following,
+    path: "/Cart",
+    component: Cart,
+    layout: HeaderOnly,
   },
-
+  {
+    path: "/Product/book",
+    component: ProductDetail,
+    layout: HeaderOnly,
+  },
   {
     path: "/upload",
     component: Upload,
