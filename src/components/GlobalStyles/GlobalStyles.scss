@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "@fontsource/montez";
 
 // @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
@@ -12,6 +13,9 @@
   --default-layout-width: 1232px;
   --width-imgCard: 268px;
   --width-button: 28px;
+  --black-color: #333;
+  --white-color: #fff;
+  --background: #f6f9fc;
 }
 
 * {
@@ -27,7 +31,20 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+
   //   font-size: 1.6rem;
   //   -webkit-font-smoothing: antialiased;
   //   font-family: "Montserrat", sans-serif;
+}
+
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+
+a[href] {
+  color: var(--black-color);
+  text-decoration: none;
 }

@@ -4,12 +4,45 @@
   box-shadow: 0 1px 1px rgb(0 0 0 / 12%);
   display: flex;
   justify-content: center;
+  background-color: var(--white-color);
 }
 
 .inner {
   height: 100%;
   width: var(--default-layout-width);
-  background-color: rgb(64, 137, 112);
+  // background-color: rgb(64, 137, 112);
   padding-left: 24px;
   padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 160px;
+  color: #2b3445;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: "Montez";
+  margin-right: 20px;
+}
+
+.action-container {
+  display: flex;
+  height: 44px;
+  margin-right: -20px;
+}
+.action {
+  display: flex;
+  border-radius: 50%;
+  background-color: #f3f5f9;
+  padding: 12px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 600;
 }
