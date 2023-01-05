@@ -1,11 +1,8 @@
 import React from "react";
-// import Slider from "react-slick";
 
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Product from "../../components/Layouts/components/Product";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 

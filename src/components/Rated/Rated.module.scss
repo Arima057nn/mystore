@@ -1,0 +1,13 @@
+.star-container {
+  display: flex;
+  margin: 4px 0;
+  .star1 {
+    color: #faaf00;
+    padding-right: 2px;
+  }
+
+  .star2 {
+    color: rgba(0, 0, 0, 0.26);
+    padding-right: 2px;
+  }
+}
