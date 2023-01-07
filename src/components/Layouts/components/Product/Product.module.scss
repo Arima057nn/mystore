@@ -65,8 +65,16 @@
   justify-content: center;
 }
 
-.action {
+.action-container {
   position: absolute;
-  left: calc(calc(var(--width-imgCard) / 2) - calc(var(--width-button) / 2));
-  top: 220px;
+  top: calc(calc(var(--width-imgCard) / 2) - calc(var(--width-button) / 2));
+  right: 10px;
+  // display: flex;
+  // flex-direction: column;
+  // width: 100px;
+  // height: 100px;
+  // justify-content: space-between;
+}
+
+.action {
 }

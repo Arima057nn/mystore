@@ -1,0 +1,41 @@
+.wrapper {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  color: #7d879c;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0;
+  // color: #7d879c;
+  color: var(--header-color);
+  .title {
+    // color: var(--header-color2);
+    font-weight: 400;
+    margin-left: 12px;
+  }
+
+  .icon {
+    margin-left: 10px;
+    font-size: 18px;
+    // color: #7d879c;
+  }
+  &:hover {
+    cursor: pointer;
+    color: var(--primary);
+  }
+}
+
+.space {
+  height: 32px;
+}

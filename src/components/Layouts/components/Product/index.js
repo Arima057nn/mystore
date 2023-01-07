@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Product.module.scss";
-import ImgCoffee from "../../../../assets/images/menu-7.png";
+import ImgCoffee from "../../../../assets/images/B1.jpg";
 import Add from "../../../Button/Add";
 import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import Rated from "../../../Rated";
@@ -50,8 +50,13 @@ function Product() {
         </div>
       </div>
 
-      <div className={cx("action")}>
-        {shopOptions && <Add faicon={faAdd} />}
+      <div className={cx("action-container")}>
+        {shopOptions && (
+          <div cx={cx("action")}>
+            {/* <Add faicon={faAdd} /> */}
+            <Add faicon={faAdd} />
+          </div>
+        )}
       </div>
     </div>
   );

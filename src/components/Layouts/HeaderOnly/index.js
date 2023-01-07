@@ -4,11 +4,11 @@ import classNames from "classnames/bind";
 import styles from "./HeaderOnly.module.scss";
 const cx = classNames.bind(styles);
 
-function HeaderOnly({ children }) {
+function HeaderOnly({ content }) {
   return (
     <div className={cx("wrapper")}>
       <Header />
-      <div className={cx("container")}>{children}</div>
+      <div className={cx("container")}>{content}</div>
     </div>
   );
 }

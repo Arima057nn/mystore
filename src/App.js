@@ -20,8 +20,13 @@ function App() {
             // nếu layout là null thì dùng Fragment, ngược lại thì lấy DefaultLayout
             // const Layout = route.layout === null ? Fragment : DefaultLayout;
             let Layout = DefaultLayout;
+            let Sidebar;
+            if (route.layout === Layout) {
+              Sidebar = route.sidebar;
+            }
             if (route.layout) {
               Layout = route.layout;
+              Sidebar = route.sidebar;
             } else if (route.layout === null) {
               Layout = Fragment;
             }
@@ -30,9 +35,9 @@ function App() {
                 key={index}
                 path={route.path}
                 element={
-                  <Layout>
+                  <Layout children={<Sidebar />} content={<Page />}>
                     {/* // thành phần tĩnh children */}
-                    <Page />
+                    {/* <Page /> */}
                   </Layout>
                 }
               />

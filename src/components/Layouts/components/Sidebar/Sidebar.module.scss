@@ -1,8 +1,10 @@
 .wrapper {
-  width: 260px;
+  width: 280px;
   padding: 20px;
   background-color: #fff;
-  max-height: 1000px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
 }

@@ -1,0 +1,65 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h2 {
+    font-size: 28px;
+    color: var(--header-color);
+    font-weight: 700;
+  }
+  .icon {
+    font-size: 20px;
+    margin-right: 12px;
+    color: var(--primary);
+  }
+}
+.edit-btn {
+  color: var(--primary);
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 10px 24px;
+  background-color: rgb(252, 233, 236);
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(210, 63, 87, 0.04);
+  }
+}
+
+.info {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.box {
+  width: 424px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  label {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--header-color);
+  }
+}
+
+.input {
+  padding: 10px 16px;
+  margin: 6px 0;
+  font-size: 1rem;
+  border: 1px solid var(--description-color);
+  border-radius: 4px;
+  &:hover {
+    border: 1px solid var(--header-color);
+  }
+}

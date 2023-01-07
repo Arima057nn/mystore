@@ -1,14 +1,14 @@
-import styles from "./Banner.module.scss";
 import classNames from "classnames/bind";
+import styles from "./MyProfile.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Banner() {
+function MyProfile() {
   return (
     <div className={cx("wrapper")}>
-      <h1 className={cx("title")}>Book Store</h1>
+      <div></div>
     </div>
   );
 }
 
-export default Banner;
+export default MyProfile;
