@@ -5,6 +5,7 @@ import Add from "../../../Button/Add";
 import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import Rated from "../../../Rated";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 function Product() {
@@ -30,10 +31,14 @@ function Product() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img className={cx("img")} src={ImgCoffee}></img>
+      <Link to={"/Product/book"}>
+        <img className={cx("img")} src={ImgCoffee}></img>
+      </Link>
       <div className={cx("info-container")}>
         <div className={cx("info")}>
-          <p className={cx("title")}>Fresh Line</p>
+          <a href="/Product/book" className={cx("title")}>
+            Fresh Line
+          </a>
 
           <Rated />
 

@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Search from "../../../Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,15 +22,15 @@ function Header() {
         </div>
         <Search />
         <div className={cx("action-container")}>
-          <div className={cx("action")}>
+          <Link className={cx("action")}>
             <FontAwesomeIcon icon={faHeart} className={cx("icon")} />
-          </div>
-          <div className={cx("action")}>
+          </Link>
+          <Link to={"/profile"} className={cx("action")}>
             <FontAwesomeIcon icon={faUser} className={cx("icon")} />
-          </div>
-          <div className={cx("action")}>
+          </Link>
+          <Link to={"/cart"} className={cx("action")}>
             <FontAwesomeIcon icon={faBagShopping} className={cx("icon")} />
-          </div>
+          </Link>
         </div>
       </div>
     </header>

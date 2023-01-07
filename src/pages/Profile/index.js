@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Profile.module.scss";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
@@ -13,9 +13,9 @@ function Profile() {
           <FontAwesomeIcon icon={faUser} className={cx("icon")} />
           <h2>My Profile</h2>
         </div>
-        <a href="./edit" className={cx("edit-btn")}>
+        <Link to={"/profile/edit"} className={cx("edit-btn")}>
           Edit Profile
-        </a>
+        </Link>
       </div>
 
       <form className={cx("info")}>

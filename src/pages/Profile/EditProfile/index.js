@@ -3,6 +3,7 @@ import styles from "../Profile.module.scss";
 import AddtoCart from "../../../components/Button/AddtoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 function EditProfile() {
@@ -13,9 +14,9 @@ function EditProfile() {
           <FontAwesomeIcon icon={faUser} className={cx("icon")} />
           <h2>Edit Profile</h2>
         </div>
-        <a href="./" className={cx("edit-btn")}>
+        <Link to={"/profile"} className={cx("edit-btn")}>
           Back to Profile
-        </a>
+        </Link>
       </div>
 
       <form className={cx("info")}>

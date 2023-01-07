@@ -31,7 +31,7 @@ function Account() {
       <h2 className={cx("header")}>ACCOUNT SETTINGS</h2>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faUser} className={cx("icon")} />
-        <span className={cx("title")}>Profile info</span>
+        <span className={cx("title")}> info</span>
       </div>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faLocationDot} className={cx("icon")} />

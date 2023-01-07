@@ -4,6 +4,7 @@ import {
   ProfileLayout,
   DefaultLayout,
   LoginLayout,
+  ManagerLayout,
 } from "../components/Layouts/";
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -13,6 +14,8 @@ import ProductDetail from "../pages/ProductDetail";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/Profile/EditProfile";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
+import UserManager from "../pages/UserManager";
 
 import Categories from "../components/Categories";
 import Account from "../components/Account";
@@ -27,6 +30,11 @@ const publicRoutes = [
   {
     path: "/Login",
     component: Login,
+    layout: LoginLayout,
+  },
+  {
+    path: "/Register",
+    component: Register,
     layout: LoginLayout,
   },
 
@@ -61,6 +69,12 @@ const publicRoutes = [
     path: "/dev",
     component: DevProduct,
     layout: Dev,
+  },
+  {
+    path: "/manager/user",
+    component: UserManager,
+    layout: ManagerLayout,
+    sidebar: Categories,
   },
 ];
 
