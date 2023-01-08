@@ -15,7 +15,8 @@ import Profile from "../pages/Profile";
 import EditProfile from "../pages/Profile/EditProfile";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import UserManager from "../pages/UserManager";
+import CustomersManager from "../pages/CustomersManager";
+import AddCustomer from "../pages/CustomersManager/AddCustomer";
 
 import Categories from "../components/Categories";
 import Account from "../components/Account";
@@ -71,8 +72,15 @@ const publicRoutes = [
     layout: Dev,
   },
   {
-    path: "/manager/user",
-    component: UserManager,
+    path: "/manager/customers",
+    component: CustomersManager,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/customer/add",
+    component: AddCustomer,
     layout: ManagerLayout,
     sidebar: Categories,
   },

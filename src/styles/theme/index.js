@@ -2,9 +2,6 @@ import { createTheme } from "@mui/material/styles";
 
 export const Colors = {
   primary: "#5f2c3e",
-  // primary: "rgb(210, 63, 87)",
-
-  // secondary: "#be9c79",
   suki: "#be9c79",
   suki2: "rgb(210, 63, 87)",
   secondary: "#d1adcc",
