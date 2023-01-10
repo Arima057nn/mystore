@@ -11,6 +11,18 @@
   box-shadow: 0px 1px 3px rgb(3 0 71 / 9%);
   &:hover {
     box-shadow: 0px 4px 16px rgb(43 52 69 / 10%);
+    transition-duration: 0.3s;
+    .action-container {
+      display: block;
+
+      // transition-duration: 0.2s;
+    }
+    // .action-container {
+    //   bottom: 110px;
+    //   animation-name: showAction;
+    //   animation-duration: 0.5s;
+    //   display: block;
+    // }
   }
 }
 
@@ -66,10 +78,25 @@
 }
 
 .action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 30px;
   position: absolute;
-  top: calc(calc(var(--width-imgCard) / 2) - calc(var(--width-button) / 2));
+  // left: calc(calc(var(--width-imgCard) / 2) - calc(var(--width-button) / 2));
+  // bottom: 72px;
+  display: none;
   right: 10px;
+  top: 10px;
 }
 
-.action {
-}
+// @keyframes showAction {
+//   from {
+//     bottom: 72px;
+//   }
+//   to {
+//     bottom: 110px;
+//   }
+// }
