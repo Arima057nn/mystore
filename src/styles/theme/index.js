@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 export const Colors = {
-  primary: "#5f2c3e",
+  primary: "#d23f57",
   suki: "#be9c79",
   suki2: "rgb(210, 63, 87)",
   secondary: "#d1adcc",
@@ -15,9 +15,6 @@ export const Colors = {
   border: "#DDDFE1",
   inverse: "#2F3D4A",
   shaft: "#333",
-  ///////////////
-  // Grays
-  ///////////////
   dim_grey: "#696969",
   dove_gray: "#d5d5d5",
   body_bg: "#f3f6f9",
