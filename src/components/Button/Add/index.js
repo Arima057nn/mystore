@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Add.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal } from "@mui/material";
 // import { faAdd } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
 
