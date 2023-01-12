@@ -9,9 +9,11 @@ import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Colors } from "../../../../styles/theme";
-
+import AddtoCard from "../../../../components/Button/AddtoCard";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import ImgBook from "../../../../../src/assets/images/B1.jpg";
+import CloseIcon from "@mui/icons-material/Close";
 const cx = classNames.bind(styles);
 
 function Product({ isFav, book }) {
@@ -32,6 +34,13 @@ function Product({ isFav, book }) {
   const BookFavButton = styled(IconButton)(({ isfav }) => ({
     color: isfav ? Colors.primary : Colors.light,
   }));
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   // const handleMouseEnter = () => {
   //   setShowOptions(true);
   // };
@@ -39,50 +48,81 @@ function Product({ isFav, book }) {
   // const handleMouseLeave = () => {
   //   setShowOptions(false);
   // };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   return (
-    <div
-      className={cx("container")}
-      // onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
-    >
-      <Link to={"/Product/book"}>
-        <img className={cx("img")} src={ImgCoffee}></img>
-      </Link>
-      <div className={cx("info-container")}>
-        <div className={cx("info")}>
-          <a href="/Product/book" className={cx("title")}>
-            Fresh Line
-          </a>
+    <>
+      {modal && (
+        <div className={cx("modal")}>
+          <div onClick={toggleModal} className={cx("overlay")}></div>
+          <div className={cx("modal-content")}>
+            <div className={cx("image")}>
+              <img src={ImgBook} alt={book.name} />
+            </div>
+            <div className={cx("content")}>
+              <div className={cx("close-btn")}>
+                <BookFavButton size="small" onClick={toggleModal}>
+                  <CloseIcon />
+                </BookFavButton>
+              </div>
+              <h1>{book.name}</h1>
+              <div className={cx("rated")}>
+                <h6>Rated:</h6>
+                <Rated />
+              </div>
 
-          <Rated />
-
-          <p className={cx("price")}>$ 135.79</p>
+              <h2 className={cx("price")}>$ {book.price}</h2>
+              <span>{book.description}</span>
+              <br />
+              <div className={cx("button")}>
+                <AddtoCard addtocart={"Add to cart"} />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={cx("button-container")}>
-          <div onClick={() => setCount(count - 1)}>
-            {show && <Add faicon={faMinus} />}
+      )}
+      <div
+        className={cx("container")}
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
+      >
+        <Link to={"/Product/book"}>
+          <img className={cx("img")} src={ImgCoffee}></img>
+        </Link>
+        <div className={cx("info-container")}>
+          <div className={cx("info")}>
+            <Link href="/Product/book" className={cx("title")}>
+              {book.name}
+            </Link>
+            <Rated />
+            <p className={cx("price")}>$ {book.price}</p>
           </div>
-          <div className={cx("count")}>{show && count}</div>
-          <div onClick={() => setCount(count + 1)}>
-            <Add faicon={faAdd} />
+          <div className={cx("button-container")}>
+            <div onClick={() => setCount(count - 1)}>
+              {show && <Add faicon={faMinus} />}
+            </div>
+            <div className={cx("count")}>{show && count}</div>
+            <div onClick={() => setCount(count + 1)}>
+              <Add faicon={faAdd} />
+            </div>
           </div>
+        </div>
+
+        <div className={cx("action-container")}>
+          <BookFavButton size="small" onClick={FavHandle} isfav={isfav}>
+            <FavoriteIcon />
+          </BookFavButton>
+
+          <BookFavButton size="small" onClick={toggleModal}>
+            <VisibilityIcon />
+          </BookFavButton>
         </div>
       </div>
-
-      <div className={cx("action-container")}>
-        {/* {shopOptions && ( */}
-
-        <BookFavButton size="small" onClick={FavHandle} isfav={isfav}>
-          <FavoriteIcon />
-        </BookFavButton>
-
-        <BookFavButton size="small">
-          <VisibilityIcon />
-        </BookFavButton>
-
-        {/* )} */}
-      </div>
-    </div>
+    </>
   );
 }
 

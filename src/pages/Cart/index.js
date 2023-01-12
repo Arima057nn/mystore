@@ -7,167 +7,76 @@ import { faAdd, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 const cx = classNames.bind(styles);
 
-function Cart() {
+const popularBooks = [
+  {
+    id: 1,
+    name: "Super Backpack",
+    price: 129.99,
+    description:
+      "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
+    image: "https://cf.shopee.vn/file/sg-11134201-22100-gl6k8whuk7iva4",
+  },
+  {
+    id: 2,
+    name: "New Hip",
+    price: 199.99,
+    description:
+      "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
+    image:
+      "https://salt.tikicdn.com/ts/product/45/3b/fc/aa81d0a534b45706ae1eee1e344e80d9.jpg",
+  },
+  {
+    id: 3,
+    name: "Elite Series",
+    price: 189.99,
+    description:
+      "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
+    image:
+      "https://salt.tikicdn.com/ts/product/45/3b/fc/aa81d0a534b45706ae1eee1e344e80d9.jpg",
+  },
+];
+
+function Cart({ book }) {
   const [count, setCount] = useState(1);
   const [show, setShow] = useState(true);
 
   return (
     <>
       <div className={cx("product-wrapper")}>
-        <div className={cx("box")}>
-          <img className={cx("img")} src={ImgBook}></img>
-          <div className={cx("info")}>
-            <a>
-              <span className={cx("title")}>Silver High Neck Sweater</span>
-            </a>
-            <div className={cx("price")}>
-              <span className={cx("price1")}>$210.00 x {count}</span>
-              <span className={cx("price2")}>${210 * count}.00</span>
-            </div>
-            <div className={cx("quantity")}>
-              <div
-                onClick={() => {
-                  if (count > 1) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
-                <Add faicon={faMinus} />
+        {popularBooks.map((book) => (
+          <div className={cx("box")}>
+            <img className={cx("img")} src={ImgBook}></img>
+            <div className={cx("info")}>
+              <a>
+                <span className={cx("title")}>{book.name}</span>
+              </a>
+              <div className={cx("price")}>
+                <span className={cx("price1")}>
+                  ${book.price} x {count}
+                </span>
+                <span className={cx("price2")}>$ {book.price * count}</span>
               </div>
-              <span className={cx("count")}>{count}</span>
-              <div onClick={() => setCount(count + 1)}>
-                <Add faicon={faAdd} />
-              </div>
-            </div>
-          </div>
-          <div className={cx("xmark")}>
-            <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-          </div>
-        </div>
-
-        <div className={cx("box")}>
-          <img className={cx("img")} src={ImgBook}></img>
-          <div className={cx("info")}>
-            <a>
-              <span className={cx("title")}>Silver High Neck Sweater</span>
-            </a>
-            <div className={cx("price")}>
-              <span className={cx("price1")}>$210.00 x {count}</span>
-              <span className={cx("price2")}>${210 * count}.00</span>
-            </div>
-            <div className={cx("quantity")}>
-              <div
-                onClick={() => {
-                  if (count > 1) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
-                <Add faicon={faMinus} />
-              </div>
-              <span className={cx("count")}>{count}</span>
-              <div onClick={() => setCount(count + 1)}>
-                <Add faicon={faAdd} />
+              <div className={cx("quantity")}>
+                <div
+                  onClick={() => {
+                    if (count > 1) {
+                      setCount(count - 1);
+                    }
+                  }}
+                >
+                  <Add faicon={faMinus} />
+                </div>
+                <span className={cx("count")}>{count}</span>
+                <div onClick={() => setCount(count + 1)}>
+                  <Add faicon={faAdd} />
+                </div>
               </div>
             </div>
-          </div>
-          <div className={cx("xmark")}>
-            <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-          </div>
-        </div>
-
-        <div className={cx("box")}>
-          <img className={cx("img")} src={ImgBook}></img>
-          <div className={cx("info")}>
-            <a>
-              <span className={cx("title")}>Silver High Neck Sweater</span>
-            </a>
-            <div className={cx("price")}>
-              <span className={cx("price1")}>$210.00 x {count}</span>
-              <span className={cx("price2")}>${210 * count}.00</span>
-            </div>
-            <div className={cx("quantity")}>
-              <div
-                onClick={() => {
-                  if (count > 1) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
-                <Add faicon={faMinus} />
-              </div>
-              <span className={cx("count")}>{count}</span>
-              <div onClick={() => setCount(count + 1)}>
-                <Add faicon={faAdd} />
-              </div>
+            <div className={cx("xmark")}>
+              <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
             </div>
           </div>
-          <div className={cx("xmark")}>
-            <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-          </div>
-        </div>
-
-        <div className={cx("box")}>
-          <img className={cx("img")} src={ImgBook}></img>
-          <div className={cx("info")}>
-            <a>
-              <span className={cx("title")}>Silver High Neck Sweater</span>
-            </a>
-            <div className={cx("price")}>
-              <span className={cx("price1")}>$210.00 x {count}</span>
-              <span className={cx("price2")}>${210 * count}.00</span>
-            </div>
-            <div className={cx("quantity")}>
-              <div
-                onClick={() => {
-                  if (count > 1) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
-                <Add faicon={faMinus} />
-              </div>
-              <span className={cx("count")}>{count}</span>
-              <div onClick={() => setCount(count + 1)}>
-                <Add faicon={faAdd} />
-              </div>
-            </div>
-          </div>
-          <div className={cx("xmark")}>
-            <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-          </div>
-        </div>
-
-        <div className={cx("box")}>
-          <img className={cx("img")} src={ImgBook}></img>
-          <div className={cx("info")}>
-            <a>
-              <span className={cx("title")}>Silver High Neck Sweater</span>
-            </a>
-            <div className={cx("price")}>
-              <span className={cx("price1")}>$210.00 x {count}</span>
-              <span className={cx("price2")}>${210 * count}.00</span>
-            </div>
-            <div className={cx("quantity")}>
-              <div
-                onClick={() => {
-                  if (count > 1) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
-                <Add faicon={faMinus} />
-              </div>
-              <span className={cx("count")}>{count}</span>
-              <div onClick={() => setCount(count + 1)}>
-                <Add faicon={faAdd} />
-              </div>
-            </div>
-          </div>
-          <div className={cx("xmark")}>
-            <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-          </div>
-        </div>
+        ))}
       </div>
       <div className={cx("payment-wrapper")}>
         <div className={cx("total")}>
