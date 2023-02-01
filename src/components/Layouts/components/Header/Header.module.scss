@@ -32,20 +32,24 @@
   display: flex;
   height: 44px;
   margin-right: -20px;
+  align-items: center;
 }
 .action {
   display: flex;
   border-radius: 50%;
-  background-color: #f3f5f9;
-  padding: 12px;
+  background-color: #bdbdbd;
+  padding: 10.4px;
   margin-right: 20px;
+  cursor: pointer;
+}
+.avt {
   cursor: pointer;
 }
 .icon {
   width: 20px;
   height: 20px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #fff;
   font-weight: 600;
 }
 

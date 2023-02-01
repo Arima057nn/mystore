@@ -21,7 +21,7 @@ function OrderDetail({ data }) {
           <h5 className={cx("header")}>Order #</h5>
           <h5 className={cx("header")}>BookID</h5>
           <h5 className={cx("header")}>Name</h5>
-          <h5 className={cx("header")}>Quanlity</h5>
+          <h5 className={cx("header")}>Quantity</h5>
           <h5 className={cx("header")}>Price</h5>
         </div>
       </div>
@@ -30,7 +30,7 @@ function OrderDetail({ data }) {
           <h5 className={cx("item-info-id")}>{data.id}</h5>
           <h5 className={cx("item-info-id")}>{value.id}</h5>
           <h5 className={cx("item-info")}>{value.name}</h5>
-          <h5 className={cx("item-info")}>{value.quanlity}</h5>
+          <h5 className={cx("item-info")}>{value.quantity}</h5>
           <h5 className={cx("item-info")}>{value.price}</h5>
         </div>
       ))}

@@ -111,8 +111,9 @@ function Categories() {
             <TableRow>
               <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
-              <TableCell>Description</TableCell>
-             
+
+              <TableCell></TableCell>
+              <TableCell></TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
@@ -135,9 +136,9 @@ function Categories() {
                     </Typography>
                   </Box>
                 </TableCell>
-               
 
-                <TableCell>{value.description}</TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell>
@@ -161,7 +162,7 @@ function Categories() {
                     Update
                   </Button>
                   <Button
-                    sx={{ mr: -3 }}
+                    sx={{ mr: -16 }}
                     variant="contained"
                     color="error"
                     onClick={() => handleDelete(value.id)}

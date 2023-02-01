@@ -16,14 +16,14 @@ function Home() {
   console.log(token);
   if (token === "user123") console.log("hihi");
   useEffect(() => {
-    fetch(`http://localhost:3001/popularBooks/`)
+    fetch(`http://127.0.0.1:8000/api/popularBooks/`)
       .then((res) => res.json())
       .then((datas) => {
         setPopularBooks(datas);
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:3001/trendingBooks/`)
+    fetch(`http://127.0.0.1:8000/api/trendingBooks/`)
       .then((res) => res.json())
       .then((datas) => {
         setTrendingBooks(datas);

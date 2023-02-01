@@ -83,6 +83,12 @@
     flex: 5;
     color: var(--description-color);
   }
+  .header-id {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 2;
+    color: var(--description-color);
+  }
   .header-description {
     font-size: 18px;
     font-weight: 600;
@@ -106,7 +112,7 @@
   .item-info-id {
     font-size: 16px;
     font-weight: 600;
-    flex: 5;
+    flex: 2;
     color: var(--header-color);
   }
 

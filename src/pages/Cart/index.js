@@ -6,128 +6,104 @@ import { faAdd, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { type } from "@testing-library/user-event/dist/type";
+import BookCart2 from "../../components/BookCart2";
 
 const cx = classNames.bind(styles);
 
 function Cart() {
-  const [datas, setDatas] = useState([]);
-  const [count, setCount] = useState(1);
-  const [user, setUser] = useState({});
-  const [error, setError] = useState(null);
+  const acc = JSON.parse(localStorage.getItem("userData"));
 
-  const [order, setOrder] = useState({});
-  const [total, setTotal] = useState();
+  const [carts, setCarts] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [note, setNote] = useState("");
   const [status, setStatus] = useState(0);
-  const [date, setDate] = useState(1);
-  const [detail, setDetail] = useState([]);
-
+  const [error, setError] = useState(null);
+  const [total, setTotal] = useState(0);
+  const [sum, setSum] = useState(0);
   useEffect(() => {
-    fetch(`http://localhost:3001/carts/`)
+    fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
       .then((datas) => {
-        setDatas(datas);
-        const sum = datas
-          .map((item) => item.price * item.quanlity)
-          .reduce((acc, current) => acc + current, 0);
-        setTotal(sum);
-        setDetail(datas);
+        setBooks(datas);
       });
   }, []);
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     await axios.delete(`http://localhost:3001/carts/${id}`);
-  //     setDatas(datas.filter((book) => book.id !== id));
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   useEffect(() => {
-    fetch(`http://localhost:3001/users/3`)
+    fetch(`http://127.0.0.1:8000/api/carts/show/${acc.id}`)
       .then((res) => res.json())
       .then((datas) => {
-        setUser({
-          id: datas.id,
-          name: datas.name,
-          email: datas.email,
-          phone: datas.phone,
-          address: datas.address,
-          password: datas.password,
-        });
+        setCarts(datas);
+        // const sum = datas
+        //   .map((item) => item.price * item.quantity)
+        //   .reduce((acc, current) => acc + current, 0);
+        // setTotal(sum);
+        // setDetail(datas);
       });
   }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/orders/", {
-        status,
-        date,
-        total,
-        detail,
+      await axios.post("http://127.0.0.1:8000/api/orders/create", {
+        customer_id: acc.id,
+        fullname: acc.last_name,
+        phone: acc.phone,
+        address: acc.address,
+        note: note,
+        total: sum,
+        status: 0,
       });
-      alert("Đặt hàng thành công");
+      alert("Add order successful!", 100);
     } catch (event) {
-      alert("Add to cart failed. Please try again.");
+      alert("Add order failed !!!");
     }
+    axios.post(`http://127.0.0.1:8000/api/carts/delete/${acc.id}`);
+  };
+
+  const handleDelete = async (e) => {
+    try {
+      const res = await axios.post(
+        `http://127.0.0.1:8000/api/carts/delete/${acc.id}`
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleSum = () => {
+    carts.map((book) => {
+      books.map((data) => {
+        if (data.id === book.book_id) {
+          setSum((prevState) => prevState + book.quantity * data.price);
+          // console.log(1000, sum);
+        }
+      });
+    });
   };
   return (
     <>
       <div className={cx("product-wrapper")}>
-        {datas.map((book) => (
-          <div className={cx("box")}>
-            <img className={cx("img")} src={book.image}></img>
-            <div className={cx("info")}>
-              <a>
-                <span className={cx("title")}>{book.name}</span>
-              </a>
-              <div className={cx("price")}>
-                <span className={cx("price1")}>
-                  ${book.price} x {book.quanlity}
-                </span>
-                <span className={cx("price2")}>
-                  $ {book.price * book.quanlity}
-                </span>
-              </div>
-              <div className={cx("quantity")}>
-                <div
-                // onClick={() => {
-                //   if (count > 1) {
-                //     setCount(book.quanlity - 1);
-                //   }
-                // }}
-                >
-                  <AddDisable faicon={faMinus} />
-                </div>
-                <span className={cx("count")}>{book.quanlity}</span>
-                <div
-                // onClick={() => {
-                //   setCount(count + 1);
-                // }}
-                >
-                  <AddDisable faicon={faAdd} />
-                </div>
-              </div>
-            </div>
-            {/* <div className={cx("xmark")}>
-              <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-            </div> */}
-          </div>
+        {carts.map((book) => (
+          <BookCart2 cart={book} />
         ))}
       </div>
-      <div className={cx("payment-wrapper")}>
+      <form className={cx("payment-wrapper")} onSubmit={(e) => handleSubmit(e)}>
         <div className={cx("total")}>
-          <span className={cx("header")}>Total</span>
+          <span className={cx("header")} onClick={(e) => handleDelete(e)}>
+            Total
+          </span>
           <span>$ {total}</span>
         </div>
         <div className={cx("comment")}>
           <span className={cx("header")}>Additional Comments</span>
-          <textarea className={cx("textarea")}></textarea>
+          <textarea
+            className={cx("textarea")}
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+          ></textarea>
         </div>
         <div className={cx("address")}>
           <span className={cx("header")}>Address</span>
-          <p>{user.address}</p>
+          <p>{acc.address}</p>
         </div>
         <div>
           <button
@@ -139,7 +115,7 @@ function Cart() {
             XÁC NHẬN MUA HÀNG
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 }

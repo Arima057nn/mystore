@@ -37,7 +37,7 @@ function Login() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/users/`)
+    fetch(`http://127.0.0.1:8000/api/users/`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
@@ -54,11 +54,10 @@ function Login() {
       )
       .then((response) => {
         console.log("hhehe");
-        console.log(response.data);
+        console.log(response);
         localStorage.setItem("userData", JSON.stringify(response.data));
-       
 
-        if (response.data !== undefined) {
+        if (response.data[0] !== "Account does not exist") {
           if (response.data.phone === "0111111111") {
             navigate("/admin");
             console.log("hello admin");
@@ -73,7 +72,11 @@ function Login() {
             localStorage.setItem("token", "user123");
           }
           setAccount(response.data);
-        } else console.log("chiu");
+        } else {
+          // localStorage.setItem("token", "null123");
+          // localStorage.setItem("userData", JSON.stringify(userfake));
+          console.log("chiu");
+        }
       })
       .catch((error) => {
         setIsLoggedIn(false);

@@ -21,13 +21,32 @@ function Product({ isFav, book }) {
   const [show, setShow] = useState(false);
   const [count, setCount] = useState(0);
   // const [error, setError] = useState(null);
+  const acc = JSON.parse(localStorage.getItem("userData"));
   const [isfav, setIsfav] = useState(isFav);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const FavHandle = () => {
-    if (isfav === 1) setIsfav(0);
-    else setIsfav(1);
+  const FavHandle = async (event) => {
+    if (token === "user123") {
+      if (isfav === 1) {
+        setIsfav(0);
+        await axios.delete(
+          `http://127.0.0.1:8000/api/favorites/${acc.id}/${book.id}`
+        );
+      } else {
+        event.preventDefault();
+        try {
+          setIsfav(1);
+          await axios.post("http://127.0.0.1:8000/api/favorites/create/", {
+            book_id: book.id,
+            customer_id: acc.id,
+          });
+          // alert("Add book to fav successful!");
+        } catch (event) {
+          // alert("Add book to fav successful !!!");
+        }
+      }
+    }
   };
 
   useEffect(() => {
@@ -54,16 +73,14 @@ function Product({ isFav, book }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/carts/", {
-        bookid: book.id,
-        name: book.name,
-        image: book.image,
-        quanlity: 1,
-        price: book.price,
+      await axios.post("http://127.0.0.1:8000/api/carts/create/", {
+        book_id: book.id,
+        quantity: 1,
+        customer_id: acc.id,
       });
       alert("Add book to cart successful!");
     } catch (event) {
-      alert("Add book to cart failed!");
+      alert("Add book to cart successful !!!");
     }
   };
 
@@ -130,7 +147,6 @@ function Product({ isFav, book }) {
           <BookFavButton size="small" onClick={FavHandle} isfav={isfav}>
             <FavoriteIcon />
           </BookFavButton>
-
           <BookFavButton size="small" onClick={toggleModal}>
             <VisibilityIcon />
           </BookFavButton>

@@ -42,7 +42,7 @@ function Customers() {
   // const handleSubmitSearch = (event) => {
   //   event.preventDefault();
   //   axios
-  //     .get(`http://localhost:3001/users/?name=${searchTerm}`)
+  //     .get(`http://127.0.0.1:8000/api/users/?name=${searchTerm}`)
   //     .then((response) => {
   //       console.log(response.data);
   //       setDatas(datas.filter((user) => user.name.includes(searchTerm)));
@@ -54,15 +54,17 @@ function Customers() {
 
   const handleSubmitSearch = (event) => {
     event.preventDefault();
-    setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+    setDatas(datas.filter((user) => user.last_name.includes(searchTerm)));
+    console.log(datas);
   };
+
   const toggleRefresh = () => {
     setDatas(refreshdatas);
     setSearchTerm("");
   };
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/customers/index`)
+    fetch(`http://127.0.0.1:8000/api/customers/index/`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
@@ -79,7 +81,7 @@ function Customers() {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/users/${id}`);
+      await axios.delete(`http://127.0.0.1:8000/api/users/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);
@@ -131,7 +133,7 @@ function Customers() {
               <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Location</TableCell>
+              <TableCell>Address</TableCell>
               <TableCell>Phone</TableCell>
 
               <TableCell></TableCell>
@@ -177,14 +179,14 @@ function Customers() {
                   )}
                   <Button
                     variant="contained"
-                    sx={{ mr: 1 }}
+                    sx={{ mr: 0 }}
                     color="success"
                     onClick={() => toggleModal(value.id)}
                   >
                     Update
                   </Button>
                   <Button
-                    sx={{ mr: -3 }}
+                    sx={{ mr: 0 }}
                     variant="contained"
                     color="error"
                     onClick={() => handleDelete(value.id)}
