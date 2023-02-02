@@ -152,6 +152,9 @@ function Home() {
         <h2 className={cx("title")}>All Books</h2>
         <p className={cx("description")}>Best collection in 2021 for you!</p>
         <div className={cx("container")}>{renderAllBooks}</div>
+        <div className={cx("button-container")}>
+          <button className={cx("button")}>Load More...</button>
+        </div>
       </div>
     </>
   );

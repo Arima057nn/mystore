@@ -5,6 +5,7 @@ import Add from "../../components/Button/Add";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+
 const cx = classNames.bind(styles);
 
 const popularBooks = [
@@ -36,9 +37,14 @@ const popularBooks = [
   },
 ];
 
-function Cart({ book }) {
+function Cart() {
   const [count, setCount] = useState(1);
-  const [show, setShow] = useState(true);
+  // const [show, setShow] = useState(true);
+
+  // useEffect(() => {
+  //   if (count > 0) setShow(true);
+  //   else setShow(false);
+  // }, [count]);
 
   return (
     <>

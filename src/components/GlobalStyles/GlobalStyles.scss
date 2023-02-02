@@ -12,7 +12,7 @@
   --description-color: #7d879c;
   --header-height: 80px;
   --default-layout-width: 1280px;
-  --width-imgCard: 268px;
+  --width-imgCard: 270px;
   --width-button: 28px;
   --black-color: #333;
   --white-color: #fff;
@@ -25,6 +25,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  // box-sizing: inherit;
 }
 html {
   //   font-size: 62.5%;
