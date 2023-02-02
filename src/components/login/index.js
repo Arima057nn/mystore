@@ -1,9 +1,11 @@
 import React from "react";
-import { TextField, Typography, Box, Checkbox, Link } from "@mui/material";
+import { Typography, Box, Link } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import classNames from "classnames/bind";
+import styles from "./login.module.scss";
 
 import {
   LoginContainerRight,
@@ -14,26 +16,25 @@ import {
   FormInput,
   RegisterButton,
 } from "../../styles/login";
-import { useMediaQuery } from "@mui/material/";
+const cx = classNames.bind(styles);
 
 function Login() {
   const theme = useTheme();
   const token = localStorage.getItem("token");
 
   console.log(token);
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [userdatas, setDatas] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [account, setAccount] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
     const loginStatus = localStorage.getItem("isLoggedIn");
-    if (loginStatus === "true") {
-      setIsLoggedIn(true);
-    }
+    // if (loginStatus === "true") {
+    //   setIsLoggedIn(true);
+    // }
   }, []);
 
   useEffect(() => {
@@ -72,15 +73,16 @@ function Login() {
             localStorage.setItem("token", "user123");
           }
           setAccount(response.data);
+          alert("Sign in success. Please try again.");
         } else {
           // localStorage.setItem("token", "null123");
           // localStorage.setItem("userData", JSON.stringify(userfake));
           console.log("chiu");
+          alert("Sign in failed. Please try again.");
         }
       })
       .catch((error) => {
-        setIsLoggedIn(false);
-        console.error(error);
+        // setIsLoggedIn(false);
       });
   };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -102,42 +104,53 @@ function Login() {
             Login
           </Typography>
 
-          <FormInput>
-            <TextField
+          <form onSubmit={handleSubmit}>
+            <input
+              className={cx("input")}
               label="Username"
               type={"text"}
               variant="outlined"
+              placeholder={"Username"}
               sx={{ marginBottom: 2 }}
               value={username}
+              required
               onChange={(e) => setUsername(e.target.value)}
             />
-            <TextField
+            <input
+              className={cx("input")}
               label="Password"
               type={"password"}
+              required
+              placeholder={"Password"}
               variant="outlined"
               sx={{ marginBottom: 2 }}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Box fontSize={"1.1rem"}>
-              <Checkbox {...label} /> Remember me
-            </Box>
+            <div>
+              {/* <Checkbox {...label} /> Remember me */}
+              <input
+                type={"checkbox"}
+                className={cx("btn-checkbox")}
+                fontSize={"1.1 rem"}
+              />
+              Remember me
+            </div>
             <Link
               href="#"
               underline="hover"
               textAlign={"right"}
               // color="success"
               fontSize={"1.1rem"}
+              className={cx("btn-forgot")}
             >
               Forgot Password?
             </Link>
 
-            <Box textAlign={"center"}>
-              <LoginButton variant="contained" onClick={handleSubmit}>
-                Sign in
-              </LoginButton>
-            </Box>
-          </FormInput>
+            <LoginButton variant="contained" type="submit">
+              Sign in
+            </LoginButton>
+          </form>
 
           <RegisterButton>
             Not a member?

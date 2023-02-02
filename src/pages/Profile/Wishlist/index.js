@@ -9,6 +9,8 @@ const cx = classNames.bind(styles);
 
 function Order() {
   const [datas, setDatas] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [book, setBook] = useState();
   const [orderDetail, setOrderDetail] = useState({});
   const [modal, setModal] = useState(false);
   const acc = JSON.parse(localStorage.getItem("userData"));
@@ -21,7 +23,13 @@ function Order() {
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
-        console.log(datas);
+      });
+  }, []);
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/books/index/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setBooks(datas);
       });
   }, []);
 
@@ -56,6 +64,9 @@ function Order() {
           <div className={cx("order-item")}>
             <h5 className={cx("item-info-id")}>{order.book_id}</h5>
             <h5 className={cx("item-info")}>haha</h5>
+            {/* {setBook(books.filter((book) => book.id === order.book_id))} */}
+            {/* <h5 className={cx("item-info")}>{book.tittle}</h5> */}
+
             <div
               className={cx("btn-detail")}
               onClick={() => handleDelete(order.book_id)}

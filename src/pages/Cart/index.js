@@ -19,7 +19,6 @@ function Cart() {
   const [status, setStatus] = useState(0);
   const [error, setError] = useState(null);
   const [total, setTotal] = useState(0);
-  const [sum, setSum] = useState(0);
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
@@ -41,6 +40,9 @@ function Cart() {
       });
   }, []);
 
+  const handleTotal = (value) => {
+    setTotal(total + value);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -50,7 +52,7 @@ function Cart() {
         phone: acc.phone,
         address: acc.address,
         note: note,
-        total: sum,
+        total: total,
         status: 0,
       });
       alert("Add order successful!", 100);
@@ -69,21 +71,12 @@ function Cart() {
       console.error(error);
     }
   };
-  const handleSum = () => {
-    carts.map((book) => {
-      books.map((data) => {
-        if (data.id === book.book_id) {
-          setSum((prevState) => prevState + book.quantity * data.price);
-          // console.log(1000, sum);
-        }
-      });
-    });
-  };
+
   return (
     <>
       <div className={cx("product-wrapper")}>
         {carts.map((book) => (
-          <BookCart2 cart={book} />
+          <BookCart2 cart={book} callback={handleTotal} />
         ))}
       </div>
       <form className={cx("payment-wrapper")} onSubmit={(e) => handleSubmit(e)}>

@@ -12,23 +12,30 @@ function AddBook() {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [categoryid, setCategoryid] = useState("");
+  const [image, setImage] = useState(null);
 
   const [error, setError] = useState(null);
+  const handleAvatarChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("tittle", tittle);
+    formData.append("quantity", quantity);
+    formData.append("price", price);
+    formData.append("image", image);
+    formData.append("categoryid", categoryid);
+    formData.append("content", content);
     try {
-      await axios.post("http://127.0.0.1:8000/api/books/create", {
-        tittle,
-        content,
-        price,
-        quantity,
-        categoryid,
-      });
-      setTittle("");
-      setContent("");
-      setPrice("");
-      setQuantity("");
-      setCategoryid("");
+      await axios.post("http://127.0.0.1:8000/api/books/create", formData);
+      // setTittle("");
+      // setContent("");
+      // setPrice("");
+      // setQuantity("");
+      // setCategoryid("");
+      // setImage(null);
 
       alert("Add book successful!");
     } catch (event) {
@@ -96,6 +103,14 @@ function AddBook() {
               type="text"
               value={categoryid}
               onChange={(e) => setCategoryid(e.target.value)}
+            />
+          </div>
+
+          <div className={cx("box")}>
+            <input
+              type="file"
+              accept="assets/image/*"
+              onChange={(e) => handleAvatarChange(e)}
             />
           </div>
 

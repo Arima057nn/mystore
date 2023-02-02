@@ -81,7 +81,11 @@ const AdminRoutes = [
     component: Login,
     layout: LoginLayout,
   },
-
+  {
+    path: "/Register",
+    component: Register,
+    layout: LoginLayout,
+  },
   {
     path: "/booksearch/:key",
     component: SearchBook,

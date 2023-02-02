@@ -1,11 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./ProductDetail.module.scss";
-import AddtoCard from "../../components/Button/AddtoCard";
-import Rated from "../../components/Rated";
-import ImgBook from "../../assets/images/B1.jpg";
+
 import { useState, useEffect } from "react";
-import AddButton from "../../components/Button/AddButton";
-import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router";
 import { Avatar, Button, TextField } from "@mui/material";
 import axios from "axios";
@@ -13,15 +9,12 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 function ProductDetail() {
-  const [show, setShow] = useState(true);
   const [datas, setDatas] = useState([]);
   const [book, setBook] = useState({});
-  const [count, setCount] = useState(1);
   const [cmt, setCmt] = useState("");
   const params = useParams();
 
   const acc = JSON.parse(localStorage.getItem("userData"));
-  // console.log(acc);
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/comments/?bookid=${params.key}`)
       .then((res) => res.json())
@@ -108,7 +101,6 @@ function ProductDetail() {
         </div>
       </div>
       <div className={cx("title-container")}>
-        {/* <div className={cx("title", "border-bt")}>Description</div> */}
         <div className={cx("title")}>Reviews</div>
       </div>
 

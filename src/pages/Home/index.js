@@ -16,19 +16,13 @@ function Home() {
   console.log(token);
   if (token === "user123") console.log("hihi");
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/popularBooks/`)
+    fetch(`http://127.0.0.1:8000/api/books/best-seller`)
       .then((res) => res.json())
       .then((datas) => {
         setPopularBooks(datas);
       });
   }, []);
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/trendingBooks/`)
-      .then((res) => res.json())
-      .then((datas) => {
-        setTrendingBooks(datas);
-      });
-  }, []);
+
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
@@ -53,12 +47,6 @@ function Home() {
         <h2 className={cx("title")}>Popular Books</h2>
         <p className={cx("description")}>Best collection in 2021 for you!</p>
         <div className={cx("container")}>{renderPopularBooks}</div>
-      </div>
-
-      <div className={cx("wrapper")}>
-        <h2 className={cx("title")}>Trending Books</h2>
-        <p className={cx("description")}>Best collection in 2021 for you!</p>
-        <div className={cx("container")}>{renderTrendingBooks}</div>
       </div>
 
       <div className={cx("wrapper")}>
