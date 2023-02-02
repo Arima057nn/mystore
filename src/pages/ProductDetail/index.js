@@ -16,7 +16,7 @@ function ProductDetail() {
 
   const acc = JSON.parse(localStorage.getItem("userData"));
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/comments/?bookid=${params.key}`)
+    fetch(`http://127.0.0.1:8000/api/comments/${params.key}`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
@@ -38,16 +38,15 @@ function ProductDetail() {
   const handleSubmitComment = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:8000/api/comments/", {
-        userid: acc.id,
+      await axios.post("http://127.0.0.1:8000/api/comments/create", {
+        user_id: acc.id,
         cmt,
-        bookid: params.key,
+        book_id: params.key,
       });
       setCmt("");
-
-      alert("Sign up successful!");
+      alert("Add Comment successful!");
     } catch (event) {
-      alert("Sign up failed. Please try again.");
+      alert("Add Comment successful!");
     }
   };
   // return <h1>hehe</h1>;
@@ -60,12 +59,6 @@ function ProductDetail() {
         <div className={cx("content")}>
           <h1>{book.tittle}</h1>
           <div className={cx("rated")}></div>
-          <h6 className={cx("type")}>Type:</h6>
-          <div className={cx("type-container")}>
-            <button className={cx("type-btn")}>type1</button>
-            <button className={cx("type-btn")}>type2</button>
-            <button className={cx("type-btn")}>type3</button>
-          </div>
 
           <h4>{book.content}</h4>
           <h2 className={cx("price")}>$ {book.price}</h2>

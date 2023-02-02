@@ -11,8 +11,6 @@ function Home() {
   const [popularBooks, setPopularBooks] = useState([]);
 
   const token = localStorage.getItem("token");
-  // const acc = JSON.parse(localStorage.getItem("userData"));
-  // const acc = JSON.parse(localStorage.getItem("account"));
   console.log(token);
   if (token === "user123") console.log("hihi");
   useEffect(() => {
@@ -31,24 +29,18 @@ function Home() {
       });
   }, []);
 
-  const renderPopularBooks = popularBooks.map((book) => (
-    <Product book={book} isFav={0} />
-  ));
-  const renderTrendingBooks = trendingBooks.map((book) => (
-    <Product book={book} isFav={0} />
-  ));
+  // const renderPopularBooks = popularBooks.map((book) => (
+  //   <Product book={book} isFav={0} />
+  // ));
+  // const renderTrendingBooks = trendingBooks.map((book) => (
+  //   <Product book={book} isFav={0} />
+  // ));
   const renderAllBooks = allBooks.map((book) => (
     <Product book={book} isFav={0} />
   ));
 
   return (
     <>
-      <div className={cx("wrapper")}>
-        <h2 className={cx("title")}>Popular Books</h2>
-        <p className={cx("description")}>Best collection in 2021 for you!</p>
-        <div className={cx("container")}>{renderPopularBooks}</div>
-      </div>
-
       <div className={cx("wrapper")}>
         <h2 className={cx("title")}>All Books</h2>
         <p className={cx("description")}>Best collection in 2021 for you!</p>
