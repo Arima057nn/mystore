@@ -63,7 +63,6 @@ function Order() {
         {datas.map((order) => (
           <div className={cx("order-item")}>
             <h5 className={cx("item-info-id")}>{order.book_id}</h5>
-            <h5 className={cx("item-info")}>haha</h5>
             {/* {setBook(books.filter((book) => book.id === order.book_id))} */}
             {/* <h5 className={cx("item-info")}>{book.tittle}</h5> */}
 

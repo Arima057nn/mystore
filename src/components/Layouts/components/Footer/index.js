@@ -9,7 +9,7 @@ function Footer() {
       <div className={cx("container")}>
         <div className={cx("about")}>
           <h2>Về Chúng Tôi</h2>
-          <p>Lorem ipsumdolor sit...</p>
+          <p>Thuc hanh lap trinh web ... </p>
           <ul className={cx("social-icon")}>
             <li>
               <a href="">
@@ -63,10 +63,11 @@ function Footer() {
                 <i className={cx("fa fa-map-marker")}></i>
               </span>
               <span>
-                Đường Số 1<br />
-                Quận 1, Thành Phố Hồ Chí Minh
+                So 1 Dai Co Viet
                 <br />
-                Việt Nam
+                Quận Hai Ba Trung, Thanh pho Ha Noi
+                <br />
+                Viet Nam{" "}
               </span>
             </li>
             <li>
@@ -87,7 +88,6 @@ function Footer() {
                 <a href="#">diachiemail@gmail.com</a>
               </p>
             </li>
-            <li></li>
           </ul>
         </div>
       </div>
