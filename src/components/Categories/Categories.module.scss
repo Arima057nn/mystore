@@ -17,10 +17,15 @@
 
 .category {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   color: var(--header-color2);
   padding: 8px 0;
   font-weight: 600;
+  align-items: center;
+
+  .icon {
+    margin-right: 12px;
+  }
   &:hover {
     cursor: pointer;
     color: var(--primary);

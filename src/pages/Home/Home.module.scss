@@ -60,4 +60,25 @@
   color: #fff;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .button {
+    width: 140px;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 15px;
+    font-weight: 600px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 24px;
+    margin-right: 60px;
+
+    &:hover {
+      background-color: var(--primary-hover);
+    }
+  }
+}
 //////////////////////////////

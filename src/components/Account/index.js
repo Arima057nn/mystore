@@ -41,6 +41,10 @@ function Account() {
         <FontAwesomeIcon icon={faCreditCard} className={cx("icon")} />
         <span className={cx("title")}>Payment Method</span>
       </div>
+
+      <a href="/login" className={cx("button-container")}>
+        <button className={cx("button")}>Đăng xuất</button>
+      </a>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import styles from "./Product.module.scss";
-import ImgCoffee from "../../../../assets/images/B1.jpg";
 import Add from "../../../Button/Add";
 import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import Rated from "../../../Rated";
@@ -12,7 +11,7 @@ import { Colors } from "../../../../styles/theme";
 import AddtoCard from "../../../../components/Button/AddtoCard";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import ImgBook from "../../../../../src/assets/images/B1.jpg";
+import ImgBook from "../../../../../src/assets/images/B30.jpg";
 import CloseIcon from "@mui/icons-material/Close";
 const cx = classNames.bind(styles);
 
@@ -40,14 +39,6 @@ function Product({ isFav, book }) {
   const toggleModal = () => {
     setModal(!modal);
   };
-
-  // const handleMouseEnter = () => {
-  //   setShowOptions(true);
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setShowOptions(false);
-  // };
 
   if (modal) {
     document.body.classList.add("active-modal");
@@ -85,13 +76,9 @@ function Product({ isFav, book }) {
           </div>
         </div>
       )}
-      <div
-        className={cx("container")}
-        // onMouseEnter={handleMouseEnter}
-        // onMouseLeave={handleMouseLeave}
-      >
+      <div className={cx("container")}>
         <Link to={"/Product/book"}>
-          <img className={cx("img")} src={ImgCoffee}></img>
+          <img className={cx("img")} src={ImgBook}></img>
         </Link>
         <div className={cx("info-container")}>
           <div className={cx("info")}>
