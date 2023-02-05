@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import styles from "./ProfileLayout.module.scss";
 import Sidebar from "../components/Sidebar";
 
@@ -13,6 +14,7 @@ function ProfileLayout({ children, content }) {
         <Sidebar children={children} />
         <div className={cx("content")}>{content}</div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -13,11 +13,16 @@ import DevProduct from "../pages/Dev";
 import ProductDetail from "../pages/ProductDetail";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/Profile/EditProfile";
+import Order from "../pages/Profile/Order";
+import Wishlist from "../pages/Profile/Wishlist";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CustomersManager from "../pages/CustomersManager";
 import AddCustomer from "../pages/CustomersManager/AddCustomer";
 import BooksManager from "../pages/BooksManager";
+import CategoriesManager from "../pages/CategoriesManager";
+import OrdersManager from "../pages/OrdersManager";
+
 import AddBook from "../pages/CustomersManager/AddCustomer";
 
 import Categories from "../components/Categories";
@@ -59,6 +64,19 @@ const publicRoutes = [
     sidebar: Account,
   },
   {
+    path: "/Profile/order",
+    component: Order,
+    layout: ProfileLayout,
+    sidebar: Account,
+  },
+
+  {
+    path: "/Profile/wishlist",
+    component: Wishlist,
+    layout: ProfileLayout,
+    sidebar: Account,
+  },
+  {
     path: "/Product/book",
     component: ProductDetail,
     layout: HeaderOnly,
@@ -77,7 +95,7 @@ const publicRoutes = [
     path: "/manager/customers",
     component: CustomersManager,
     layout: ManagerLayout,
-    sidebar: Categories,
+    // sidebar: Categories,
   },
 
   {
@@ -90,9 +108,21 @@ const publicRoutes = [
     path: "/manager/books",
     component: BooksManager,
     layout: ManagerLayout,
-    sidebar: Categories,
+    // sidebar: Categories,
+  },
+  {
+    path: "/manager/categories",
+    component: CategoriesManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
   },
 
+  {
+    path: "/manager/orders",
+    component: OrdersManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
   {
     path: "/book/add",
     component: AddBook,
