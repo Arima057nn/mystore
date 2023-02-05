@@ -7,7 +7,7 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 function AddCustomer() {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
@@ -17,16 +17,18 @@ function AddCustomer() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("https://your-api.com/signup", {
-        username,
+      await axios.post("http://localhost:3001/users/", {
+        name,
         email,
         password,
         phone,
         address,
       });
-      setUsername("");
+      setName("");
       setEmail("");
       setPassword("");
+      setPhone("");
+      setAddress("");
       setError("Sign up successful!");
     } catch (e) {
       setError("Sign up failed. Please try again.");
@@ -36,7 +38,7 @@ function AddCustomer() {
     <>
       <h1 mb={4}>Add Customers</h1>
       <div className={cx("wrapper")}>
-        <form onClick={handleSubmit} className={cx("info")}>
+        <form onSubmit={handleSubmit} className={cx("info")}>
           {/* {error && <p>{error}</p>} */}
           <div className={cx("box")}>
             <label for="name">Name</label>
@@ -45,8 +47,8 @@ function AddCustomer() {
               id="name"
               type="text"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className={cx("box")}>

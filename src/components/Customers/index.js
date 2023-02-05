@@ -20,7 +20,7 @@ import avaImg from "../../assets/images/avatar1.jpg";
 import Search from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import axios from "axios";
 function Customers() {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
@@ -30,6 +30,17 @@ function Customers() {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
       });
   }, []);
+
+  const handleDelete = async (id) => {
+    // setIsLoading(true);
+    try {
+      await axios.delete(`http://localhost:3001/users/${id}`);
+      setDatas(datas.filter((user) => user.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+    // setIsLoading(false);
+  };
   return (
     <>
       <Box
@@ -45,7 +56,7 @@ function Customers() {
           Customers
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Link to={"/customer/add"}>
+          <Link to={"/customer/create"}>
             <Button color="primary" variant="contained">
               Add Customers
             </Button>
@@ -91,8 +102,8 @@ function Customers() {
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
-            {datas.map((value, index) => (
-              <TableBody>
+            {datas.map((value) => (
+              <TableBody key={value.id}>
                 <TableRow hover>
                   <TableCell padding="checkbox">
                     <Checkbox value="true" />
@@ -118,7 +129,11 @@ function Customers() {
                     <Button variant="contained" sx={{ mr: 1 }} color="success">
                       Update
                     </Button>
-                    <Button variant="contained" color="error">
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={() => handleDelete(value.id)}
+                    >
                       Delete
                     </Button>
                   </TableCell>
@@ -129,15 +144,6 @@ function Customers() {
             <></>
           </Table>
         </Box>
-        {/* <TablePagination
-        component="div"
-        count={customers.length}
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
-      /> */}
       </Card>
     </>
   );

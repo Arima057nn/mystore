@@ -1,7 +1,21 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "users": [
     {
       "id": 1,
@@ -17,7 +31,7 @@
       "name": "Pham Tien Dung",
       "email": "dungpt.gmail.com",
       "address": "Thanh Hóa",
-      "phone": "0123456789",
+      "phone": "0123456787",
       "password": "**********",
       "createdAt": "8/1/2023"
     }
@@ -26,18 +40,30 @@
     {
       "id": 1,
       "name": "Đắc nhân tâm",
-      "address": "Thanh Hóa",
-      "phone": "0123456787",
-      "password": "**********",
-      "createdAt": "8/1/2023"
+      "price": "1000 USD",
+      "quanlity": "100"
     },
     {
       "id": 2,
       "name": "Đắc nhân tâm",
-      "address": "Thanh Hóa",
-      "phone": "0123456789",
-      "password": "**********",
-      "createdAt": "8/1/2023"
+      "price": "1000 USD",
+      "quanlity": "100"
+    },
+    {
+      "name": "Làm người",
+      "price": "300 USD",
+      "quanlity": "200",
+      "id": 3
+    },
+    {
+      "name": "Làm giàu",
+      "price": "100 USD",
+      "quanlity": "200",
+      "id": 4
     }
+  ],
+  "accounts": [
+    { "username": "user1", "password": "123456789" },
+    { "username": "user2", "password": "123456789" }
   ]
 }

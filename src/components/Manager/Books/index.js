@@ -29,6 +29,7 @@ function Books() {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
       });
   }, []);
+
   return (
     <>
       <Box
@@ -83,8 +84,8 @@ function Books() {
                   <Checkbox color="primary" />
                 </TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Phone</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Quanlity</TableCell>
                 <TableCell>Registration date</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -108,9 +109,9 @@ function Books() {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{value.address}</TableCell>
-                  <TableCell>{value.phone}</TableCell>
-                  <TableCell>{value.createdAt}</TableCell>
+                  <TableCell>{value.price}</TableCell>
+                  <TableCell>{value.id}</TableCell>
+                  <TableCell>15/03/2001</TableCell>
                   <TableCell>
                     <Button variant="contained" sx={{ mr: 1 }} color="success">
                       Update
