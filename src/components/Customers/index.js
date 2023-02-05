@@ -27,6 +27,83 @@ const customer = {
   password: "**********",
   createdAt: "8/1/2023",
 };
+
+const data = [
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+
+  {
+    name: "Pham Tien Dung",
+    email: "dungpt.gmail.com",
+    address: "Thanh Hóa",
+    phone: "0123456789",
+    password: "**********",
+    createdAt: "8/1/2023",
+  },
+];
 function Customers() {
   return (
     <>
@@ -89,38 +166,40 @@ function Customers() {
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
-              <TableRow hover>
-                <TableCell padding="checkbox">
-                  <Checkbox value="true" />
-                </TableCell>
-                <TableCell>
-                  <Box
-                    sx={{
-                      alignItems: "center",
-                      display: "flex",
-                    }}
-                  >
-                    <Avatar src={avaImg} sx={{ mr: 2 }} />
-                    <Typography color="textPrimary" variant="body1">
-                      {customer.name}
-                    </Typography>
-                  </Box>
-                </TableCell>
-                <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.address}</TableCell>
-                <TableCell>{customer.phone}</TableCell>
-                <TableCell>{customer.createdAt}</TableCell>
-                <TableCell>
-                  <Button variant="contained" sx={{ mr: 1 }} color="success">
-                    Update
-                  </Button>
-                  <Button variant="contained" color="error">
-                    Delete
-                  </Button>
-                </TableCell>
-              </TableRow>
-            </TableBody>
+            {data.map((value, index) => (
+              <TableBody>
+                <TableRow hover>
+                  <TableCell padding="checkbox">
+                    <Checkbox value="true" />
+                  </TableCell>
+                  <TableCell>
+                    <Box
+                      sx={{
+                        alignItems: "center",
+                        display: "flex",
+                      }}
+                    >
+                      <Avatar src={avaImg} sx={{ mr: 2 }} />
+                      <Typography color="textPrimary" variant="body1">
+                        {value.name}
+                      </Typography>
+                    </Box>
+                  </TableCell>
+                  <TableCell>{value.email}</TableCell>
+                  <TableCell>{value.address}</TableCell>
+                  <TableCell>{value.phone}</TableCell>
+                  <TableCell>{value.createdAt}</TableCell>
+                  <TableCell>
+                    <Button variant="contained" sx={{ mr: 1 }} color="success">
+                      Update
+                    </Button>
+                    <Button variant="contained" color="error">
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            ))}
 
             <></>
           </Table>

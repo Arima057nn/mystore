@@ -8,6 +8,7 @@ import {
   faHeadset,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 function Account() {
@@ -16,11 +17,17 @@ function Account() {
       <h2 className={cx("header")}>DASHBOARD</h2>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faBagShopping} className={cx("icon")} />
-        <span className={cx("title")}>Order</span>
+        <Link to={"/profile/order"}>
+          {" "}
+          <span className={cx("title")}>Order</span>
+        </Link>
       </div>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faHeart} className={cx("icon")} />
-        <span className={cx("title")}>Wishlist</span>
+        <Link to={"/profile/wishlist"}>
+          {" "}
+          <span className={cx("title")}>Wishlist</span>
+        </Link>
       </div>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faHeadset} className={cx("icon")} />
@@ -31,7 +38,9 @@ function Account() {
       <h2 className={cx("header")}>ACCOUNT SETTINGS</h2>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faUser} className={cx("icon")} />
-        <span className={cx("title")}> info</span>
+        <Link to={"/profile"}>
+          <span className={cx("title")}>Info</span>
+        </Link>
       </div>
       <div className={cx("box")}>
         <FontAwesomeIcon icon={faLocationDot} className={cx("icon")} />

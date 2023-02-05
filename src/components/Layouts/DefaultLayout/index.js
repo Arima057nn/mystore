@@ -1,6 +1,8 @@
 import classNames from "classnames/bind";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Banner from "../../Banner";
+
 import styles from "./DefaultLayout.module.scss";
 import Sidebar from "../components/Sidebar";
 import PigBankImg from "../../../assets/images/piggy-bank.png";
@@ -49,6 +51,7 @@ function DefaultLayout({ children, content }) {
         <Sidebar children={children} />
         <div className={cx("content")}>{content}</div>
       </div>
+      <Footer />
     </div>
   );
 }
