@@ -1,0 +1,43 @@
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" },
+  "users": [
+    {
+      "id": 1,
+      "name": "Pham Tien Dung",
+      "email": "dungpt.gmail.com",
+      "address": "Thanh Hóa",
+      "phone": "0123456787",
+      "password": "**********",
+      "createdAt": "8/1/2023"
+    },
+    {
+      "id": 2,
+      "name": "Pham Tien Dung",
+      "email": "dungpt.gmail.com",
+      "address": "Thanh Hóa",
+      "phone": "0123456789",
+      "password": "**********",
+      "createdAt": "8/1/2023"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "name": "Đắc nhân tâm",
+      "address": "Thanh Hóa",
+      "phone": "0123456787",
+      "password": "**********",
+      "createdAt": "8/1/2023"
+    },
+    {
+      "id": 2,
+      "name": "Đắc nhân tâm",
+      "address": "Thanh Hóa",
+      "phone": "0123456789",
+      "password": "**********",
+      "createdAt": "8/1/2023"
+    }
+  ]
+}

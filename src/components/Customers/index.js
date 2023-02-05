@@ -19,92 +19,17 @@ import avaImg from "../../assets/images/avatar1.jpg";
 
 import Search from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-const customer = {
-  name: "Pham Tien Dung",
-  email: "dungpt.gmail.com",
-  address: "Thanh Hóa",
-  phone: "0123456789",
-  password: "**********",
-  createdAt: "8/1/2023",
-};
+import { useEffect, useState } from "react";
 
-const data = [
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-
-  {
-    name: "Pham Tien Dung",
-    email: "dungpt.gmail.com",
-    address: "Thanh Hóa",
-    phone: "0123456789",
-    password: "**********",
-    createdAt: "8/1/2023",
-  },
-];
 function Customers() {
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/users/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+      });
+  }, []);
   return (
     <>
       <Box
@@ -166,7 +91,7 @@ function Customers() {
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
-            {data.map((value, index) => (
+            {datas.map((value, index) => (
               <TableBody>
                 <TableRow hover>
                   <TableCell padding="checkbox">
