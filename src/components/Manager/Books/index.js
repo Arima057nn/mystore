@@ -16,18 +16,19 @@ import {
   SvgIcon,
 } from "@mui/material";
 import avaImg from "../../../assets/images/B1.jpg";
-
 import Search from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-const customer = {
-  name: "Đắc nhân tâm",
+import { useEffect, useState } from "react";
 
-  address: "Thanh Hóa",
-  phone: "0123456789",
-  password: "**********",
-  createdAt: "8/1/2023",
-};
 function Books() {
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/books/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+      });
+  }, []);
   return (
     <>
       <Box
@@ -65,7 +66,7 @@ function Books() {
                     </InputAdornment>
                   ),
                 }}
-                placeholder="Search customer"
+                placeholder="Search Books"
                 variant="outlined"
               />
             </Box>
@@ -88,50 +89,43 @@ function Books() {
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
-              <TableRow hover>
-                <TableCell padding="checkbox">
-                  <Checkbox value="true" />
-                </TableCell>
-                <TableCell>
-                  <Box
-                    sx={{
-                      alignItems: "center",
-                      display: "flex",
-                    }}
-                  >
-                    <Avatar src={avaImg} sx={{ mr: 2 }} />
-                    <Typography color="textPrimary" variant="body1">
-                      {customer.name}
-                    </Typography>
-                  </Box>
-                </TableCell>
-                <TableCell>{customer.address}</TableCell>
-                <TableCell>{customer.phone}</TableCell>
-                <TableCell>{customer.createdAt}</TableCell>
-                <TableCell>
-                  <Button variant="contained" sx={{ mr: 1 }} color="success">
-                    Update
-                  </Button>
-                  <Button variant="contained" color="error">
-                    Delete
-                  </Button>
-                </TableCell>
-              </TableRow>
-            </TableBody>
+            {datas.map((value, index) => (
+              <TableBody>
+                <TableRow hover>
+                  <TableCell padding="checkbox">
+                    <Checkbox value="true" />
+                  </TableCell>
+                  <TableCell>
+                    <Box
+                      sx={{
+                        alignItems: "center",
+                        display: "flex",
+                      }}
+                    >
+                      <Avatar src={avaImg} sx={{ mr: 2 }} />
+                      <Typography color="textPrimary" variant="body1">
+                        {value.name}
+                      </Typography>
+                    </Box>
+                  </TableCell>
+                  <TableCell>{value.address}</TableCell>
+                  <TableCell>{value.phone}</TableCell>
+                  <TableCell>{value.createdAt}</TableCell>
+                  <TableCell>
+                    <Button variant="contained" sx={{ mr: 1 }} color="success">
+                      Update
+                    </Button>
+                    <Button variant="contained" color="error">
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            ))}
 
             <></>
           </Table>
         </Box>
-        {/* <TablePagination
-		  component="div"
-		  count={Books.length}
-		  onPageChange={handlePageChange}
-		  onRowsPerPageChange={handleLimitChange}
-		  page={page}
-		  rowsPerPage={limit}
-		  rowsPerPageOptions={[5, 10, 25]}
-		/> */}
       </Card>
     </>
   );
