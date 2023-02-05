@@ -99,7 +99,7 @@ const publicRoutes = [
   },
 
   {
-    path: "/customer/add",
+    path: "/customer/create",
     component: AddCustomer,
     layout: ManagerLayout,
     sidebar: Categories,

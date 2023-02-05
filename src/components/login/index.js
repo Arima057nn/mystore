@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  TextField,
-  Typography,
-  Fab,
-  Box,
-  Checkbox,
-  Divider,
-  Link,
-  Button,
-} from "@mui/material";
+import { TextField, Typography, Box, Checkbox, Link } from "@mui/material";
 import { useTheme, useState } from "@mui/material/styles";
 
 import {
@@ -26,19 +17,39 @@ export default function Login() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [values, setValues] = React.useState({
-    amount: "",
+  const [formData, setFormData] = React.useState({
+    username: "",
     password: "",
-    weight: "",
-    weightRange: "",
-    showPassword: false,
   });
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
+
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
     });
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (data.error) {
+        // Handle error
+      } else {
+        // Handle successful login
+      }
+    } catch (error) {
+      // Handle network error
+    }
+  };
+
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <LoginBackground>
@@ -58,16 +69,20 @@ export default function Login() {
             Login
           </Typography>
 
-          <FormInput>
+          <FormInput onSubmit={handleSubmit}>
             <TextField
-              label="Email"
+              label="Username"
               variant="outlined"
               sx={{ marginBottom: 2 }}
+              value={formData.username}
+              onChange={handleInputChange}
             />
             <TextField
               label="Password"
               variant="outlined"
               sx={{ marginBottom: 2 }}
+              value={formData.password}
+              onChange={handleInputChange}
             />
           </FormInput>
           <Box fontSize={"1.1rem"}>
@@ -84,7 +99,7 @@ export default function Login() {
           </Link>
 
           <Box textAlign={"center"}>
-            <LoginButton variant="contained" href="/">
+            <LoginButton variant="contained" href="/" type="submit">
               Sign in
             </LoginButton>
           </Box>
