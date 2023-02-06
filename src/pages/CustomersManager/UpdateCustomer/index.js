@@ -6,7 +6,7 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-function AddCustomer() {
+function UpdateCustomer({ id }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,13 +30,13 @@ function AddCustomer() {
       setPhone("");
       setAddress("");
       setError("Sign up successful!");
-    } catch (event) {
+    } catch (e) {
       setError("Sign up failed. Please try again.");
     }
   };
   return (
     <>
-      <h1 mb={4}>Add Customer</h1>
+      <h1 mb={4}>Update Customer</h1>
       <div className={cx("wrapper")}>
         <form onSubmit={handleSubmit} className={cx("info")}>
           {/* {error && <p>{error}</p>} */}
@@ -62,6 +62,7 @@ function AddCustomer() {
               required
             ></input>
           </div>
+
           <div className={cx("box")}>
             <label for="phone">Phone</label>
             <input
@@ -73,6 +74,7 @@ function AddCustomer() {
               required
             ></input>
           </div>
+
           <div className={cx("box")}>
             <label for="address">Address</label>
             <input
@@ -103,4 +105,4 @@ function AddCustomer() {
   );
 }
 
-export default AddCustomer;
+export default UpdateCustomer;
