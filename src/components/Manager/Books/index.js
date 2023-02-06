@@ -15,12 +15,18 @@ import {
   InputAdornment,
   SvgIcon,
 } from "@mui/material";
+import classNames from "classnames/bind";
 import avaImg from "../../../assets/images/B1.jpg";
 import Search from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import styles from "../../Layouts/components/Product/Product.module.scss";
+
+const cx = classNames.bind(styles);
 
 function Books() {
+  const [modal, setModal] = useState(false);
+
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3001/books/`)
@@ -30,8 +36,18 @@ function Books() {
       });
   }, []);
 
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <>
+      {modal && (
+        <div className={cx("modal")}>
+          <div onClick={toggleModal} className={cx("overlay")}></div>
+          <div className={cx("modal-content")}></div>
+        </div>
+      )}
       <Box
         sx={{
           alignItems: "center",
@@ -113,7 +129,12 @@ function Books() {
                   <TableCell>{value.id}</TableCell>
                   <TableCell>15/03/2001</TableCell>
                   <TableCell>
-                    <Button variant="contained" sx={{ mr: 1 }} color="success">
+                    <Button
+                      variant="contained"
+                      sx={{ mr: 1 }}
+                      color="success"
+                      onClick={toggleModal}
+                    >
                       Update
                     </Button>
                     <Button variant="contained" color="error">

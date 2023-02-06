@@ -5,19 +5,20 @@ import IconImg from "../../../../assets/images/customer-class-line-svgrepo-com.p
 const cx = classNames.bind(styles);
 const data = [
   {
-    cateImg: "../../../../assets/images/customer-class-line-svgrepo-com.png",
+    ImgUrl:
+      "https://play-lh.googleusercontent.com/n1FOqyWb0h4mkTIzENg6sMHETRvYo8nlKB7SwqER5nQSnwvwXkZAaOr_kQEJqEnB7g",
     categoryName: "Customers",
   },
   {
-    cateImg: "../../../../assets/images/order-svgrepo-com.png",
+    ImgUrl: "/images/order-svgrepo-com.png",
     categoryName: "Books",
   },
   {
-    cateImg: "../../../../assets/images/order-svgrepo-com.png",
+    ImgUrl: "../../../../assets/images/order-svgrepo-com.png",
     categoryName: "Categories",
   },
   {
-    cateImg: "../../../../assets/images/order-svgrepo-com.png",
+    ImgUrl: "../../../../assets/images/order-svgrepo-com.png",
     categoryName: "Orders",
   },
 ];
@@ -33,7 +34,7 @@ function SidebarManager() {
             className={cx("category")}
             key={index}
           >
-            <img className={cx("img")} src={`${value.cateImg}`} />
+            <img className={cx("img")} src={value.ImgUrl} />
             {value.categoryName}
           </a>
         );

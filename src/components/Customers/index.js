@@ -16,12 +16,19 @@ import {
   SvgIcon,
 } from "@mui/material";
 import avaImg from "../../assets/images/avatar1.jpg";
-
+import classNames from "classnames/bind";
+import styles from "../../components/Layouts/components/Product/Product.module.scss";
+import EditCustomer from "../../pages/Admin/EditCustomer";
 import Search from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+const cx = classNames.bind(styles);
+
 function Customers() {
+  const [modal, setModal] = useState(false);
+  const [customer, setCustomer] = useState({});
+
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3001/users/`)
@@ -31,6 +38,13 @@ function Customers() {
       });
   }, []);
 
+  const toggleModal = (id) => {
+    setModal(!modal);
+    datas.map((user) => {
+      if (user.id === id) setCustomer(user);
+      console.log(customer.id);
+    });
+  };
   const handleDelete = async (id) => {
     // setIsLoading(true);
     try {
@@ -126,9 +140,26 @@ function Customers() {
                   <TableCell>{value.phone}</TableCell>
                   <TableCell>{value.createdAt}</TableCell>
                   <TableCell>
-                    <Button variant="contained" sx={{ mr: 1 }} color="success">
+                    {modal && (
+                      <div className={cx("modal")}>
+                        <div
+                          onClick={() => toggleModal(value.id)}
+                          className={cx("overlay")}
+                        ></div>
+                        <div className={cx("modal-content-admin")}>
+                          <EditCustomer customer={customer} />
+                        </div>
+                      </div>
+                    )}
+                    <Button
+                      variant="contained"
+                      sx={{ mr: 1 }}
+                      color="success"
+                      onClick={() => toggleModal(value.id)}
+                    >
                       Update
                     </Button>
+
                     <Button
                       variant="contained"
                       color="error"

@@ -130,7 +130,19 @@
 }
 
 .overlay {
-  background-color: rgba($color: #000, $alpha: 0.5);
+  background-color: rgba($color: #000, $alpha: 0.3);
+}
+
+.modal-content-admin {
+  padding: 20px 20px;
+  transform: translate(0%, 0%);
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  width: 900px;
+  height: 440px;
 }
 .modal-content {
   padding: 20px 20px;

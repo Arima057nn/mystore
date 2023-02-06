@@ -1,0 +1,128 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h2 {
+    font-size: 28px;
+    color: var(--header-color);
+    font-weight: 700;
+  }
+  .icon {
+    font-size: 20px;
+    margin-right: 12px;
+    color: var(--primary);
+  }
+}
+.edit-btn {
+  color: var(--primary);
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 10px 24px;
+  background-color: rgb(252, 233, 236);
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(210, 63, 87, 0.04);
+  }
+}
+
+.info {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.box {
+  width: 424px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  label {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--header-color);
+  }
+}
+
+.input {
+  padding: 10px 16px;
+  margin: 6px 0;
+  font-size: 1rem;
+  border: 1px solid var(--description-color);
+  border-radius: 4px;
+  &:hover {
+    border: 1px solid var(--header-color);
+  }
+}
+
+.order-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.order-header {
+  padding: 0 24px;
+  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  .header {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 5;
+    color: var(--description-color);
+  }
+  .btn-detail {
+    flex: 1;
+    // color: #2b3445;
+  }
+}
+
+.order-item {
+  padding: 4px 24px;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0;
+  border-radius: 8px;
+  align-items: center;
+  .item-info-id {
+    font-size: 16px;
+    font-weight: 600;
+    flex: 5;
+    color: var(--header-color);
+  }
+
+  .item-info {
+    font-size: 16px;
+    font-weight: 400;
+    flex: 5;
+    color: #2b3445;
+  }
+  .btn-detail {
+    flex: 1;
+  }
+  .icon {
+    padding: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.54);
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f3f5f9;
+    }
+  }
+}

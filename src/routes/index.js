@@ -19,6 +19,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CustomersManager from "../pages/CustomersManager";
 import AddCustomer from "../pages/CustomersManager/AddCustomer";
+import UpdateCustomer from "../pages/CustomersManager/UpdateCustomer";
 import BooksManager from "../pages/BooksManager";
 import CategoriesManager from "../pages/CategoriesManager";
 import OrdersManager from "../pages/OrdersManager";
@@ -98,11 +99,18 @@ const publicRoutes = [
   },
 
   {
-    path: "/admin/customer/create",
+    path: `/admin/customer/create`,
     component: AddCustomer,
     layout: ManagerLayout,
     sidebar: Categories,
   },
+  {
+    path: `/admin/customer/update`,
+    component: UpdateCustomer,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
+
   {
     path: "/admin/books",
     component: BooksManager,
