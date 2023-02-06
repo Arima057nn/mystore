@@ -29,7 +29,7 @@ function SidebarManager() {
       {data.map((value, index) => {
         return (
           <a
-            href={`/manager/${value.categoryName}`}
+            href={`/admin/${value.categoryName}`}
             className={cx("category")}
             key={index}
           >

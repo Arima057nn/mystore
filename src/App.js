@@ -1,15 +1,31 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   BrowserRouter,
+  Redirect,
+  Switch,
 } from "react-router-dom";
 import { publicRoutes } from "./routes";
-
 import { DefaultLayout } from "./components/Layouts";
 
+const roles = {
+  admin: "admin",
+  user: "user",
+};
+
 function App() {
+  const [userRole, setUserRole] = useState(null);
+  useEffect(() => {
+    // simulate getting user role from API
+    setTimeout(() => {
+      setUserRole(roles.admin);
+    }, 1000);
+  }, []);
+  if (!userRole) {
+    return <p>Loading...</p>;
+  }
   return (
     <Router>
       <div className="App">
