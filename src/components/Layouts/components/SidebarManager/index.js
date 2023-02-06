@@ -28,7 +28,11 @@ function SidebarManager() {
       <h2 className={cx("header")}>Admin</h2>
       {data.map((value, index) => {
         return (
-          <a href={value.categoryName} className={cx("category")} key={index}>
+          <a
+            href={`/manager/${value.categoryName}`}
+            className={cx("category")}
+            key={index}
+          >
             <img className={cx("img")} src={`${value.cateImg}`} />
             {value.categoryName}
           </a>

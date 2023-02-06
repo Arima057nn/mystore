@@ -27,13 +27,12 @@
       "createdAt": "8/1/2023"
     },
     {
-      "id": 2,
-      "name": "Pham Tien Dung",
-      "email": "dungpt.gmail.com",
+      "name": "Phạm Tiến Dũng",
+      "email": "tjendung97pain@gmail.com",
+      "password": "1123456789",
+      "phone": "0981082897",
       "address": "Thanh Hóa",
-      "phone": "0123456787",
-      "password": "**********",
-      "createdAt": "8/1/2023"
+      "id": 2
     }
   ],
   "books": [
@@ -63,7 +62,13 @@
     }
   ],
   "accounts": [
-    { "username": "user1", "password": "123456789" },
-    { "username": "user2", "password": "123456789" }
+    {
+      "username": "user1",
+      "password": "123456789"
+    },
+    {
+      "username": "user2",
+      "password": "123456789"
+    }
   ]
 }
