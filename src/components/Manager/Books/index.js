@@ -45,7 +45,7 @@ function Books() {
           Books
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Link to={"/book/add"}>
+          <Link to={"/admin/books/add"}>
             <Button color="primary" variant="contained">
               Add Books
             </Button>

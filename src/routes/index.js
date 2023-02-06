@@ -22,9 +22,7 @@ import AddCustomer from "../pages/CustomersManager/AddCustomer";
 import BooksManager from "../pages/BooksManager";
 import CategoriesManager from "../pages/CategoriesManager";
 import OrdersManager from "../pages/OrdersManager";
-
 import AddBook from "../pages/CustomersManager/AddCustomer";
-
 import Categories from "../components/Categories";
 import Account from "../components/Account";
 
@@ -91,40 +89,41 @@ const publicRoutes = [
     component: DevProduct,
     layout: Dev,
   },
+
   {
-    path: "/manager/customers",
+    path: "/admin/customers",
     component: CustomersManager,
     layout: ManagerLayout,
     // sidebar: Categories,
   },
 
   {
-    path: "/customer/create",
+    path: "/admin/customer/create",
     component: AddCustomer,
     layout: ManagerLayout,
     sidebar: Categories,
   },
   {
-    path: "/manager/books",
+    path: "/admin/books",
     component: BooksManager,
     layout: ManagerLayout,
     // sidebar: Categories,
   },
   {
-    path: "/manager/categories",
+    path: "/admin/categories",
     component: CategoriesManager,
     layout: ManagerLayout,
     // sidebar: Categories,
   },
 
   {
-    path: "/manager/orders",
+    path: "/admin/orders",
     component: OrdersManager,
     layout: ManagerLayout,
     // sidebar: Categories,
   },
   {
-    path: "/book/add",
+    path: "/admin/books/add",
     component: AddBook,
     layout: ManagerLayout,
     sidebar: Categories,

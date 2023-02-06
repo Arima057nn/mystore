@@ -56,7 +56,7 @@ function Customers() {
           Customers
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Link to={"/customer/create"}>
+          <Link to={"/admin/customer/create"}>
             <Button color="primary" variant="contained">
               Add Customers
             </Button>
