@@ -3,15 +3,15 @@ import styles from "../Profile.module.scss";
 import AddtoCart from "../../../components/Button/AddtoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 const cx = classNames.bind(styles);
 
 function EditCustomer({ customer }) {
   const [error, setError] = useState(null);
-  const [customerId, setCustomerId] = useState(customer.id);
+
   const [customerEdit, setCustomerEdit] = useState({
+    id: customer.id,
     name: customer.name,
     email: customer.email,
     phone: customer.phone,
@@ -22,8 +22,10 @@ function EditCustomer({ customer }) {
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3001/users/${customerId}`);
-
+      const res = await axios.put(
+        `http://localhost:3001/users/${customer.id}`,
+        customerEdit
+      );
       setError("Update successful!");
     } catch (e) {
       setError("Update failed. Please try again.");
@@ -48,7 +50,9 @@ function EditCustomer({ customer }) {
             type="text"
             required
             value={customerEdit.name}
-            onChange={(e) => setCustomerEdit(e.target.value)}
+            onChange={(e) =>
+              setCustomerEdit({ ...customerEdit, name: e.target.value })
+            }
           />
         </div>
         <div className={cx("box")}>
@@ -59,7 +63,9 @@ function EditCustomer({ customer }) {
             type="email"
             required
             value={customerEdit.email}
-            onChange={(e) => setCustomerEdit(e.target.value)}
+            onChange={(e) =>
+              setCustomerEdit({ ...customerEdit, email: e.target.value })
+            }
           />
         </div>
 
@@ -71,7 +77,9 @@ function EditCustomer({ customer }) {
             type="tel"
             required
             value={customerEdit.phone}
-            onChange={(e) => setCustomerEdit(e.target.value)}
+            onChange={(e) =>
+              setCustomerEdit({ ...customerEdit, phone: e.target.value })
+            }
           />
         </div>
 
@@ -82,7 +90,9 @@ function EditCustomer({ customer }) {
             id="address"
             required
             value={customerEdit.address}
-            onChange={(e) => setCustomerEdit(e.target.value)}
+            onChange={(e) =>
+              setCustomerEdit({ ...customerEdit, address: e.target.value })
+            }
           />
         </div>
         <div className={cx("box")}>
@@ -93,7 +103,9 @@ function EditCustomer({ customer }) {
             type="password"
             required
             value={customerEdit.password}
-            onChange={(e) => setCustomerEdit(e.target.value)}
+            onChange={(e) =>
+              setCustomerEdit({ ...customerEdit, password: e.target.value })
+            }
           />
         </div>
         <div>
