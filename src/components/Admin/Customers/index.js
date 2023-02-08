@@ -16,7 +16,7 @@ import {
 import avaImg from "../../../assets/images/avatar1.jpg";
 import classNames from "classnames/bind";
 import styles from "../../../components/Layouts/components/Product/Product.module.scss";
-import EditCustomer from "../../../pages/Admin/EditCustomer";
+import EditCustomer from "../../../pages/Admin/CustomersManager/EditCustomer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -34,7 +34,7 @@ function Customers() {
   };
   useEffect(() => {
     // setDatas(datas.filter((user) => user.name.includes(searchTerm)));
-    if (searchTerm === "") setDatas(refreshdatas);
+    // if (searchTerm === "") setDatas(refreshdatas);
     // else if()
   });
   // const handleSubmitSearch = (event) => {

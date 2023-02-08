@@ -1,24 +1,22 @@
 import classNames from "classnames/bind";
 import styles from "./SidebarManager.module.scss";
-import IconImg from "../../../../assets/images/customer-class-line-svgrepo-com.png";
 
 const cx = classNames.bind(styles);
 const data = [
   {
-    ImgUrl:
-      "https://play-lh.googleusercontent.com/n1FOqyWb0h4mkTIzENg6sMHETRvYo8nlKB7SwqER5nQSnwvwXkZAaOr_kQEJqEnB7g",
+    ImgUrl: "/images/customer.png",
     categoryName: "Customers",
   },
   {
-    ImgUrl: "/images/order-svgrepo-com.png",
+    ImgUrl: "/images/books.png",
     categoryName: "Books",
   },
   {
-    ImgUrl: "../../../../assets/images/order-svgrepo-com.png",
+    ImgUrl: "/images/category.png",
     categoryName: "Categories",
   },
   {
-    ImgUrl: "../../../../assets/images/order-svgrepo-com.png",
+    ImgUrl: "/images/order.png",
     categoryName: "Orders",
   },
 ];

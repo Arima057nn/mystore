@@ -1,6 +1,5 @@
 import {
   HeaderOnly,
-  Dev,
   ProfileLayout,
   DefaultLayout,
   LoginLayout,
@@ -8,8 +7,6 @@ import {
 } from "../components/Layouts/";
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
-import Upload from "../pages/Upload";
-import DevProduct from "../pages/Dev";
 import ProductDetail from "../pages/ProductDetail";
 import Profile from "../pages/Profile";
 import EditProfile from "../pages/Profile/EditProfile";
@@ -17,13 +14,11 @@ import Order from "../pages/Profile/Order";
 import Wishlist from "../pages/Profile/Wishlist";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import CustomersManager from "../pages/CustomersManager";
-import AddCustomer from "../pages/CustomersManager/AddCustomer";
-import UpdateCustomer from "../pages/CustomersManager/UpdateCustomer";
-import BooksManager from "../pages/BooksManager";
-import CategoriesManager from "../pages/CategoriesManager";
-import OrdersManager from "../pages/OrdersManager";
-import AddBook from "../pages/CustomersManager/AddCustomer";
+import CustomersManager from "../pages/Admin/CustomersManager";
+import AddCustomer from "../pages/Admin/CustomersManager/AddCustomer";
+import BooksManager from "../pages/Admin/BooksManager";
+import CategoriesManager from "../pages/Admin/CategoriesManager";
+import OrdersManager from "../pages/Admin/OrdersManager";
 import Categories from "../components/Categories";
 import Account from "../components/Account";
 
@@ -80,16 +75,6 @@ const publicRoutes = [
     component: ProductDetail,
     layout: HeaderOnly,
   },
-  {
-    path: "/upload",
-    component: Upload,
-    layout: HeaderOnly,
-  },
-  {
-    path: "/dev",
-    component: DevProduct,
-    layout: Dev,
-  },
 
   {
     path: "/admin/customers",
@@ -104,13 +89,6 @@ const publicRoutes = [
     layout: ManagerLayout,
     sidebar: Categories,
   },
-  {
-    path: `/admin/customer/update`,
-    component: UpdateCustomer,
-    layout: ManagerLayout,
-    sidebar: Categories,
-  },
-
   {
     path: "/admin/books",
     component: BooksManager,
@@ -129,12 +107,6 @@ const publicRoutes = [
     component: OrdersManager,
     layout: ManagerLayout,
     // sidebar: Categories,
-  },
-  {
-    path: "/admin/books/add",
-    component: AddBook,
-    layout: ManagerLayout,
-    sidebar: Categories,
   },
 ];
 

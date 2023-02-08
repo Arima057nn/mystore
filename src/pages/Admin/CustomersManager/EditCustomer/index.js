@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
-import styles from "../Profile.module.scss";
-import AddtoCart from "../../../components/Button/AddtoCard";
+import styles from "./Profile.module.scss";
+import AddtoCart from "../../../../components/Button/AddtoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";

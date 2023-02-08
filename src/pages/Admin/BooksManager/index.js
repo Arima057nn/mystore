@@ -1,4 +1,4 @@
-import Books from "../../components/Manager/Books";
+import Books from "../../../components/Admin/Books";
 function BooksManager() {
   return <Books />;
 }
