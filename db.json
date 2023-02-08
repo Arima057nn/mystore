@@ -4,6 +4,21 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "postman",
+      "author": "getpostman"
+    },
+    {
+      "id": 3,
+      "title": "javascript",
+      "author": "mozilla"
+    },
+    {
+      "title": "postman",
+      "author": "getpostman",
+      "id": 4
     }
   ],
   "comments": [
@@ -18,12 +33,20 @@
   },
   "users": [
     {
-      "id": 2,
-      "name": "Dũng Tiến Phạmmmm",
-      "email": "dung.pt194525@sis.hust.edu.vn",
-      "phone": "0981082897",
+      "name": "Arima",
+      "email": "dungpt@gmail.com",
+      "password": "123456789",
+      "phone": "1234567890",
+      "address": "Thanh Hóa",
+      "id": 2
+    },
+    {
+      "name": "Arima",
+      "email": "dungpt@gmail.com",
+      "password": "123456789",
+      "phone": "1234567890",
       "address": "Hà Nội",
-      "password": "987654321"
+      "id": 3
     },
     {
       "name": "Hoang Quoc Bao",
@@ -32,14 +55,6 @@
       "phone": "0123456789",
       "address": "Hà Tĩnh",
       "id": 4
-    },
-    {
-      "name": "Tran Nam Duong",
-      "email": "duongtn@gmail.com",
-      "password": "123456789",
-      "phone": "0123456789",
-      "address": "Hà Nội",
-      "id": 5
     }
   ],
   "books": [
