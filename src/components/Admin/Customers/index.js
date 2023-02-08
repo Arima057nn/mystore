@@ -1,8 +1,6 @@
 import {
   Avatar,
   Box,
-  Card,
-  Checkbox,
   Table,
   TableBody,
   TableCell,
@@ -10,18 +8,21 @@ import {
   TableRow,
   Typography,
   Button,
-  CardContent,
+  InputAdornment,
+  SvgIcon,
   TextField,
+  IconButton,
 } from "@mui/material";
-import avaImg from "../../../assets/images/avatar1.jpg";
+import Search from "@mui/icons-material/Search";
+
 import classNames from "classnames/bind";
-import styles from "../../../components/Layouts/components/Product/Product.module.scss";
+import styles from "../Admin.module.scss";
 import EditCustomer from "../../../pages/Admin/CustomersManager/EditCustomer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import RefreshIcon from "@mui/icons-material/Refresh";
 const cx = classNames.bind(styles);
-
 function Customers() {
   const [modal, setModal] = useState(false);
   const [customer, setCustomer] = useState({});
@@ -54,8 +55,11 @@ function Customers() {
     event.preventDefault();
     setDatas(datas.filter((user) => user.name.includes(searchTerm)));
   };
+  const toggleRefresh = () => {
+    setDatas(refreshdatas);
+    setSearchTerm("");
+  };
 
-  //
   useEffect(() => {
     fetch(`http://localhost:3001/users/`)
       .then((res) => res.json())
@@ -73,142 +77,125 @@ function Customers() {
     });
   };
   const handleDelete = async (id) => {
-    // setIsLoading(true);
     try {
       await axios.delete(`http://localhost:3001/users/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);
     }
-    // setIsLoading(false);
   };
 
-  //! const toggleRefresh = () => {
-  //!  setDatas(refreshdatas);
-  //! };
   return (
-    <>
-      <Box
-        sx={{
-          alignItems: "center",
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          m: -1,
-        }}
-      >
-        <Typography sx={{ m: 1 }} variant="h4">
-          Customers
-        </Typography>
-        <Box sx={{ m: 1 }}>
-          <Link to={"/admin/customer/create"}>
-            <Button color="primary" variant="contained">
-              Add Customers
-            </Button>
-          </Link>
-        </Box>
-      </Box>
-      <Box sx={{ mt: 3 }}>
-        <Card>
-          <CardContent>
-            <Box sx={{ maxWidth: 500 }}>
-              <form onSubmit={handleSubmitSearch}>
-                <TextField
-                  value={searchTerm}
-                  onChange={handleChangeSearch}
-                  fullWidth
-                  variant="outlined"
-                />
-                <Button type="submit" variant="contained">
-                  Search
-                </Button>
-              </form>
-            </Box>
-          </CardContent>
+    <div className={cx("wrapper")}>
+      <div className={cx("header-wrapper")}>
+        <h1>Customers</h1>
+      </div>
 
-          {/*  <Button variant="contained" onClick={toggleRefresh}>
-            Refresh
-          </Button> */}
-        </Card>
-      </Box>
+      <div className={cx("search-wrapper")}>
+        <form onSubmit={handleSubmitSearch} className={cx("input-field")}>
+          <TextField
+            value={searchTerm}
+            onChange={handleChangeSearch}
+            sx={{ width: 600 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SvgIcon color="action" fontSize="small">
+                    <Search />
+                  </SvgIcon>
+                </InputAdornment>
+              ),
+            }}
+            placeholder="Search Customer"
+            variant="outlined"
+          />
 
-      <Card sx={{ mt: 3 }}>
-        <Box sx={{ minWidth: 1050 }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox color="primary" />
+          <button type="submit" className={cx("btn-search")}>
+            Search
+          </button>
+          <IconButton aria-label="delete" onClick={toggleRefresh}>
+            <RefreshIcon />
+          </IconButton>
+        </form>
+
+        <Link to={"/admin/customer/create"}>
+          <button className={cx("btn-create")}>+ Add Customers</button>
+        </Link>
+      </div>
+
+      <div className={cx("info-wrapper")}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Location</TableCell>
+              <TableCell>Phone</TableCell>
+              <TableCell>Wallet Balance</TableCell>
+              <TableCell>Order</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          {datas.map((value) => (
+            <TableBody key={value.id}>
+              <TableRow hover>
+                <TableCell>
+                  <Box
+                    sx={{
+                      alignItems: "center",
+                      display: "flex",
+                    }}
+                  >
+                    <Avatar src={value.avt} sx={{ mr: 2 }} />
+                    <Typography color="textPrimary" variant="body1">
+                      {value.name}
+                    </Typography>
+                  </Box>
                 </TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Phone</TableCell>
+                <TableCell>{value.email}</TableCell>
+                <TableCell>{value.address}</TableCell>
+                <TableCell>{value.phone}</TableCell>
+                <TableCell>1000 USD</TableCell>
+                <TableCell>100</TableCell>
                 <TableCell></TableCell>
                 <TableCell></TableCell>
-              </TableRow>
-            </TableHead>
-            {datas.map((value) => (
-              <TableBody key={value.id}>
-                <TableRow hover>
-                  <TableCell padding="checkbox">
-                    <Checkbox value="true" />
-                  </TableCell>
-                  <TableCell>
-                    <Box
-                      sx={{
-                        alignItems: "center",
-                        display: "flex",
-                      }}
-                    >
-                      <Avatar src={avaImg} sx={{ mr: 2 }} />
-                      <Typography color="textPrimary" variant="body1">
-                        {value.name}
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell>{value.email}</TableCell>
-                  <TableCell>{value.address}</TableCell>
-                  <TableCell>{value.phone}</TableCell>
-                  <TableCell>{value.createdAt}</TableCell>
-                  <TableCell>
-                    {modal && (
-                      <div className={cx("modal")}>
-                        <div
-                          onClick={() => toggleModal(value.id)}
-                          className={cx("overlay")}
-                        ></div>
-                        <div className={cx("modal-content-admin")}>
-                          <EditCustomer customer={customer} />
-                        </div>
+                <TableCell>
+                  {modal && (
+                    <div className={cx("modal")}>
+                      <div
+                        onClick={() => toggleModal(value.id)}
+                        className={cx("overlay")}
+                      ></div>
+                      <div className={cx("modal-content-admin")}>
+                        <EditCustomer customer={customer} />
                       </div>
-                    )}
-                    <Button
-                      variant="contained"
-                      sx={{ mr: 1 }}
-                      color="success"
-                      onClick={() => toggleModal(value.id)}
-                    >
-                      Update
-                    </Button>
-
-                    <Button
-                      variant="contained"
-                      color="error"
-                      onClick={() => handleDelete(value.id)}
-                    >
-                      Delete
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            ))}
-
-            <></>
-          </Table>
-        </Box>
-      </Card>
-    </>
+                    </div>
+                  )}
+                  <Button
+                    variant="contained"
+                    sx={{ mr: 1 }}
+                    color="success"
+                    onClick={() => toggleModal(value.id)}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    sx={{ mr: -3 }}
+                    variant="contained"
+                    color="error"
+                    onClick={() => handleDelete(value.id)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          ))}
+        </Table>
+      </div>
+    </div>
   );
 }
 

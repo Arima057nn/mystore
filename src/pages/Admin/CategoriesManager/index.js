@@ -1,6 +1,6 @@
-import Customers from "../../../components/Admin/Customers";
+import Categories from "../../../components/Admin/Categories";
 function CategoriesManager() {
-  return <Customers />;
+  return <Categories />;
 }
 
 export default CategoriesManager;

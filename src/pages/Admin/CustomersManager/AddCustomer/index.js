@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "../../../Profile/Profile.module.scss";
+import styles from "./AddCustomer.module.scss";
 import AddtoCart from "../../../../components/Button/AddtoCard";
 import React, { useState } from "react";
 import axios from "axios";
@@ -13,7 +13,6 @@ function AddCustomer() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [error, setError] = useState(null);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -36,10 +35,9 @@ function AddCustomer() {
   };
   return (
     <>
-      <h1 mb={4}>Add Customer</h1>
+      <h1>Add Customer</h1>
       <div className={cx("wrapper")}>
         <form onSubmit={handleSubmit} className={cx("info")}>
-          {/* {error && <p>{error}</p>} */}
           <div className={cx("box")}>
             <label for="name">Name</label>
             <input
@@ -94,7 +92,7 @@ function AddCustomer() {
               required
             ></input>
           </div>
-          <div>
+          <div className={cx("submit-btn")}>
             <AddtoCart addtocart={"Add Customer"} type={"submit"} />
           </div>
         </form>

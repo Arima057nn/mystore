@@ -16,7 +16,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CustomersManager from "../pages/Admin/CustomersManager";
 import AddCustomer from "../pages/Admin/CustomersManager/AddCustomer";
+import AddBook from "../pages/Admin/BooksManager/AddBook";
 import BooksManager from "../pages/Admin/BooksManager";
+import AddCategory from "../pages/Admin/CategoriesManager/AddCategory";
 import CategoriesManager from "../pages/Admin/CategoriesManager";
 import OrdersManager from "../pages/Admin/OrdersManager";
 import Categories from "../components/Categories";
@@ -95,11 +97,25 @@ const publicRoutes = [
     layout: ManagerLayout,
     // sidebar: Categories,
   },
+
+  {
+    path: `/admin/book/create`,
+    component: AddBook,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
   {
     path: "/admin/categories",
     component: CategoriesManager,
     layout: ManagerLayout,
     // sidebar: Categories,
+  },
+
+  {
+    path: `/admin/category/create`,
+    component: AddCategory,
+    layout: ManagerLayout,
+    sidebar: Categories,
   },
 
   {

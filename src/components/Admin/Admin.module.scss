@@ -1,0 +1,122 @@
+.wrapper {
+  width: 100%;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.btn-create {
+  width: 150px;
+  height: 48px;
+  background-color: #4e97fd;
+  color: #fff;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow1);
+  &:hover {
+    background-color: #2756b6;
+  }
+}
+
+.btn-search {
+  background-color: var(--primary);
+  color: #fff;
+  height: 52px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  padding: 24px 16px;
+  .input-field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+.info-wrapper {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+////////////////////////////////////
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+.modal {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background-color: rgba($color: #000, $alpha: 0.3);
+}
+
+.modal-content-admin {
+  padding: 20px 20px;
+  transform: translate(0%, 0%);
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  width: 900px;
+  height: 440px;
+}
+.modal-content {
+  padding: 20px 20px;
+  transform: translate(0%, 0%);
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  width: 900px;
+  height: 440px;
+
+  .close-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+}
