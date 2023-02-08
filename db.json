@@ -18,19 +18,27 @@
   },
   "users": [
     {
-      "name": "Phạm Tiến Dũng",
-      "email": "tjendung97pain@gmail.com",
-      "password": "1234567899",
+      "id": 2,
+      "name": "Dũng Tiến Phạmmmm",
+      "email": "dung.pt194525@sis.hust.edu.vn",
       "phone": "0981082897",
-      "address": "Hà lội",
+      "address": "Hà Nội",
+      "password": "987654321"
+    },
+    {
+      "name": "Hoang Quoc Bao",
+      "email": "baohq@gmail.com",
+      "password": "123456789",
+      "phone": "0123456789",
+      "address": "Hà Tĩnh",
       "id": 4
     },
     {
-      "name": "Phạm Tiến Dũng",
-      "email": "tjendung97pain@gmail.com",
+      "name": "Tran Nam Duong",
+      "email": "duongtn@gmail.com",
       "password": "123456789",
-      "phone": "0981082897",
-      "address": "Thanh Hóa",
+      "phone": "0123456789",
+      "address": "Hà Nội",
       "id": 5
     }
   ],
