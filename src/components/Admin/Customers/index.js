@@ -12,14 +12,11 @@ import {
   Button,
   CardContent,
   TextField,
-  InputAdornment,
-  SvgIcon,
 } from "@mui/material";
-import avaImg from "../../assets/images/avatar1.jpg";
+import avaImg from "../../../assets/images/avatar1.jpg";
 import classNames from "classnames/bind";
-import styles from "../../components/Layouts/components/Product/Product.module.scss";
-import EditCustomer from "../../pages/Admin/EditCustomer";
-import Search from "@mui/icons-material/Search";
+import styles from "../../../components/Layouts/components/Product/Product.module.scss";
+import EditCustomer from "../../../pages/Admin/EditCustomer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -28,13 +25,43 @@ const cx = classNames.bind(styles);
 function Customers() {
   const [modal, setModal] = useState(false);
   const [customer, setCustomer] = useState({});
-
   const [datas, setDatas] = useState([]);
+  const [refreshdatas, setRefreshdatas] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleChangeSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  useEffect(() => {
+    // setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+    if (searchTerm === "") setDatas(refreshdatas);
+    // else if()
+  });
+  // const handleSubmitSearch = (event) => {
+  //   event.preventDefault();
+  //   axios
+  //     .get(`http://localhost:3001/users/?name=${searchTerm}`)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
+  const handleSubmitSearch = (event) => {
+    event.preventDefault();
+    setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+  };
+
+  //
   useEffect(() => {
     fetch(`http://localhost:3001/users/`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+        setRefreshdatas(datas);
       });
   }, []);
 
@@ -55,6 +82,10 @@ function Customers() {
     }
     // setIsLoading(false);
   };
+
+  //! const toggleRefresh = () => {
+  //!  setDatas(refreshdatas);
+  //! };
   return (
     <>
       <Box
@@ -81,22 +112,23 @@ function Customers() {
         <Card>
           <CardContent>
             <Box sx={{ maxWidth: 500 }}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon color="action" fontSize="small">
-                        <Search />
-                      </SvgIcon>
-                    </InputAdornment>
-                  ),
-                }}
-                placeholder="Search customer"
-                variant="outlined"
-              />
+              <form onSubmit={handleSubmitSearch}>
+                <TextField
+                  value={searchTerm}
+                  onChange={handleChangeSearch}
+                  fullWidth
+                  variant="outlined"
+                />
+                <Button type="submit" variant="contained">
+                  Search
+                </Button>
+              </form>
             </Box>
           </CardContent>
+
+          {/*  <Button variant="contained" onClick={toggleRefresh}>
+            Refresh
+          </Button> */}
         </Card>
       </Box>
 
@@ -112,7 +144,7 @@ function Customers() {
                 <TableCell>Email</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Phone</TableCell>
-                <TableCell>Registration date</TableCell>
+                <TableCell></TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
