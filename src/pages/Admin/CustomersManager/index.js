@@ -1,4 +1,4 @@
-import Customers from "../../components/Admin/Customers";
+import Customers from "../../../components/Admin/Customers";
 function CustomersManager() {
   return <Customers />;
 }

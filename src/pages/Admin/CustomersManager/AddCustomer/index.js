@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
-import styles from "../../Profile/Profile.module.scss";
-import AddtoCart from "../../../components/Button/AddtoCard";
+import styles from "../../../Profile/Profile.module.scss";
+import AddtoCart from "../../../../components/Button/AddtoCard";
 import React, { useState } from "react";
 import axios from "axios";
 
