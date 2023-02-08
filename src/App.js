@@ -21,7 +21,7 @@ function App() {
     // simulate getting user role from API
     setTimeout(() => {
       setUserRole(roles.admin);
-    }, 1000);
+    }, 100);
   }, []);
   if (!userRole) {
     return <p>Loading...</p>;

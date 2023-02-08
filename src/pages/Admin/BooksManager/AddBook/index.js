@@ -1,59 +1,92 @@
 import classNames from "classnames/bind";
-import styles from "../../Profile/Profile.module.scss";
-import AddtoCart from "../../../components/Button/AddtoCard";
-import { Typography } from "@mui/material";
+import styles from "../../CustomersManager/AddCustomer/AddCustomer.module.scss";
+import AddtoCart from "../../../../components/Button/AddtoCard";
+import React, { useState } from "react";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
 function AddBook() {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [quanlity, setQuanlity] = useState("");
+  const [error, setError] = useState(null);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:3001/books/", {
+        name,
+        description,
+        price,
+        quanlity,
+      });
+      setName("");
+      setDescription("");
+
+      setError("Sign up successful!");
+    } catch (event) {
+      setError("Sign up failed. Please try again.");
+    }
+  };
   return (
     <>
-      <Typography variant="h4" mb={4}>
-        Add Customer
-      </Typography>
+      <h1>Add Books</h1>
       <div className={cx("wrapper")}>
-        <form className={cx("info")}>
+        <form onSubmit={handleSubmit} className={cx("info")}>
           <div className={cx("box")}>
             <label for="name">Name</label>
-            <input className={cx("input")} id="name" type="text" required />
-          </div>
-          <div className={cx("box")}>
-            <label for="email">Email</label>
             <input
               className={cx("input")}
-              id="email"
-              type="email"
+              id="name"
+              type="text"
               required
-            ></input>
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
 
           <div className={cx("box")}>
-            <label for="phone">Phone</label>
+            <label for="price">Price</label>
             <input
               className={cx("input")}
-              id="phone"
-              type="tel"
+              id="price"
+              type="text"
               required
-            ></input>
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
           </div>
 
           <div className={cx("box")}>
-            <label for="address">Address</label>
-            <input className={cx("input")} id="address" required></input>
+            <label for="description">Description</label>
+            <textarea
+              rows={8}
+              className={cx("input")}
+              id="description"
+              type="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            ></textarea>
           </div>
+
           <div className={cx("box")}>
-            <label for="password">Password</label>
+            <label for="quanlity">Quanlity</label>
             <input
               className={cx("input")}
-              id="password"
-              type="password"
+              id="quanlity"
+              type="text"
               required
-            ></input>
+              value={quanlity}
+              onChange={(e) => setQuanlity(e.target.value)}
+            />
+          </div>
+
+          <div className={cx("submit-btn")}>
+            <AddtoCart addtocart={"Add Book"} type={"submit"} />
           </div>
         </form>
-        <div>
-          <AddtoCart addtocart={"Add Customer"} />
-        </div>
       </div>
     </>
   );

@@ -17,15 +17,15 @@ import Search from "@mui/icons-material/Search";
 
 import classNames from "classnames/bind";
 import styles from "../Admin.module.scss";
-import EditBook from "../../../pages/Admin/BooksManager/EditBook";
+import EditCategory from "../../../pages/Admin/CategoriesManager/EditCategory";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import RefreshIcon from "@mui/icons-material/Refresh";
 const cx = classNames.bind(styles);
-function Books() {
+function Categories() {
   const [modal, setModal] = useState(false);
-  const [book, setBook] = useState({});
+  const [category, setCategory] = useState({});
   const [datas, setDatas] = useState([]);
   const [refreshdatas, setRefreshdatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,7 +44,7 @@ function Books() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/books/`)
+    fetch(`http://localhost:3001/categories/`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
@@ -55,13 +55,13 @@ function Books() {
   const toggleModal = (id) => {
     setModal(!modal);
     datas.map((user) => {
-      if (user.id === id) setBook(user);
-      console.log(book.id);
+      if (user.id === id) setCategory(user);
+      console.log(category.id);
     });
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/books/${id}`);
+      await axios.delete(`http://localhost:3001/categories/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);
@@ -71,7 +71,7 @@ function Books() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("header-wrapper")}>
-        <h1>Books</h1>
+        <h1>Categories</h1>
       </div>
 
       <div className={cx("search-wrapper")}>
@@ -89,7 +89,7 @@ function Books() {
                 </InputAdornment>
               ),
             }}
-            placeholder="Search Books"
+            placeholder="Search Categories"
             variant="outlined"
           />
 
@@ -101,8 +101,8 @@ function Books() {
           </IconButton>
         </form>
 
-        <Link to={"/admin/book/create"}>
-          <button className={cx("btn-create")}>+ Add Books</button>
+        <Link to={"/admin/category/create"}>
+          <button className={cx("btn-create")}>+ Add Categories</button>
         </Link>
       </div>
 
@@ -111,14 +111,9 @@ function Books() {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Price</TableCell>
-
               <TableCell>Description</TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell>Quanlity</TableCell>
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
@@ -137,14 +132,10 @@ function Books() {
                     </Typography>
                   </Box>
                 </TableCell>
-                <TableCell>{value.price}</TableCell>
                 <TableCell>{value.description}</TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
 
                 <TableCell></TableCell>
                 <TableCell></TableCell>
-                <TableCell>{value.quanlity}</TableCell>
                 <TableCell>
                   {modal && (
                     <div className={cx("modal")}>
@@ -153,7 +144,7 @@ function Books() {
                         className={cx("overlay")}
                       ></div>
                       <div className={cx("modal-content-admin")}>
-                        <EditBook book={book} />
+                        <EditCategory category={category} />
                       </div>
                     </div>
                   )}
@@ -183,4 +174,4 @@ function Books() {
   );
 }
 
-export default Books;
+export default Categories;

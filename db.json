@@ -23,38 +23,36 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Phạm Tiến Dũng",
-      "email": "tjendung97pain@gmail.com",
+      "id": 2,
+      "name": "Dũng Tiến Phạm",
+      "email": "dungpt@gmail.com",
       "phone": "0981082897",
       "address": "Hà Nội",
       "password": "123456789"
+    },
+    {
+      "name": "Phạm Tiến Dũng",
+      "email": "tjendung97pain@gmail.com",
+      "password": "123456789",
+      "phone": "0981082897",
+      "address": "Ha noi",
+      "id": 3
     }
   ],
   "books": [
     {
-      "id": 1,
-      "name": "Đắc nhân tâm",
-      "price": "1000 USD",
-      "quanlity": "100"
-    },
-    {
       "id": 2,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
-      "quanlity": "100"
+      "description": "Có làm mới có ăn Có làm mới có ăn Có làm mới có ăn nhé",
+      "quanlity": "1000"
     },
     {
       "name": "Làm người",
+      "description": "Có làm mới có ăn Có làm mới có ăn Có làm mới có ăn",
       "price": "300 USD",
       "quanlity": "200",
       "id": 3
-    },
-    {
-      "name": "Làm giàu",
-      "price": "100 USD",
-      "quanlity": "200",
-      "id": 4
     }
   ],
   "accounts": [
@@ -65,6 +63,48 @@
     {
       "username": "user2",
       "password": "123456789"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Chính trị - Pháp luật",
+      "description": "Chính trị là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 2,
+      "name": "Khoa học công nghệ",
+      "description": "Chính trị là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 3,
+      "name": "Kinh tế",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 5,
+      "name": "Truyện - Tiểu thuyết",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 6,
+      "name": "Sách thiếu nhi",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 7,
+      "name": "Văn học - Nghệ thuật",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 8,
+      "name": "Tâm linh - Tôn giáo",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "name": "Dạy đời thầy Huấn",
+      "description": "Có làm mới có ăn",
+      "id": 9
     }
   ]
 }
