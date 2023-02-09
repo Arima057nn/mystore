@@ -39,12 +39,6 @@ const popularBooks = [
 
 function Cart() {
   const [count, setCount] = useState(1);
-  // const [show, setShow] = useState(true);
-
-  // useEffect(() => {
-  //   if (count > 0) setShow(true);
-  //   else setShow(false);
-  // }, [count]);
 
   return (
     <>

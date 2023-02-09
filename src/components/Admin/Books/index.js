@@ -33,11 +33,12 @@ function Books() {
   const handleChangeSearch = (event) => {
     setSearchTerm(event.target.value);
   };
-
   const handleSubmitSearch = (event) => {
     event.preventDefault();
     setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+    console.log(datas);
   };
+
   const toggleRefresh = () => {
     setDatas(refreshdatas);
     setSearchTerm("");

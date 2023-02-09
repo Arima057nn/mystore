@@ -43,6 +43,7 @@
   "books": [
     {
       "id": 1,
+      "CategoryId": 1,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -51,7 +52,8 @@
     },
     {
       "id": 2,
-      "name": "Đắc nhân tâm",
+      "CategoryId": 1,
+      "name": "Đắc nhân",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B2-removebg-preview.png",
@@ -59,6 +61,7 @@
     },
     {
       "id": 3,
+      "CategoryId": 2,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -67,6 +70,7 @@
     },
     {
       "id": 4,
+      "CategoryId": 3,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -75,6 +79,7 @@
     },
     {
       "id": 5,
+      "CategoryId": 3,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -83,6 +88,7 @@
     },
     {
       "id": 6,
+      "CategoryId": 4,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -198,5 +204,7 @@
       "description": "Hay",
       "id": 10
     }
-  ]
+  ],
+
+  "searchBooks": []
 }
