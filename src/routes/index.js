@@ -4,8 +4,10 @@ import {
   DefaultLayout,
   LoginLayout,
   ManagerLayout,
+  SearchLayout,
 } from "../components/Layouts/";
 import Home from "../pages/Home";
+import SearchBook from "../pages/SearchBook";
 import Cart from "../pages/Cart";
 import ProductDetail from "../pages/ProductDetail";
 import Profile from "../pages/Profile";
@@ -29,6 +31,13 @@ const publicRoutes = [
     path: "/",
     component: Home,
     layout: DefaultLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/booksearch",
+    component: SearchBook,
+    layout: SearchLayout,
     sidebar: Categories,
   },
   {
