@@ -1,50 +1,29 @@
 import classNames from "classnames/bind";
 import styles from "./Categories.module.scss";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
 function Categories() {
-  const data = [
-    {
-      categoryName: "Chính trị - Pháp luật",
-    },
-    {
-      categoryName: "Khoa học công nghệ",
-    },
-    {
-      categoryName: "Kinh tế",
-    },
-    {
-      categoryName: "Truyện - Tiểu thuyết",
-    },
-    {
-      categoryName: "Sách thiếu nhi",
-    },
-    {
-      categoryName: "Văn học - Nghệ thuật",
-    },
-    {
-      categoryName: "Tâm linh - Tôn giáo",
-    },
+  const [categories, setCategories] = useState([]);
 
-    {
-      categoryName: "Văn hóa xã hội",
-    },
-
-    {
-      categoryName: "Lịch sử",
-    },
-  ];
+  useEffect(() => {
+    fetch(`http://localhost:3001/categories/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setCategories(datas);
+      });
+  }, []);
 
   return (
     <div className={cx("wrapper")}>
-      <h2 className={cx("header")}>Top Categories</h2>
-      {data.map((value, index) => {
+      <div className={cx("header")}>Top Categories</div>
+      {categories.map((value, index) => {
         return (
           <span className={cx("category")} key={index}>
             <AcUnitIcon className={cx("icon")} fontSize={"4px"} />
-            {value.categoryName}
+            {value.name}
           </span>
         );
       })}

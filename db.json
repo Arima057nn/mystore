@@ -24,6 +24,7 @@
   "users": [
     {
       "id": 2,
+      "isAdmin": 0,
       "name": "Dũng Tiến Phạm",
       "email": "dungpt@gmail.com",
       "phone": "0981082897",
@@ -31,30 +32,118 @@
       "password": "123456789"
     },
     {
+      "id": 3,
+      "isAdmin": 0,
       "name": "Phạm Tiến Dũng",
       "email": "tjendung97pain@gmail.com",
       "password": "123456789",
       "phone": "0981082897",
-      "address": "Ha noi",
-      "id": 3
+      "address": "Ha noi"
     }
   ],
   "books": [
     {
+      "id": 1,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
       "id": 2,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
-      "description": "Có làm mới có ăn Có làm mới có ăn Có làm mới có ăn nhé",
-      "quanlity": "1000"
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B2-removebg-preview.png",
+      "quanlity": 1000
     },
     {
-      "name": "Làm người",
-      "description": "Có làm mới có ăn Có làm mới có ăn Có làm mới có ăn",
-      "price": "300 USD",
-      "quanlity": "200",
-      "id": 3
+      "id": 3,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B3-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 4,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B4-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 5,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B5-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 6,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B6-removebg-preview.png",
+      "quanlity": 1000
     }
   ],
+  "trendingBooks": [
+    {
+      "id": 1,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 2,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B2-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 3,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B3-removebg-preview.png",
+      "quanlity": 1000
+    }
+  ],
+  "popularBooks": [
+    {
+      "id": 1,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 2,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B2-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 3,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B3-removebg-preview.png",
+      "quanlity": 1000
+    }
+  ],
+
   "accounts": [
     {
       "username": "user1",
@@ -105,6 +194,11 @@
       "name": "Dạy đời thầy Huấn",
       "description": "Có làm mới có ăn",
       "id": 9
+    },
+    {
+      "name": "Truyện cổ tích",
+      "description": "Hay",
+      "id": 10
     }
   ]
 }
