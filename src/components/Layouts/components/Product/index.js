@@ -78,7 +78,7 @@ function Product({ isFav, book }) {
       )}
       <div className={cx("container")}>
         <Link to={"/Product/book"}>
-          <img className={cx("img")} src={ImgBook}></img>
+          <img className={cx("img")} src={book.image}></img>
         </Link>
         <div className={cx("info-container")}>
           <div className={cx("info")}>
