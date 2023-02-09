@@ -23,15 +23,6 @@
   ],
   "users": [
     {
-      "id": 2,
-      "isAdmin": 0,
-      "name": "Dũng Tiến Phạm",
-      "email": "dungpt@gmail.com",
-      "phone": "0981082897",
-      "address": "Hà Nội",
-      "password": "123456789"
-    },
-    {
       "id": 3,
       "isAdmin": 0,
       "name": "Phạm Tiến Dũng",
@@ -39,6 +30,14 @@
       "password": "123456789",
       "phone": "0981082897",
       "address": "Ha noi"
+    },
+    {
+      "id": 4,
+      "name": "Trần Nam Dương",
+      "email": "duongtn@gmail.com",
+      "phone": "0123456789",
+      "address": "Thanh Hóa",
+      "password": "123456789"
     }
   ],
   "books": [
@@ -143,7 +142,6 @@
       "quanlity": 1000
     }
   ],
-
   "accounts": [
     {
       "username": "user1",

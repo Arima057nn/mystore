@@ -131,8 +131,7 @@ function Customers() {
               <TableCell>Email</TableCell>
               <TableCell>Location</TableCell>
               <TableCell>Phone</TableCell>
-              <TableCell>Wallet Balance</TableCell>
-              <TableCell>Order</TableCell>
+
               <TableCell></TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
@@ -157,8 +156,7 @@ function Customers() {
                 <TableCell>{value.email}</TableCell>
                 <TableCell>{value.address}</TableCell>
                 <TableCell>{value.phone}</TableCell>
-                <TableCell>1000 USD</TableCell>
-                <TableCell>100</TableCell>
+
                 <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell>

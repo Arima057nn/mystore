@@ -132,6 +132,7 @@ function Books() {
                       display: "flex",
                     }}
                   >
+                    <Avatar src={value.image} sx={{ mr: 2 }} />
                     <Typography color="textPrimary" variant="body1">
                       {value.name}
                     </Typography>
@@ -166,7 +167,7 @@ function Books() {
                     Update
                   </Button>
                   <Button
-                    sx={{ mr: -3 }}
+                    sx={{ mr: -2 }}
                     variant="contained"
                     color="error"
                     onClick={() => handleDelete(value.id)}
