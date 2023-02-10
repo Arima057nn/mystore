@@ -24,12 +24,11 @@
   "users": [
     {
       "id": 3,
-      "isAdmin": 0,
-      "name": "Phạm Tiến Dũng",
+      "name": "Phạm Tiến Dũngggg",
       "email": "tjendung97pain@gmail.com",
-      "password": "123456789",
       "phone": "0981082897",
-      "address": "Ha noi"
+      "address": "Ha noi",
+      "password": "123456789"
     },
     {
       "id": 4,

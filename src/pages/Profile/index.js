@@ -3,9 +3,19 @@ import styles from "./Profile.module.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 const cx = classNames.bind(styles);
 
 function Profile() {
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/users/3`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+      });
+  }, []);
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
@@ -22,7 +32,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="name">Name</label>
           <input
-            value="Phạm Tiến Dũng"
+            value={datas.name}
             className={cx("input")}
             id="name"
             type="text"
@@ -31,7 +41,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="email">Email</label>
           <input
-            value="dung.pt4525@sis.hust.edu.vn"
+            value={datas.email}
             className={cx("input")}
             id="email"
             type="email"
@@ -41,7 +51,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="phone">Phone</label>
           <input
-            value="0123456789"
+            value={datas.phone}
             className={cx("input")}
             id="phone"
             type="tel"
@@ -51,7 +61,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="address">Address</label>
           <input
-            value="Giải Phóng, Hà Nội"
+            value={datas.address}
             className={cx("input")}
             id="address"
           ></input>
@@ -59,7 +69,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="password">Password</label>
           <input
-            value="123456789"
+            value={datas.password}
             className={cx("input")}
             id="password"
             type="password"
