@@ -35,7 +35,7 @@ const publicRoutes = [
   },
 
   {
-    path: "/booksearch",
+    path: "/booksearch/:key",
     component: SearchBook,
     layout: SearchLayout,
     sidebar: Categories,
