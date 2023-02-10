@@ -24,7 +24,7 @@
   "users": [
     {
       "id": 3,
-      "name": "Phạm Tiến Dũngggg",
+      "name": "Phạm Tiến Dũng",
       "email": "tjendung97pain@gmail.com",
       "phone": "0981082897",
       "address": "Ha noi",
@@ -241,5 +241,30 @@
       "id": 10
     }
   ],
-  "searchBooks": []
+  "orders": [
+    {
+      "id": 1,
+      "status": 1,
+      "date": "Nov 10, 2022",
+      "total": 360,
+      "detail": [
+        { "id": 1, "name": "Đắc nhân tâm", "quanlity": 2, "price": 200 },
+        { "id": 2, "name": "Đắc nhân tâm", "quanlity": 2, "price": 200 }
+      ]
+    },
+    {
+      "id": 2,
+      "status": 1,
+      "date": "Nov 10, 2023",
+      "total": 760,
+      "detail": 1
+    },
+    {
+      "id": 3,
+      "status": 1,
+      "date": "Nov 10, 2024",
+      "total": 360,
+      "detail": 1
+    }
+  ]
 }

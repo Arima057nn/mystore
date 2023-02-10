@@ -138,3 +138,53 @@
     }
   }
 }
+.modal {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background-color: rgba($color: #000, $alpha: 0.3);
+}
+
+.modal-content-admin {
+  padding: 20px 20px;
+  transform: translate(0%, 0%);
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  width: 900px;
+  height: 440px;
+}
+.modal-content {
+  padding: 20px 20px;
+  transform: translate(0%, 0%);
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  width: 900px;
+  height: 440px;
+
+  .close-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+}
