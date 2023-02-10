@@ -143,7 +143,6 @@ function Books() {
                 <TableCell>{value.description}</TableCell>
                 <TableCell></TableCell>
                 <TableCell></TableCell>
-
                 <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell>{value.quanlity}</TableCell>

@@ -44,7 +44,7 @@
       "id": 1,
       "categoryid": 1,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B1-removebg-preview.png",
       "quanlity": 1000
@@ -53,7 +53,7 @@
       "id": 2,
       "categoryid": 1,
       "name": "Tony",
-      "price": "1000 USD",
+      "price": 2000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B2-removebg-preview.png",
       "quanlity": 1000
@@ -61,8 +61,8 @@
     {
       "id": 3,
       "categoryid": 2,
-      "name": "Y hoc",
-      "price": "1000 USD",
+      "name": "Y học",
+      "price": 3000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B3-removebg-preview.png",
       "quanlity": 1000
@@ -70,8 +70,8 @@
     {
       "id": 4,
       "categoryid": 3,
-      "name": "Khoa hoc",
-      "price": "1000 USD",
+      "name": "Khoa học",
+      "price": 4000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B4-removebg-preview.png",
       "quanlity": 1000
@@ -79,8 +79,8 @@
     {
       "id": 5,
       "categoryid": 3,
-      "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "name": "Đắc nhân tâm 5",
+      "price": 5000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B5-removebg-preview.png",
       "quanlity": 1000
@@ -88,8 +88,8 @@
     {
       "id": 6,
       "categoryid": 4,
-      "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "name": "Đắc nhân tâm 6",
+      "price": 6000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B6-removebg-preview.png",
       "quanlity": 1000
@@ -101,7 +101,7 @@
       "isfav": 1,
       "categoryid": 1,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B1-removebg-preview.png",
       "quanlity": 1000
@@ -111,7 +111,7 @@
       "isfav": 1,
       "categoryid": 2,
       "name": "Y hoc",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B3-removebg-preview.png",
       "quanlity": 1000
@@ -121,7 +121,7 @@
       "isfav": 1,
       "categoryid": 3,
       "name": "Khoa hoc",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B4-removebg-preview.png",
       "quanlity": 1000
@@ -131,7 +131,7 @@
     {
       "id": 1,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B1-removebg-preview.png",
       "quanlity": 1000
@@ -139,7 +139,7 @@
     {
       "id": 2,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 2000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B2-removebg-preview.png",
       "quanlity": 1000
@@ -147,7 +147,7 @@
     {
       "id": 3,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B3-removebg-preview.png",
       "quanlity": 1000
@@ -157,7 +157,7 @@
     {
       "id": 1,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B1-removebg-preview.png",
       "quanlity": 1000
@@ -165,7 +165,7 @@
     {
       "id": 2,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B2-removebg-preview.png",
       "quanlity": 1000
@@ -173,7 +173,7 @@
     {
       "id": 3,
       "name": "Đắc nhân tâm",
-      "price": "1000 USD",
+      "price": 1000,
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B3-removebg-preview.png",
       "quanlity": 1000
@@ -248,8 +248,18 @@
       "date": "Nov 10, 2022",
       "total": 360,
       "detail": [
-        { "id": 1, "name": "Đắc nhân tâm", "quanlity": 2, "price": 200 },
-        { "id": 2, "name": "Đắc nhân tâm", "quanlity": 2, "price": 200 }
+        {
+          "id": 1,
+          "name": "Đắc nhân tâm",
+          "quanlity": 2,
+          "price": 200
+        },
+        {
+          "id": 2,
+          "name": "Đắc nhân tâm",
+          "quanlity": 2,
+          "price": 200
+        }
       ]
     },
     {
@@ -265,6 +275,24 @@
       "date": "Nov 10, 2024",
       "total": 360,
       "detail": 1
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "bookid": 2,
+      "name": "Đắc nhân tâm",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1,
+      "price": 100
+    },
+    {
+      "id": 2,
+      "bookid": 2,
+      "name": "Đắc nhân tâm",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1,
+      "price": 100
     }
   ]
 }
