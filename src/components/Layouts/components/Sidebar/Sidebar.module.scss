@@ -1,13 +1,13 @@
 .wrapper {
-  // position: fixed;
   width: 280px;
   padding: 20px;
   background-color: #fff;
-  height: 400px;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   position: sticky;
   top: 0;
+  // bottom: 0;
 }

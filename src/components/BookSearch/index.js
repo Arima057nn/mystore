@@ -18,19 +18,12 @@ function BookSearch() {
       });
   }, []);
   console.log(params);
-  console.log(books?.filter((book) => book.name.includes(params.key)));
+  // console.log(books?.filter((book) => book.name.includes(params.key)));
 
   const renderSearchBooks = books
     ?.filter((book) => book.name.includes(params.key))
     .map((book) => <Product book={book} isFav={0} />);
 
-  // return (
-  //   <div className={cx("wrapper")}>
-  //     <h1 className={cx("item")}>hehe</h1>
-  //     <h1 className={cx("item")}>hehe</h1>
-  //     <h1 className={cx("item")}> hehe</h1>
-  //   </div>
-  // );
   // return (
   //   <div className={cx("wrapper")}>
   //     {books
