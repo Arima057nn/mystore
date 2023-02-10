@@ -1,0 +1,11 @@
+.wrapper {
+  width: 920px;
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // background-color: aqua;
+}
+.item {
+  flex: 1;
+}

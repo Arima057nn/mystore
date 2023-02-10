@@ -8,6 +8,7 @@ import {
 } from "../components/Layouts/";
 import Home from "../pages/Home";
 import SearchBook from "../pages/SearchBook";
+import CategoryBook from "../pages/CategoryBook";
 import Cart from "../pages/Cart";
 import ProductDetail from "../pages/ProductDetail";
 import Profile from "../pages/Profile";
@@ -37,6 +38,13 @@ const publicRoutes = [
   {
     path: "/booksearch/:key",
     component: SearchBook,
+    layout: SearchLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/bookcategory/:key",
+    component: CategoryBook,
     layout: SearchLayout,
     sidebar: Categories,
   },

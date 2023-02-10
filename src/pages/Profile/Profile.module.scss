@@ -83,6 +83,12 @@
     flex: 5;
     color: var(--description-color);
   }
+  .header-description {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 8;
+    color: var(--description-color);
+  }
   .btn-detail {
     flex: 1;
     // color: #2b3445;
@@ -108,6 +114,12 @@
     font-size: 16px;
     font-weight: 400;
     flex: 5;
+    color: #2b3445;
+  }
+  .item-info-description {
+    font-size: 16px;
+    font-weight: 400;
+    flex: 8;
     color: #2b3445;
   }
   .btn-detail {

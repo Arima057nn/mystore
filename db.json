@@ -43,7 +43,7 @@
   "books": [
     {
       "id": 1,
-      "CategoryId": 1,
+      "categoryid": 1,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -52,7 +52,7 @@
     },
     {
       "id": 2,
-      "CategoryId": 1,
+      "categoryid": 1,
       "name": "Tony",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -61,7 +61,7 @@
     },
     {
       "id": 3,
-      "CategoryId": 2,
+      "categoryid": 2,
       "name": "Y hoc",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -70,7 +70,7 @@
     },
     {
       "id": 4,
-      "CategoryId": 3,
+      "categoryid": 3,
       "name": "Khoa hoc",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -79,7 +79,7 @@
     },
     {
       "id": 5,
-      "CategoryId": 3,
+      "categoryid": 3,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
@@ -88,11 +88,43 @@
     },
     {
       "id": 6,
-      "CategoryId": 4,
+      "categoryid": 4,
       "name": "Đắc nhân tâm",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B6-removebg-preview.png",
+      "quanlity": 1000
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 1,
+      "isfav": 1,
+      "categoryid": 1,
+      "name": "Đắc nhân tâm",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B1-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 3,
+      "isfav": 1,
+      "categoryid": 2,
+      "name": "Y hoc",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B3-removebg-preview.png",
+      "quanlity": 1000
+    },
+    {
+      "id": 4,
+      "isfav": 1,
+      "categoryid": 3,
+      "name": "Khoa hoc",
+      "price": "1000 USD",
+      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
+      "image": "/images/Books/B4-removebg-preview.png",
       "quanlity": 1000
     }
   ],
@@ -175,8 +207,13 @@
       "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Truyện - Tiểu thuyết",
+      "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
+    },
+    {
+      "id": 5,
+      "name": "Manga",
       "description": "Pháp luật là hệ thống các quy tắc xử sự do nhà nước ban hành và bảo đảm thực hiện. "
     },
     {
@@ -205,6 +242,5 @@
       "id": 10
     }
   ],
-
   "searchBooks": []
 }

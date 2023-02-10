@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import {
   faUser,
-  faHeart,
   faXmark,
   faBagShopping,
   faAdd,
@@ -97,9 +96,6 @@ function Header() {
           </div>
           <Search />
           <div className={cx("action-container")}>
-            <Link className={cx("action")}>
-              <FontAwesomeIcon icon={faHeart} className={cx("icon")} />
-            </Link>
             <Link to={"/profile"} className={cx("action")}>
               <FontAwesomeIcon icon={faUser} className={cx("icon")} />
             </Link>
