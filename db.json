@@ -53,7 +53,7 @@
     {
       "id": 2,
       "CategoryId": 1,
-      "name": "Đắc nhân",
+      "name": "Tony",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B2-removebg-preview.png",
@@ -62,7 +62,7 @@
     {
       "id": 3,
       "CategoryId": 2,
-      "name": "Đắc nhân tâm",
+      "name": "Y hoc",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B3-removebg-preview.png",
@@ -71,7 +71,7 @@
     {
       "id": 4,
       "CategoryId": 3,
-      "name": "Đắc nhân tâm",
+      "name": "Khoa hoc",
       "price": "1000 USD",
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B4-removebg-preview.png",

@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 import styles from "./SearchLayout.module.scss";
 import Sidebar from "../components/Sidebar";
 
