@@ -26,9 +26,9 @@ function EditCustomer({ customer }) {
         `http://localhost:3001/users/${customer.id}`,
         customerEdit
       );
-      setError("Update successful!");
+      alert("Update successful!");
     } catch (e) {
-      setError("Update failed. Please try again.");
+      alert("Update failed. Please try again.");
     }
   };
 

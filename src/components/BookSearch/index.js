@@ -24,16 +24,6 @@ function BookSearch() {
     ?.filter((book) => book.name.includes(params.key))
     .map((book) => <Product book={book} isFav={0} />);
 
-  // return (
-  //   <div className={cx("wrapper")}>
-  //     {books
-  //       ?.filter((book) => book.name.includes(params.key))
-  //       .map((book) => {
-  //         <Product book={book} isFav={0} />;
-  //       })}
-  //   </div>
-  // );
-
   return <div className={cx("wrapper")}>{renderSearchBooks}</div>;
 }
 

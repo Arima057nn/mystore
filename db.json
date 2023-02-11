@@ -195,16 +195,7 @@
       "quanlity": 1000
     }
   ],
-  "accounts": [
-    {
-      "username": "user1",
-      "password": "123456789"
-    },
-    {
-      "username": "user2",
-      "password": "123456789"
-    }
-  ],
+
   "categories": [
     {
       "id": 1,

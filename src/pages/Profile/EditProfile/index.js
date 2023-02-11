@@ -10,40 +10,29 @@ import { useState, useEffect } from "react";
 const cx = classNames.bind(styles);
 
 function EditProfile() {
-  const [error, setError] = useState(null);
-  const [datas, setDatas] = useState({});
-
+  const [datas, setDatas] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
   const [profileEdit, setProfileEdit] = useState({
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    password: "",
+    id: datas.id,
+    name: datas.name,
+    email: datas.email,
+    phone: datas.phone,
+    address: datas.address,
+    password: datas.password,
   });
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/users/3`)
-      .then((res) => res.json())
-      .then((datas) => {
-        setProfileEdit({
-          id: datas.id,
-          name: datas.name,
-          email: datas.email,
-          phone: datas.phone,
-          address: datas.address,
-          password: datas.password,
-        }); // Dùng cái này nó sẽ re-render Contentt
-      });
-  }, []);
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`http://localhost:3001/users/3`, profileEdit);
-      setError("Update successful!");
+      const res = await axios.put(
+        `http://localhost:3001/users/${datas.id}`,
+        profileEdit
+      );
+      localStorage.setItem("userData", JSON.stringify(profileEdit));
+      alert("Update successful!");
     } catch (e) {
-      setError("Update failed. Please try again.");
+      alert("Update failed. Please try again.");
     }
   };
 

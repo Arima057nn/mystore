@@ -61,7 +61,7 @@ const publicRoutes = [
   },
 
   {
-    path: "/Product/book",
+    path: "/book/:key",
     component: ProductDetail,
     layout: HeaderOnly,
   },

@@ -20,9 +20,9 @@ function AddCategory() {
       setName("");
       setDescription("");
 
-      setError("Sign up successful!");
+      alert("Add Category successful!");
     } catch (event) {
-      setError("Sign up failed. Please try again.");
+      alert("Add Category failed!");
     }
   };
   return (

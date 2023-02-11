@@ -23,9 +23,9 @@ function EditCategory({ category }) {
         `http://localhost:3001/categories/${category.id}`,
         categoryEdit
       );
-      setError("Update successful!");
+      alert("Update successful!");
     } catch (e) {
-      setError("Update failed. Please try again.");
+      alert("Update failed. Please try again.");
     }
   };
 
