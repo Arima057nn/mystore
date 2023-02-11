@@ -18,6 +18,9 @@ import { useMediaQuery } from "@mui/material/";
 
 function Login() {
   const theme = useTheme();
+  const token = localStorage.getItem("token");
+
+  console.log(token);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [userdatas, setDatas] = useState([]);
   const [username, setUsername] = useState("");
@@ -51,18 +54,23 @@ function Login() {
       )
       .then((response) => {
         console.log(response.data[0]);
+        localStorage.setItem("userData", JSON.stringify(response.data[0]));
+
+        console.log(response.data[0]);
 
         if (response.data[0] !== undefined) {
           if (response.data[0].phone === "0111111111") {
             navigate("/admin");
             console.log("hello admin");
+            localStorage.setItem("token", "admin123");
           } else if (response.data[0].phone === "0111111112") {
             navigate("/admin");
             console.log("hello admin");
+            localStorage.setItem("token", "admin123");
           } else {
             navigate("/");
-
             console.log("hello customer");
+            localStorage.setItem("token", "user123");
           }
           setAccount(response.data[0]);
         } else console.log("chiu");

@@ -7,15 +7,17 @@ import { useEffect, useState } from "react";
 const cx = classNames.bind(styles);
 
 function Profile() {
-  const [datas, setDatas] = useState([]);
+  const [datas, setDatas] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/users/3`)
-      .then((res) => res.json())
-      .then((datas) => {
-        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/users/3`)
+  //     .then((res) => res.json())
+  //     .then((datas) => {
+  //       setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+  //     });
+  // }, []);
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>

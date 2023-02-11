@@ -1,4 +1,7 @@
+import { Button } from "@mui/material";
 import classNames from "classnames/bind";
+import { useNavigate } from "react-router-dom";
+
 import styles from "./SidebarManager.module.scss";
 
 const cx = classNames.bind(styles);
@@ -22,6 +25,7 @@ const data = [
 ];
 
 function SidebarManager() {
+  const navigate = useNavigate();
   return (
     <div className={cx("wrapper")}>
       <h2 className={cx("header")}>Admin</h2>
@@ -37,6 +41,16 @@ function SidebarManager() {
           </a>
         );
       })}
+
+      <Button
+        variant="contained"
+        onClick={() => {
+          navigate("/login");
+          localStorage.clear();
+        }}
+      >
+        Logout
+      </Button>
     </div>
   );
 }

@@ -67,41 +67,44 @@ function Header() {
     listChange.length && listChange.map((item) => handleUpdate(item.id, item));
     navigate("/cart");
   };
-
+  const token = localStorage.getItem("token");
   return (
     <>
-      {modal && (
-        <div className={cx("modal")}>
-          <div onClick={toggleModal} className={cx("overlay")}></div>
-          <div className={cx("modal-content")}>
-            <div className={cx("header-container")}>
-              <div className={cx("icon-container")}>
-                <ShoppingBagOutlinedIcon fontSize={"large"} />
-                <p style={{ fontWeight: 500 }}>2 item</p>
+      {modal &&
+        (token === "user123" ? (
+          <div className={cx("modal")}>
+            <div onClick={toggleModal} className={cx("overlay")}></div>
+            <div className={cx("modal-content")}>
+              <div className={cx("header-container")}>
+                <div className={cx("icon-container")}>
+                  <ShoppingBagOutlinedIcon fontSize={"large"} />
+                  <p style={{ fontWeight: 500 }}>2 item</p>
+                </div>
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className={cx("icon")}
+                  onClick={toggleModal}
+                />
               </div>
-              <FontAwesomeIcon
-                icon={faXmark}
-                className={cx("icon")}
-                onClick={toggleModal}
-              />
-            </div>
-            {datas.map((value) => (
-              <BookCart databooks={value} hanhdleDataBook={hanhdleDataBook} />
-            ))}
+              {datas.map((value) => (
+                <BookCart databooks={value} hanhdleDataBook={hanhdleDataBook} />
+              ))}
 
-            <div className={cx("checkout-container")}>
-              <button className={cx("button")}>Checkout Now</button>
+              <div className={cx("checkout-container")}>
+                <button className={cx("button")}>Checkout Now</button>
 
-              <button
-                className={cx("button-view")}
-                onClick={() => handleSubmitViewCart()}
-              >
-                View Cart
-              </button>
+                <button
+                  className={cx("button-view")}
+                  onClick={() => handleSubmitViewCart()}
+                >
+                  View Cart
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        ) : (
+          <></>
+        ))}
       <header className={cx("wrapper")}>
         <div className={cx("inner")}>
           <div>
@@ -110,10 +113,21 @@ function Header() {
             </a>
           </div>
           <Search />
+
           <div className={cx("action-container")}>
-            <Link to={"/profile"} className={cx("action")}>
+            <div
+              className={cx("action")}
+              onClick={() => {
+                if (token === "user123") {
+                  navigate("/profile");
+                } else if (token === "admin123") {
+                } else {
+                  navigate("/login");
+                }
+              }}
+            >
               <FontAwesomeIcon icon={faUser} className={cx("icon")} />
-            </Link>
+            </div>
             <div className={cx("action")} onClick={toggleModal}>
               <FontAwesomeIcon icon={faBagShopping} className={cx("icon")} />
             </div>
