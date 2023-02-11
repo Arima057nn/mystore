@@ -51,7 +51,13 @@ function Account() {
         <span className={cx("title")}>Payment Method</span>
       </div>
 
-      <a href="/login" className={cx("button-container")}>
+      <a
+        href="/login"
+        className={cx("button-container")}
+        onClick={() => {
+          localStorage.clear();
+        }}
+      >
         <button className={cx("button")}>Đăng xuất</button>
       </a>
     </div>

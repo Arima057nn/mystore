@@ -29,7 +29,8 @@ function Customers() {
   const [datas, setDatas] = useState([]);
   const [refreshdatas, setRefreshdatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const token = localStorage.getItem("token");
+  if (token === "admin123") console.log("hehe");
   const handleChangeSearch = (event) => {
     setSearchTerm(event.target.value);
   };

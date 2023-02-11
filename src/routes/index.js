@@ -36,6 +36,51 @@ const publicRoutes = [
   },
 
   {
+    path: "/Login",
+    component: Login,
+    layout: LoginLayout,
+  },
+  {
+    path: "/booksearch/:key",
+    component: SearchBook,
+    layout: SearchLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/bookcategory/:key",
+    component: CategoryBook,
+    layout: SearchLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/Register",
+    component: Register,
+    layout: LoginLayout,
+  },
+
+  {
+    path: "/Product/book",
+    component: ProductDetail,
+    layout: HeaderOnly,
+  },
+];
+
+const AdminRoutes = [
+  {
+    path: "/",
+    component: Home,
+    layout: DefaultLayout,
+    sidebar: Categories,
+  },
+  {
+    path: "/Login",
+    component: Login,
+    layout: LoginLayout,
+  },
+
+  {
     path: "/booksearch/:key",
     component: SearchBook,
     layout: SearchLayout,
@@ -49,10 +94,83 @@ const publicRoutes = [
     sidebar: Categories,
   },
   {
+    path: "/admin",
+    component: CustomersManager,
+    layout: ManagerLayout,
+  },
+  {
+    path: "/admin/customers",
+    component: CustomersManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
+
+  {
+    path: `/admin/customer/create`,
+    component: AddCustomer,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
+  {
+    path: "/admin/books",
+    component: BooksManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
+
+  {
+    path: `/admin/book/create`,
+    component: AddBook,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
+  {
+    path: "/admin/categories",
+    component: CategoriesManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
+
+  {
+    path: `/admin/category/create`,
+    component: AddCategory,
+    layout: ManagerLayout,
+    sidebar: Categories,
+  },
+  {
+    path: "/admin/orders",
+    component: OrdersManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
+];
+const UserRoutes = [
+  {
+    path: "/",
+    component: Home,
+    layout: DefaultLayout,
+    sidebar: Categories,
+  },
+
+  {
     path: "/Login",
     component: Login,
     layout: LoginLayout,
   },
+  {
+    path: "/booksearch/:key",
+    component: SearchBook,
+    layout: SearchLayout,
+    sidebar: Categories,
+  },
+
+  {
+    path: "/bookcategory/:key",
+    component: CategoryBook,
+    layout: SearchLayout,
+    sidebar: Categories,
+  },
+
   {
     path: "/Register",
     component: Register,
@@ -94,54 +212,5 @@ const publicRoutes = [
     component: ProductDetail,
     layout: HeaderOnly,
   },
-
-  {
-    path: "/admin/customers",
-    component: CustomersManager,
-    layout: ManagerLayout,
-    // sidebar: Categories,
-  },
-
-  {
-    path: `/admin/customer/create`,
-    component: AddCustomer,
-    layout: ManagerLayout,
-    sidebar: Categories,
-  },
-  {
-    path: "/admin/books",
-    component: BooksManager,
-    layout: ManagerLayout,
-    // sidebar: Categories,
-  },
-
-  {
-    path: `/admin/book/create`,
-    component: AddBook,
-    layout: ManagerLayout,
-    sidebar: Categories,
-  },
-  {
-    path: "/admin/categories",
-    component: CategoriesManager,
-    layout: ManagerLayout,
-    // sidebar: Categories,
-  },
-
-  {
-    path: `/admin/category/create`,
-    component: AddCategory,
-    layout: ManagerLayout,
-    sidebar: Categories,
-  },
-
-  {
-    path: "/admin/orders",
-    component: OrdersManager,
-    layout: ManagerLayout,
-    // sidebar: Categories,
-  },
 ];
-
-const privateRoutes = [];
-export { publicRoutes, privateRoutes };
+export { publicRoutes, AdminRoutes, UserRoutes };

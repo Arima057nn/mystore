@@ -34,8 +34,24 @@
       "id": 4,
       "name": "Trần Nam Dương",
       "email": "duongtn@gmail.com",
-      "phone": "0123456789",
+      "phone": "0123456788",
       "address": "Thanh Hóa",
+      "password": "123456789"
+    },
+    {
+      "id": 1,
+      "name": "Admin1",
+      "email": "admin1@gmail.com",
+      "phone": "0111111111",
+      "address": "Admin",
+      "password": "123456789"
+    },
+    {
+      "id": 2,
+      "name": "Admin2",
+      "email": "admin2@gmail.com",
+      "phone": "0111111112",
+      "address": "Admin",
       "password": "123456789"
     }
   ],
@@ -336,6 +352,38 @@
         }
       ],
       "id": 3
+    },
+    {
+      "status": 0,
+      "date": 1,
+      "total": 900,
+      "detail": [
+        {
+          "id": 3,
+          "bookid": 2,
+          "name": "Đắc nhân tâm",
+          "image": "/images/Books/B1-removebg-preview.png",
+          "quanlity": 3,
+          "price": 100
+        },
+        {
+          "id": 2,
+          "bookid": 2,
+          "name": "Đắc nhân tâm",
+          "image": "/images/Books/B1-removebg-preview.png",
+          "quanlity": 3,
+          "price": 100
+        },
+        {
+          "id": 1,
+          "bookid": 2,
+          "name": "Đắc nhân tâm",
+          "image": "/images/Books/B1-removebg-preview.png",
+          "quanlity": 3,
+          "price": 100
+        }
+      ],
+      "id": 4
     }
   ],
   "carts": [
@@ -344,7 +392,7 @@
       "bookid": 2,
       "name": "Đắc nhân tâm",
       "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 5,
+      "quanlity": 3,
       "price": 100
     },
     {
@@ -352,7 +400,7 @@
       "bookid": 2,
       "name": "Đắc nhân tâm",
       "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 5,
+      "quanlity": 3,
       "price": 100
     },
     {
@@ -360,7 +408,7 @@
       "bookid": 2,
       "name": "Đắc nhân tâm",
       "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 5,
+      "quanlity": 3,
       "price": 100
     }
   ]

@@ -10,6 +10,11 @@ function Home() {
   const [trendingBooks, setTrendingBooks] = useState([]);
   const [popularBooks, setPopularBooks] = useState([]);
 
+  const token = localStorage.getItem("token");
+  // const acc = JSON.parse(localStorage.getItem("userData"));
+  // const acc = JSON.parse(localStorage.getItem("account"));
+  // console.log(acc);
+  if (token === "user123") console.log("hihi");
   useEffect(() => {
     fetch(`http://localhost:3001/popularBooks/`)
       .then((res) => res.json())

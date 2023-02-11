@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Cart.module.scss";
-import Add from "../../components/Button/Add";
+import AddDisable from "../../components/Button/AddDisable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
@@ -34,14 +34,14 @@ function Cart() {
       });
   }, []);
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3001/carts/${id}`);
-      setDatas(datas.filter((book) => book.id !== id));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleDelete = async (id) => {
+  //   try {
+  //     await axios.delete(`http://localhost:3001/carts/${id}`);
+  //     setDatas(datas.filter((book) => book.id !== id));
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   useEffect(() => {
     fetch(`http://localhost:3001/users/3`)
@@ -93,27 +93,27 @@ function Cart() {
               </div>
               <div className={cx("quantity")}>
                 <div
-                  onClick={() => {
-                    if (count > 1) {
-                      setCount(book.quanlity - 1);
-                    }
-                  }}
+                // onClick={() => {
+                //   if (count > 1) {
+                //     setCount(book.quanlity - 1);
+                //   }
+                // }}
                 >
-                  <Add faicon={faMinus} />
+                  <AddDisable faicon={faMinus} />
                 </div>
                 <span className={cx("count")}>{book.quanlity}</span>
                 <div
-                  onClick={() => {
-                    setCount(count + 1);
-                  }}
+                // onClick={() => {
+                //   setCount(count + 1);
+                // }}
                 >
-                  <Add faicon={faAdd} />
+                  <AddDisable faicon={faAdd} />
                 </div>
               </div>
             </div>
-            <div className={cx("xmark")}>
+            {/* <div className={cx("xmark")}>
               <FontAwesomeIcon icon={faXmark} className={cx("icon")} />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
