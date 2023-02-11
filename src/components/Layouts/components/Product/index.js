@@ -11,10 +11,9 @@ import { Colors } from "../../../../styles/theme";
 import AddtoCard from "../../../../components/Button/AddtoCard";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import ImgBook from "../../../../../src/assets/images/B30.jpg";
 import CloseIcon from "@mui/icons-material/Close";
 const cx = classNames.bind(styles);
-
+ 
 function Product({ isFav, book }) {
   const [show, setShow] = useState(false);
   const [count, setCount] = useState(0);
@@ -24,22 +23,22 @@ function Product({ isFav, book }) {
     if (isfav === 1) setIsfav(0);
     else setIsfav(1);
   };
-
+ 
   useEffect(() => {
     if (count > 0) setShow(true);
     else setShow(false);
   }, [count]);
-
+ 
   const BookFavButton = styled(IconButton)(({ isfav }) => ({
     color: isfav ? Colors.primary : Colors.light,
   }));
-
+ 
   const [modal, setModal] = useState(false);
-
+ 
   const toggleModal = () => {
     setModal(!modal);
   };
-
+ 
   if (modal) {
     document.body.classList.add("active-modal");
   } else {
@@ -52,7 +51,7 @@ function Product({ isFav, book }) {
           <div onClick={toggleModal} className={cx("overlay")}></div>
           <div className={cx("modal-content")}>
             <div className={cx("image")}>
-              <img src={ImgBook} alt={book.name} />
+              <img src={book.image} alt={book.name} />
             </div>
             <div className={cx("content")}>
               <div className={cx("close-btn")}>
@@ -65,7 +64,7 @@ function Product({ isFav, book }) {
                 <h6>Rated:</h6>
                 <Rated />
               </div>
-
+ 
               <h2 className={cx("price")}>$ {book.price}</h2>
               <span>{book.description}</span>
               <br />
@@ -83,7 +82,7 @@ function Product({ isFav, book }) {
         <div className={cx("info-container")}>
           <div className={cx("info")}>
             <Link href="/Product/book" className={cx("title")}>
-              {book.name}
+              {book.tittle}
             </Link>
             <Rated />
             <p className={cx("price")}>$ {book.price}</p>
@@ -98,12 +97,12 @@ function Product({ isFav, book }) {
             </div>
           </div>
         </div>
-
+ 
         <div className={cx("action-container")}>
           <BookFavButton size="small" onClick={FavHandle} isfav={isfav}>
             <FavoriteIcon />
           </BookFavButton>
-
+ 
           <BookFavButton size="small" onClick={toggleModal}>
             <VisibilityIcon />
           </BookFavButton>
@@ -112,5 +111,5 @@ function Product({ isFav, book }) {
     </>
   );
 }
-
+ 
 export default Product;

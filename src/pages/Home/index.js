@@ -30,7 +30,7 @@ function Home() {
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:3001/books/`)
+    fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
       .then((datas) => {
         setAllBooks(datas);

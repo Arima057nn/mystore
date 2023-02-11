@@ -45,7 +45,7 @@ function Books() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/books/`)
+    fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
@@ -62,7 +62,7 @@ function Books() {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/books/${id}`);
+      await axios.delete(`http://127.0.0.1:8000/api/books/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);

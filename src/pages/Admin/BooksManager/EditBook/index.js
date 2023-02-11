@@ -22,7 +22,7 @@ function EditBook({ book }) {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3001/books/${book.id}`,
+        `http://127.0.0.1:8000/api/books/index/${book.id}`,
         bookEdit
       );
       setError("Update successful!");
