@@ -1,6 +1,9 @@
 import React from "react";
 import { TextField, Typography, Box, Checkbox, Link } from "@mui/material";
-import { useTheme, useState } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import {
   LoginContainerRight,
@@ -13,43 +16,62 @@ import {
 } from "../../styles/login";
 import { useMediaQuery } from "@mui/material/";
 
-export default function Login() {
+function Login() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const [userdatas, setDatas] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [account, setAccount] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const [formData, setFormData] = React.useState({
-    username: "",
-    password: "",
-  });
-
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (data.error) {
-        // Handle error
-      } else {
-        // Handle successful login
-      }
-    } catch (error) {
-      // Handle network error
+  const navigate = useNavigate();
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLoggedIn");
+    if (loginStatus === "true") {
+      setIsLoggedIn(true);
     }
-  };
+  }, []);
 
+  useEffect(() => {
+    fetch(`http://localhost:3001/users/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
+      });
+  }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(username, password);
+
+    axios
+      .get(
+        `http://localhost:3001/users/?phone=${username}&password=${password}`
+      )
+      .then((response) => {
+        console.log(response.data[0]);
+
+        if (response.data[0] !== undefined) {
+          if (response.data[0].phone === "0111111111") {
+            navigate("/admin");
+            console.log("hello admin");
+          } else if (response.data[0].phone === "0111111112") {
+            navigate("/admin");
+            console.log("hello admin");
+          } else {
+            navigate("/");
+
+            console.log("hello customer");
+          }
+          setAccount(response.data[0]);
+        } else console.log("chiu");
+      })
+      .catch((error) => {
+        setIsLoggedIn(false);
+        console.error(error);
+      });
+  };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <LoginBackground>
@@ -69,40 +91,42 @@ export default function Login() {
             Login
           </Typography>
 
-          <FormInput onSubmit={handleSubmit}>
+          <FormInput>
             <TextField
               label="Username"
+              type={"text"}
               variant="outlined"
               sx={{ marginBottom: 2 }}
-              value={formData.username}
-              onChange={handleInputChange}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <TextField
               label="Password"
+              type={"password"}
               variant="outlined"
               sx={{ marginBottom: 2 }}
-              value={formData.password}
-              onChange={handleInputChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-          </FormInput>
-          <Box fontSize={"1.1rem"}>
-            <Checkbox {...label} /> Remember me
-          </Box>
-          <Link
-            href="#"
-            underline="hover"
-            textAlign={"right"}
-            // color="success"
-            fontSize={"1.1rem"}
-          >
-            Forgot Password?
-          </Link>
+            <Box fontSize={"1.1rem"}>
+              <Checkbox {...label} /> Remember me
+            </Box>
+            <Link
+              href="#"
+              underline="hover"
+              textAlign={"right"}
+              // color="success"
+              fontSize={"1.1rem"}
+            >
+              Forgot Password?
+            </Link>
 
-          <Box textAlign={"center"}>
-            <LoginButton variant="contained" href="/" type="submit">
-              Sign in
-            </LoginButton>
-          </Box>
+            <Box textAlign={"center"}>
+              <LoginButton variant="contained" onClick={handleSubmit}>
+                Sign in
+              </LoginButton>
+            </Box>
+          </FormInput>
 
           <RegisterButton>
             Not a member?
@@ -120,3 +144,5 @@ export default function Login() {
     </LoginBackground>
   );
 }
+
+export default Login;

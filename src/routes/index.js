@@ -94,7 +94,12 @@ const publicRoutes = [
     component: ProductDetail,
     layout: HeaderOnly,
   },
-
+  {
+    path: "/admin",
+    component: CustomersManager,
+    layout: ManagerLayout,
+    // sidebar: Categories,
+  },
   {
     path: "/admin/customers",
     component: CustomersManager,
