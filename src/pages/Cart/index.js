@@ -67,7 +67,6 @@ function Cart() {
         total,
         detail,
       });
-
       setError("Sign up successful!");
     } catch (event) {
       setError("Sign up failed. Please try again.");

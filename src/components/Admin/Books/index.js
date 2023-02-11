@@ -111,6 +111,7 @@ function Books() {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Price</TableCell>
 
@@ -126,6 +127,8 @@ function Books() {
           {datas.map((value) => (
             <TableBody key={value.id}>
               <TableRow hover>
+                <TableCell>{value.id}</TableCell>
+
                 <TableCell>
                   <Box
                     sx={{
@@ -167,7 +170,7 @@ function Books() {
                     Update
                   </Button>
                   <Button
-                    sx={{ mr: -2 }}
+                  
                     variant="contained"
                     color="error"
                     onClick={() => handleDelete(value.id)}

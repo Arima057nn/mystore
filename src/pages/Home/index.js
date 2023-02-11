@@ -13,7 +13,7 @@ function Home() {
   const token = localStorage.getItem("token");
   // const acc = JSON.parse(localStorage.getItem("userData"));
   // const acc = JSON.parse(localStorage.getItem("account"));
-  // console.log(acc);
+  console.log(token);
   if (token === "user123") console.log("hihi");
   useEffect(() => {
     fetch(`http://localhost:3001/popularBooks/`)

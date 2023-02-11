@@ -109,13 +109,6 @@
       "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
       "image": "/images/Books/B6-removebg-preview.png",
       "quanlity": 1000
-    },
-    {
-      "name": "Dạy đời",
-      "description": "hehe",
-      "price": "200",
-      "quanlity": "100",
-      "id": 7
     }
   ],
   "wishlist": [
@@ -388,28 +381,20 @@
   ],
   "carts": [
     {
-      "id": 3,
       "bookid": 2,
       "name": "Đắc nhân tâm",
-      "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 3,
-      "price": 100
+      "image": "/images/Books/B2-removebg-preview.png",
+      "quanlity": 1,
+      "price": 1000,
+      "id": 1
     },
     {
-      "id": 2,
-      "bookid": 2,
+      "bookid": 3,
       "name": "Đắc nhân tâm",
-      "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 3,
-      "price": 100
-    },
-    {
-      "id": 1,
-      "bookid": 2,
-      "name": "Đắc nhân tâm",
-      "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 3,
-      "price": 100
+      "image": "/images/Books/B3-removebg-preview.png",
+      "quanlity": 1,
+      "price": 1000,
+      "id": 11
     }
   ]
 }

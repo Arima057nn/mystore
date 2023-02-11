@@ -55,7 +55,6 @@ function Login() {
       .then((response) => {
         console.log(response.data[0]);
         localStorage.setItem("userData", JSON.stringify(response.data[0]));
-
         console.log(response.data[0]);
 
         if (response.data[0] !== undefined) {

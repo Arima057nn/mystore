@@ -109,6 +109,7 @@ function Categories() {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Description</TableCell>
               <TableCell></TableCell>
@@ -119,6 +120,8 @@ function Categories() {
           {datas.map((value) => (
             <TableBody key={value.id}>
               <TableRow hover>
+                <TableCell>{value.id}</TableCell>
+
                 <TableCell>
                   <Box
                     sx={{

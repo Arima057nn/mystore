@@ -1,9 +1,10 @@
 import classNames from "classnames/bind";
 import styles from "./Product.module.scss";
 import Add from "../../../Button/Add";
-import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import Rated from "../../../Rated";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -11,15 +12,19 @@ import { Colors } from "../../../../styles/theme";
 import AddtoCard from "../../../../components/Button/AddtoCard";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import ImgBook from "../../../../../src/assets/images/B30.jpg";
 import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
+
 const cx = classNames.bind(styles);
 
 function Product({ isFav, book }) {
   const [show, setShow] = useState(false);
   const [count, setCount] = useState(0);
+  const [error, setError] = useState(null);
   const [isfav, setIsfav] = useState(isFav);
-  // const [shopOptions, setShowOptions] = useState(false);
+
+  const token = localStorage.getItem("token");
+
   const FavHandle = () => {
     if (isfav === 1) setIsfav(0);
     else setIsfav(1);
@@ -45,6 +50,22 @@ function Product({ isFav, book }) {
   } else {
     document.body.classList.remove("active-modal");
   }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:3001/carts/", {
+        bookid: book.id,
+        name: book.name,
+        image: book.image,
+        quanlity: 1,
+        price: book.price,
+      });
+      setError("Sign up successful!");
+    } catch (event) {
+      setError("Sign up failed. Please try again.");
+    }
+  };
   return (
     <>
       {modal && (
@@ -52,7 +73,7 @@ function Product({ isFav, book }) {
           <div onClick={toggleModal} className={cx("overlay")}></div>
           <div className={cx("modal-content")}>
             <div className={cx("image")}>
-              <img src={ImgBook} alt={book.name} />
+              <img src={book.image} alt={book.name} />
             </div>
             <div className={cx("content")}>
               <div className={cx("close-btn")}>
@@ -62,8 +83,8 @@ function Product({ isFav, book }) {
               </div>
               <h1>{book.name}</h1>
               <div className={cx("rated")}>
-                <h6>Rated:</h6>
-                <Rated />
+                {/* <h6>Rated:</h6>
+                <Rated /> */}
               </div>
 
               <h2 className={cx("price")}>$ {book.price}</h2>
@@ -82,18 +103,25 @@ function Product({ isFav, book }) {
         </Link>
         <div className={cx("info-container")}>
           <div className={cx("info")}>
-            <Link href="/Product/book" className={cx("title")}>
+            <Link to={"/Product/book"} className={cx("title")}>
               {book.name}
             </Link>
-            <Rated />
+            {/* <Rated /> */}
             <p className={cx("price")}>$ {book.price}</p>
           </div>
+
           <div className={cx("button-container")}>
-            <div onClick={() => setCount(count - 1)}>
-              {show && <Add faicon={faMinus} />}
-            </div>
             <div className={cx("count")}>{show && count}</div>
-            <div onClick={() => setCount(count + 1)}>
+            <div
+              onClick={(e) => {
+                if (token === "user123") {
+                  if (count < 1) {
+                    setCount(count + 1);
+                    handleSubmit(e);
+                  }
+                }
+              }}
+            >
               <Add faicon={faAdd} />
             </div>
           </div>

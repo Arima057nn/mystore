@@ -128,6 +128,7 @@ function Customers() {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Location</TableCell>
@@ -141,6 +142,7 @@ function Customers() {
           {datas.map((value) => (
             <TableBody key={value.id}>
               <TableRow hover>
+                <TableCell>{value.id}</TableCell>
                 <TableCell>
                   <Box
                     sx={{
@@ -154,6 +156,7 @@ function Customers() {
                     </Typography>
                   </Box>
                 </TableCell>
+
                 <TableCell>{value.email}</TableCell>
                 <TableCell>{value.address}</TableCell>
                 <TableCell>{value.phone}</TableCell>
