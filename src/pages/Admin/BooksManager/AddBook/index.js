@@ -24,9 +24,9 @@ function AddBook() {
       setName("");
       setDescription("");
 
-      setError("Sign up successful!");
+      alert("Sign up successful!");
     } catch (event) {
-      setError("Sign up failed. Please try again.");
+      alert("Sign up failed. Please try again.");
     }
   };
   return (

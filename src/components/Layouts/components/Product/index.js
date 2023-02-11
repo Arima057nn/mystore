@@ -4,7 +4,6 @@ import Add from "../../../Button/Add";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import Rated from "../../../Rated";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -14,15 +13,16 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 function Product({ isFav, book }) {
   const [show, setShow] = useState(false);
   const [count, setCount] = useState(0);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [isfav, setIsfav] = useState(isFav);
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
   const FavHandle = () => {
@@ -61,11 +61,12 @@ function Product({ isFav, book }) {
         quanlity: 1,
         price: book.price,
       });
-      setError("Sign up successful!");
+      alert("Add book to cart successful!");
     } catch (event) {
-      setError("Sign up failed. Please try again.");
+      alert("Add book to cart failed!");
     }
   };
+
   return (
     <>
       {modal && (
@@ -98,14 +99,12 @@ function Product({ isFav, book }) {
         </div>
       )}
       <div className={cx("container")}>
-        <Link to={"/Product/book"}>
+        <div onClick={() => navigate(`/book/${book.id}`)}>
           <img className={cx("img")} src={book.image}></img>
-        </Link>
+        </div>
         <div className={cx("info-container")}>
           <div className={cx("info")}>
-            <Link to={"/Product/book"} className={cx("title")}>
-              {book.name}
-            </Link>
+            <Link className={cx("title")}>{book.name}</Link>
             {/* <Rated /> */}
             <p className={cx("price")}>$ {book.price}</p>
           </div>

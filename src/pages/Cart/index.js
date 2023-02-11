@@ -67,9 +67,9 @@ function Cart() {
         total,
         detail,
       });
-      setError("Sign up successful!");
+      alert("Đặt hàng thành công");
     } catch (event) {
-      setError("Sign up failed. Please try again.");
+      alert("Add to cart failed. Please try again.");
     }
   };
   return (

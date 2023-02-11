@@ -78,7 +78,7 @@ function Header() {
               <div className={cx("header-container")}>
                 <div className={cx("icon-container")}>
                   <ShoppingBagOutlinedIcon fontSize={"large"} />
-                  <p style={{ fontWeight: 500 }}>2 item</p>
+                  <p style={{ fontWeight: 500, fontSize: 24 }}>Cart</p>
                 </div>
                 <FontAwesomeIcon
                   icon={faXmark}

@@ -25,9 +25,9 @@ function EditBook({ book }) {
         `http://localhost:3001/books/${book.id}`,
         bookEdit
       );
-      setError("Update successful!");
+      alert("Sign up successful!");
     } catch (e) {
-      setError("Update failed. Please try again.");
+      alert("Sign up failed. Please try again.");
     }
   };
 

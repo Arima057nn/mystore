@@ -28,9 +28,9 @@ function AddCustomer() {
       setPassword("");
       setPhone("");
       setAddress("");
-      setError("Sign up successful!");
+      alert("Add customer successful!");
     } catch (event) {
-      setError("Sign up failed. Please try again.");
+      alert("Add customer failed. Please try again.");
     }
   };
   return (
