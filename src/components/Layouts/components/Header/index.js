@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Search from "../../../Search";
 import { useState, useEffect } from "react";
 
@@ -12,12 +12,17 @@ import {
   faBagShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import BookCart from "../../../BookCart";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
 function Header() {
   const [modal, setModal] = useState(false);
   const [datas, setDatas] = useState([]);
+  const [listChange, setListChange] = useState([]);
+  const [listId, setListId] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3001/carts/`)
@@ -39,6 +44,30 @@ function Header() {
   } else {
     document.body.classList.remove("active-modal");
   }
+
+  // handle databook
+  const hanhdleDataBook = (data) => {
+    if (!listId.includes(data.id)) {
+      setListChange([...listChange, data]);
+    } else {
+      const updateIndex = listChange.findIndex((item) => item.id === data.id);
+      listChange[updateIndex] = { ...data };
+      setListChange([...listChange]);
+    }
+    setListId([...listId, data.id]);
+  };
+
+  // call api update
+  const handleUpdate = async (id, cart) => {
+    await axios.put(`http://localhost:3001/carts/${id}`, cart);
+  };
+
+  // handle viewcart
+  const handleSubmitViewCart = () => {
+    listChange.length && listChange.map((item) => handleUpdate(item.id, item));
+    navigate("/cart");
+  };
+
   return (
     <>
       {modal && (
@@ -57,14 +86,18 @@ function Header() {
               />
             </div>
             {datas.map((value) => (
-              <BookCart databooks={value} />
+              <BookCart databooks={value} hanhdleDataBook={hanhdleDataBook} />
             ))}
 
             <div className={cx("checkout-container")}>
               <button className={cx("button")}>Checkout Now</button>
-              <a href="/cart">
-                <button className={cx("button-view")}>View Cart</button>
-              </a>
+
+              <button
+                className={cx("button-view")}
+                onClick={() => handleSubmitViewCart()}
+              >
+                View Cart
+              </button>
             </div>
           </div>
         </div>
