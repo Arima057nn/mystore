@@ -11,7 +11,7 @@ function BookSearch() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/books/`)
+    fetch(`http://127.0.0.1:8000/api/books/index`)
       .then((res) => res.json())
       .then((datas) => {
         setBooks(datas);
@@ -21,7 +21,7 @@ function BookSearch() {
   // console.log(books?.filter((book) => book.name.includes(params.key)));
 
   const renderSearchBooks = books
-    ?.filter((book) => book.name.includes(params.key))
+    ?.filter((book) => book.tittle.includes(params.key))
     .map((book) => <Product book={book} isFav={0} />);
 
   return <div className={cx("wrapper")}>{renderSearchBooks}</div>;

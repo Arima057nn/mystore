@@ -74,7 +74,7 @@ function Product({ isFav, book }) {
           <div onClick={toggleModal} className={cx("overlay")}></div>
           <div className={cx("modal-content")}>
             <div className={cx("image")}>
-              <img src={book.image} alt={book.name} />
+              <img src={book.image} alt={book.tittle} />
             </div>
             <div className={cx("content")}>
               <div className={cx("close-btn")}>
@@ -82,7 +82,7 @@ function Product({ isFav, book }) {
                   <CloseIcon />
                 </BookFavButton>
               </div>
-              <h1>{book.name}</h1>
+              <h1>{book.tittle}</h1>
               <div className={cx("rated")}>
                 {/* <h6>Rated:</h6>
                 <Rated /> */}
@@ -104,7 +104,7 @@ function Product({ isFav, book }) {
         </div>
         <div className={cx("info-container")}>
           <div className={cx("info")}>
-            <Link className={cx("title")}>{book.name}</Link>
+            <Link className={cx("title")}>{book.tittle}</Link>
             {/* <Rated /> */}
             <p className={cx("price")}>$ {book.price}</p>
           </div>

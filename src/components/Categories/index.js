@@ -11,7 +11,7 @@ function Categories() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/categories/`)
+    fetch(`http://127.0.0.1:8000/api/genres/index`)
       .then((res) => res.json())
       .then((datas) => {
         setCategories(datas);
