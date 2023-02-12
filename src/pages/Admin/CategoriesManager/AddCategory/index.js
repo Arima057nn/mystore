@@ -13,14 +13,11 @@ function AddCategory() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/categories/", {
-        name,
-        description,
+      await axios.post("http://127.0.0.1:8000/api/genres/create", {
+        name,   
       });
       setName("");
-      setDescription("");
-
-      alert("Add Category successful!");
+      alert("Add Category successful!!");
     } catch (event) {
       alert("Add Category failed!");
     }
@@ -41,18 +38,7 @@ function AddCategory() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className={cx("box")}>
-            <label for="description">Description</label>
-            <textarea
-              rows={8}
-              className={cx("input")}
-              id="description"
-              type="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            ></textarea>
-          </div>
+          
 
           <div className={cx("submit-btn")}>
             <AddtoCart addtocart={"Add Category"} type={"submit"} />

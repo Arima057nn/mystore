@@ -34,7 +34,7 @@ function Profile() {
         <div className={cx("box")}>
           <label for="name">Name</label>
           <input
-            value={datas.name}
+            value={datas.last_name}
             className={cx("input")}
             id="name"
             type="text"

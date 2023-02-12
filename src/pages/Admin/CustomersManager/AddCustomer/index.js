@@ -16,7 +16,7 @@ function AddCustomer() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/users/", {
+      await axios.post("http://127.0.0.1:8000/api/users/register", {
         name,
         email,
         password,
@@ -68,7 +68,7 @@ function AddCustomer() {
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              required
+              
             ></input>
           </div>
           <div className={cx("box")}>
@@ -78,7 +78,7 @@ function AddCustomer() {
               id="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              required
+            
             ></input>
           </div>
           <div className={cx("box")}>

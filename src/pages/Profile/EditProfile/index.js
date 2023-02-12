@@ -15,7 +15,7 @@ function EditProfile() {
   );
   const [profileEdit, setProfileEdit] = useState({
     id: datas.id,
-    name: datas.name,
+    last_name: datas.last_name,
     email: datas.email,
     phone: datas.phone,
     address: datas.address,
@@ -25,8 +25,8 @@ function EditProfile() {
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(
-        `http://localhost:3001/users/${datas.id}`,
+      const res = await axios.patch(
+        `http://127.0.0.1:8000/api/users/${datas.id}`,
         profileEdit
       );
       localStorage.setItem("userData", JSON.stringify(profileEdit));
@@ -56,9 +56,9 @@ function EditProfile() {
             id="name"
             type="text"
             required
-            value={profileEdit.name}
+            value={profileEdit.last_name}
             onChange={(e) =>
-              setProfileEdit({ ...profileEdit, name: e.target.value })
+              setProfileEdit({ ...profileEdit, last_name: e.target.value })
             }
           />
         </div>

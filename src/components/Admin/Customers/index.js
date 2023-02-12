@@ -62,7 +62,7 @@ function Customers() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/users/`)
+    fetch(`http://127.0.0.1:8000/api/customers/index`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
@@ -152,7 +152,7 @@ function Customers() {
                   >
                     <Avatar src={value.avt} sx={{ mr: 2 }} />
                     <Typography color="textPrimary" variant="body1">
-                      {value.name}
+                      {value.last_name}
                     </Typography>
                   </Box>
                 </TableCell>

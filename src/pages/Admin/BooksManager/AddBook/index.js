@@ -7,22 +7,28 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 function AddBook() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [tittle, setTittle] = useState("");
+  const [content, setContent] = useState("");
   const [price, setPrice] = useState("");
-  const [quanlity, setQuanlity] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [categoryid, setCategoryid] = useState("");
+
   const [error, setError] = useState(null);
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/books/", {
-        name,
-        description,
+      await axios.post("http://127.0.0.1:8000/api/books/create", {
+        tittle,
+        content,
         price,
-        quanlity,
+        quantity,
+        categoryid
       });
-      setName("");
-      setDescription("");
+      setTittle("");
+      setContent("");
+      setPrice("");
+      setQuantity("");
+      setCategoryid("");
 
       alert("Sign up successful!");
     } catch (event) {
@@ -35,14 +41,14 @@ function AddBook() {
       <div className={cx("wrapper")}>
         <form onSubmit={handleSubmit} className={cx("info")}>
           <div className={cx("box")}>
-            <label for="name">Name</label>
+            <label for="tittle">Name</label>
             <input
               className={cx("input")}
-              id="name"
+              id="tittle"
               type="text"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={tittle}
+              onChange={(e) => setTittle(e.target.value)}
             />
           </div>
 
@@ -59,27 +65,38 @@ function AddBook() {
           </div>
 
           <div className={cx("box")}>
-            <label for="description">Description</label>
+            <label for="content">content</label>
             <textarea
               rows={8}
               className={cx("input")}
-              id="description"
-              type="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              id="content"
+              type="text"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
               required
             ></textarea>
           </div>
 
           <div className={cx("box")}>
-            <label for="quanlity">Quanlity</label>
+            <label for="quantity">Quantity</label>
             <input
               className={cx("input")}
-              id="quanlity"
+              id="quantity"
+              type="text"  
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
+
+          <div className={cx("box")}>
+            <label for="categoryid">Categoryid</label>
+            <input
+              className={cx("input")}
+              id="categoryid"
               type="text"
-              required
-              value={quanlity}
-              onChange={(e) => setQuanlity(e.target.value)}
+              
+              value={categoryid}
+              onChange={(e) => setCategoryid(e.target.value)}
             />
           </div>
 

@@ -43,7 +43,7 @@ function Categories() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/categories/`)
+    fetch(`http://127.0.0.1:8000/api/genres/index`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
@@ -60,7 +60,7 @@ function Categories() {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/categories/${id}`);
+      await axios.delete(`http://127.0.0.1:8000/api/genres/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);
@@ -112,6 +112,7 @@ function Categories() {
               <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Description</TableCell>
+             
               <TableCell></TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
@@ -134,8 +135,9 @@ function Categories() {
                     </Typography>
                   </Box>
                 </TableCell>
-                <TableCell>{value.description}</TableCell>
+               
 
+                <TableCell>{value.description}</TableCell>
                 <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell>

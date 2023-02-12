@@ -45,7 +45,7 @@ function Books() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/books/`)
+    fetch(`http://127.0.0.1:8000/api/books/index/`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
@@ -62,7 +62,7 @@ function Books() {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/books/${id}`);
+      await axios.delete(`http://127.0.0.1:8000/api/books/${id}`);
       setDatas(datas.filter((user) => user.id !== id));
     } catch (error) {
       console.error(error);
@@ -113,10 +113,10 @@ function Books() {
             <TableRow>
               <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
+              <TableCell>#CategoryID</TableCell>
               <TableCell>Price</TableCell>
 
-              <TableCell>Description</TableCell>
-              <TableCell></TableCell>
+            
               <TableCell></TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
@@ -138,17 +138,18 @@ function Books() {
                   >
                     <Avatar src={value.image} sx={{ mr: 2 }} />
                     <Typography color="textPrimary" variant="body1">
-                      {value.name}
+                      {value.tittle}
                     </Typography>
                   </Box>
                 </TableCell>
+                <TableCell>{value.categoryid}</TableCell>
                 <TableCell>{value.price}</TableCell>
-                <TableCell>{value.description}</TableCell>
+               
                 <TableCell></TableCell>
                 <TableCell></TableCell>
+               
                 <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell>{value.quanlity}</TableCell>
+                <TableCell>{value.quantity}</TableCell>
                 <TableCell>
                   {modal && (
                     <div className={cx("modal")}>

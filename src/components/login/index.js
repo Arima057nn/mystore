@@ -49,20 +49,21 @@ function Login() {
     console.log(username, password);
 
     axios
-      .get(
-        `http://localhost:3001/users/?phone=${username}&password=${password}`
+      .post(
+        `http://127.0.0.1:8000/api/users/login?phone=${username}&password=${password}`
       )
       .then((response) => {
-        console.log(response.data[0]);
-        localStorage.setItem("userData", JSON.stringify(response.data[0]));
-        console.log(response.data[0]);
+        console.log("hhehe");
+        console.log(response.data);
+        localStorage.setItem("userData", JSON.stringify(response.data));
+       
 
-        if (response.data[0] !== undefined) {
-          if (response.data[0].phone === "0111111111") {
+        if (response.data !== undefined) {
+          if (response.data.phone === "0111111111") {
             navigate("/admin");
             console.log("hello admin");
             localStorage.setItem("token", "admin123");
-          } else if (response.data[0].phone === "0111111112") {
+          } else if (response.data.phone === "0111111112") {
             navigate("/admin");
             console.log("hello admin");
             localStorage.setItem("token", "admin123");
@@ -71,7 +72,7 @@ function Login() {
             console.log("hello customer");
             localStorage.setItem("token", "user123");
           }
-          setAccount(response.data[0]);
+          setAccount(response.data);
         } else console.log("chiu");
       })
       .catch((error) => {
