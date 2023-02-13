@@ -28,7 +28,8 @@
       "email": "tjendung97pain@gmail.com",
       "phone": "0981082897",
       "address": "Ha noi",
-      "password": "123456789"
+      "password": "123456789",
+      "image": "/images/avatar1.jpg"
     },
     {
       "id": 4,
@@ -36,7 +37,8 @@
       "email": "duongtn@gmail.com",
       "phone": "0123456788",
       "address": "Thanh Hóa",
-      "password": "123456789"
+      "password": "123456789",
+      "image": "/images/avatar1.jpg"
     },
     {
       "id": 1,
@@ -53,6 +55,15 @@
       "phone": "0111111112",
       "address": "Admin",
       "password": "123456789"
+    },
+    {
+      "name": "Phạm Tiến Dũng",
+      "email": "tjendung97pain@gmail.com",
+      "password": "123456789",
+      "phone": "09810811111",
+      "address": "123456789",
+      "id": 5,
+      "image": "/images/avatar1.jpg"
     }
   ],
   "books": [
@@ -112,16 +123,6 @@
     }
   ],
   "wishlist": [
-    {
-      "id": 1,
-      "isfav": 1,
-      "categoryid": 1,
-      "name": "Đắc nhân tâm",
-      "price": 1000,
-      "description": "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do ",
-      "image": "/images/Books/B1-removebg-preview.png",
-      "quanlity": 1000
-    },
     {
       "id": 3,
       "isfav": 1,
@@ -195,7 +196,6 @@
       "quanlity": 1000
     }
   ],
-
   "categories": [
     {
       "id": 1,
@@ -307,7 +307,6 @@
     },
     {
       "status": 0,
-      "date": 1,
       "total": 1500,
       "detail": [
         {
@@ -339,7 +338,6 @@
     },
     {
       "status": 0,
-      "date": 1,
       "total": 900,
       "detail": [
         {
@@ -372,20 +370,80 @@
   ],
   "carts": [
     {
+      "id": 1,
       "bookid": 2,
-      "name": "Đắc nhân tâm",
-      "image": "/images/Books/B2-removebg-preview.png",
-      "quanlity": 1,
-      "price": 1000,
-      "id": 1
+      "userid": 4,
+      "quanlity": 1
     },
     {
+      "id": 2,
       "bookid": 3,
-      "name": "Đắc nhân tâm",
-      "image": "/images/Books/B3-removebg-preview.png",
+      "userid": 3,
+      "quanlity": 1
+    },
+    {
+      "id": 3,
+      "bookid": 4,
+      "userid": 3,
+      "quanlity": 1
+    },
+    {
+      "bookid": 1,
       "quanlity": 1,
-      "price": 1000,
-      "id": 11
+      "userid": 4,
+      "id": 4
+    },
+    {
+      "bookid": 2,
+      "quanlity": 1,
+      "userid": 4,
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "userid": 3,
+      "cmt": "haha",
+      "bookid": 1
+    },
+    {
+      "userid": 3,
+      "cmt": "hehe",
+      "bookid": 2
+    },
+    {
+      "userid": 23,
+      "cmt": "hehe",
+      "bookid": 2
+    },
+    {
+      "id": 2,
+      "cmt": "hahihi",
+      "bookid": 1
+    },
+    {
+      "userid": 3,
+      "cmt": "ôke",
+      "bookid": "1",
+      "id": 3
+    },
+    {
+      "userid": 3,
+      "cmt": "ngon",
+      "bookid": "1",
+      "id": 4
+    },
+    {
+      "userid": 3,
+      "cmt": "ngon vjp pro",
+      "bookid": "5",
+      "id": 5
+    },
+    {
+      "userid": 4,
+      "cmt": "hay",
+      "bookid": "1",
+      "id": 6
     }
   ]
 }

@@ -10,27 +10,38 @@ import { type } from "@testing-library/user-event/dist/type";
 const cx = classNames.bind(styles);
 
 function Cart() {
+  const acc = JSON.parse(localStorage.getItem("userData"));
+  // console.log(acc.id);
   const [datas, setDatas] = useState([]);
+  const [books, setBooks] = useState([]);
   const [count, setCount] = useState(1);
   const [user, setUser] = useState({});
   const [error, setError] = useState(null);
 
   const [order, setOrder] = useState({});
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
   const [status, setStatus] = useState(0);
-  const [date, setDate] = useState(1);
+
   const [detail, setDetail] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/carts/`)
+    fetch(`http://localhost:3001/books/`)
+      .then((res) => res.json())
+      .then((datas) => {
+        setBooks(datas);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/carts/?userid=${acc.id}`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
-        const sum = datas
-          .map((item) => item.price * item.quanlity)
-          .reduce((acc, current) => acc + current, 0);
-        setTotal(sum);
-        setDetail(datas);
+        // const sum = datas
+        //   .map((item) => item.price * item.quanlity)
+        //   .reduce((acc, current) => acc + current, 0);
+        // setTotal(sum);
+        // setDetail(datas);
       });
   }, []);
 
@@ -43,29 +54,16 @@ function Cart() {
   //   }
   // };
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/users/3`)
-      .then((res) => res.json())
-      .then((datas) => {
-        setUser({
-          id: datas.id,
-          name: datas.name,
-          email: datas.email,
-          phone: datas.phone,
-          address: datas.address,
-          password: datas.password,
-        });
-      });
-  }, []);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("http://localhost:3001/orders/", {
-        status,
-        date,
+        customer_id: acc.id,
+        fullname: acc.name,
+        phone: acc.phone,
+        address: acc.address,
         total,
-        detail,
+        status,
       });
       alert("Đặt hàng thành công");
     } catch (event) {
@@ -130,12 +128,7 @@ function Cart() {
           <p>{user.address}</p>
         </div>
         <div>
-          <button
-            className={cx("button")}
-            onClick={(e) => {
-              handleSubmit(e);
-            }}
-          >
+          <button className={cx("button")} type="submit">
             XÁC NHẬN MUA HÀNG
           </button>
         </div>

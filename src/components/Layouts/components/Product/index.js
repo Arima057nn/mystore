@@ -21,6 +21,8 @@ function Product({ isFav, book }) {
   const [show, setShow] = useState(false);
   const [count, setCount] = useState(0);
   // const [error, setError] = useState(null);
+  const acc = JSON.parse(localStorage.getItem("userData"));
+
   const [isfav, setIsfav] = useState(isFav);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -56,11 +58,10 @@ function Product({ isFav, book }) {
     try {
       await axios.post("http://localhost:3001/carts/", {
         bookid: book.id,
-        name: book.name,
-        image: book.image,
         quanlity: 1,
-        price: book.price,
+        userid: acc.id,
       });
+      // console.log(bookid, quanlity, userid);
       alert("Add book to cart successful!");
     } catch (event) {
       alert("Add book to cart failed!");
