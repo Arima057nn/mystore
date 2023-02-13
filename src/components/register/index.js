@@ -103,6 +103,7 @@ export default function Login() {
               label="Password"
               variant="outlined"
               required
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               sx={{ marginBottom: 2 }}

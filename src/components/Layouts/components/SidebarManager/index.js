@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import classNames from "classnames/bind";
 import { useNavigate } from "react-router-dom";
-
+import HomeIcon from "@mui/icons-material/Home";
 import styles from "./SidebarManager.module.scss";
 
 const cx = classNames.bind(styles);
@@ -48,8 +48,20 @@ function SidebarManager() {
           navigate("/login");
           localStorage.clear();
         }}
+        sx={{ marginTop: 2 }}
       >
         Logout
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          navigate("/");
+        }}
+        color="success"
+        startIcon={<HomeIcon />}
+        sx={{ marginTop: 2 }}
+      >
+        Home
       </Button>
     </div>
   );

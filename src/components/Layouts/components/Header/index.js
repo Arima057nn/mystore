@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import BookCart from "../../../BookCart";
 import axios from "axios";
+import { Avatar } from "@mui/material";
 
 const cx = classNames.bind(styles);
 
@@ -21,18 +22,21 @@ function Header() {
   const [datas, setDatas] = useState([]);
   const [listChange, setListChange] = useState([]);
   const [listId, setListId] = useState([]);
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate();
+  const acc = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
-    fetch(`http://localhost:3001/carts/`)
+    fetch(`http://localhost:3001/carts/?userid=${acc.id}`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
+        console.log(datas);
       });
   }, []);
 
-  // console.log(book);
+  // console.log(datas);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -64,10 +68,11 @@ function Header() {
 
   // handle viewcart
   const handleSubmitViewCart = () => {
-    listChange.length && listChange.map((item) => handleUpdate(item.id, item));
+    // listChange.length && listChange.map((item) => handleUpdate(item.id, item));
     navigate("/cart");
   };
   const token = localStorage.getItem("token");
+
   return (
     <>
       {modal &&
@@ -87,7 +92,7 @@ function Header() {
                 />
               </div>
               {datas.map((value) => (
-                <BookCart databooks={value} hanhdleDataBook={hanhdleDataBook} />
+                <BookCart cart={value} />
               ))}
 
               <div className={cx("checkout-container")}>
@@ -116,7 +121,7 @@ function Header() {
 
           <div className={cx("action-container")}>
             <div
-              className={cx("action")}
+              // className={cx("action")}
               onClick={() => {
                 if (token === "user123") {
                   navigate("/profile");
@@ -126,8 +131,11 @@ function Header() {
                 }
               }}
             >
-              <FontAwesomeIcon icon={faUser} className={cx("icon")} />
+              <div className={cx("avt")}>
+                <Avatar src={"/images/avatar1.jpg"} sx={{ mr: 2 }} />
+              </div>
             </div>
+            {/* <h4>{user.name}</h4> */}
             <div className={cx("action")} onClick={toggleModal}>
               <FontAwesomeIcon icon={faBagShopping} className={cx("icon")} />
             </div>
