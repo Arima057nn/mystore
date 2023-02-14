@@ -12,7 +12,7 @@ function Profile() {
   );
 
   // useEffect(() => {
-  //   fetch(`http://localhost:3001/users/3`)
+  //   fetch(`http://127.0.0.1:8000/api/users/3`)
   //     .then((res) => res.json())
   //     .then((datas) => {
   //       setDatas(datas); // Dùng cái này nó sẽ re-render Contentt

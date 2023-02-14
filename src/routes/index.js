@@ -68,6 +68,8 @@ const publicRoutes = [
 ];
 
 const AdminRoutes = [
+  { path: "/book/:key", component: ProductDetail, layout: HeaderOnly },
+
   {
     path: "/",
     component: Home,
@@ -153,6 +155,11 @@ const UserRoutes = [
   },
 
   {
+    path: "/book/:key",
+    component: ProductDetail,
+    layout: HeaderOnly,
+  },
+  {
     path: "/Login",
     component: Login,
     layout: LoginLayout,
@@ -200,7 +207,12 @@ const UserRoutes = [
     layout: ProfileLayout,
     sidebar: Account,
   },
-
+  {
+    path: "/Profile/wishlist",
+    component: Wishlist,
+    layout: ProfileLayout,
+    sidebar: Account,
+  },
   {
     path: "/Profile/wishlist",
     component: Wishlist,

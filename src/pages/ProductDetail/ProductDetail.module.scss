@@ -117,3 +117,12 @@
 .border-bt {
   border-bottom: 2px solid var(--primary);
 }
+
+.comment-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+.comment {
+  margin-left: 10px;
+}

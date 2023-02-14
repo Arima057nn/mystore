@@ -1,6 +1,6 @@
-import Customers from "../../../components/Admin/Customers";
+import Orders from "../../../components/Admin/Orders";
 function OrdersManager() {
-  return <Customers />;
+  return <Orders />;
 }
 
 export default OrdersManager;

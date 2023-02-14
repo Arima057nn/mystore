@@ -12,7 +12,7 @@ function EditCustomer({ customer }) {
 
   const [customerEdit, setCustomerEdit] = useState({
     id: customer.id,
-    name: customer.name,
+    last_name: customer.last_name,
     email: customer.email,
     phone: customer.phone,
     address: customer.address,
@@ -22,8 +22,8 @@ function EditCustomer({ customer }) {
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(
-        `http://localhost:3001/users/${customer.id}`,
+      const res = await axios.patch(
+        `http://127.0.0.1:8000/api/users/${customer.id}`,
         customerEdit
       );
       alert("Update successful!");
@@ -49,9 +49,9 @@ function EditCustomer({ customer }) {
             id="name"
             type="text"
             required
-            value={customerEdit.name}
+            value={customerEdit.last_name}
             onChange={(e) =>
-              setCustomerEdit({ ...customerEdit, name: e.target.value })
+              setCustomerEdit({ ...customerEdit, last_name: e.target.value })
             }
           />
         </div>

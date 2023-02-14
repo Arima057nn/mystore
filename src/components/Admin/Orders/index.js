@@ -17,38 +17,55 @@ import Search from "@mui/icons-material/Search";
 
 import classNames from "classnames/bind";
 import styles from "../Admin.module.scss";
-import EditBook from "../../../pages/Admin/BooksManager/EditBook";
+import EditCustomer from "../../../pages/Admin/CustomersManager/EditCustomer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import RefreshIcon from "@mui/icons-material/Refresh";
 const cx = classNames.bind(styles);
-function Books() {
+function Orders() {
   const [modal, setModal] = useState(false);
-  const [book, setBook] = useState({});
+  const [customer, setCustomer] = useState({});
   const [datas, setDatas] = useState([]);
   const [refreshdatas, setRefreshdatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const token = localStorage.getItem("token");
+  if (token === "admin123") console.log("hehe");
   const handleChangeSearch = (event) => {
     setSearchTerm(event.target.value);
   };
+  useEffect(() => {
+    // setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+    // if (searchTerm === "") setDatas(refreshdatas);
+    // else if()
+  });
+  // const handleSubmitSearch = (event) => {
+  //   event.preventDefault();
+  //   axios
+  //     .get(`http://127.0.0.1:8000/api/users/?name=${searchTerm}`)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       setDatas(datas.filter((user) => user.name.includes(searchTerm)));
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
   const handleSubmitSearch = (event) => {
     event.preventDefault();
-    setDatas(datas.filter((user) => user.tittle.includes(searchTerm)));
-    console.log(datas);
+    setDatas(datas.filter((user) => user.last_name.includes(searchTerm)));
   };
-
   const toggleRefresh = () => {
     setDatas(refreshdatas);
     setSearchTerm("");
   };
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/books/index/`)
+    fetch(`http://127.0.0.1:8000/api/orders/index`)
       .then((res) => res.json())
       .then((datas) => {
-        setDatas(datas);
+        setDatas(datas); // Dùng cái này nó sẽ re-render Contentt
         setRefreshdatas(datas);
       });
   }, []);
@@ -56,23 +73,23 @@ function Books() {
   const toggleModal = (id) => {
     setModal(!modal);
     datas.map((user) => {
-      if (user.id === id) setBook(user);
-      console.log(book.id);
+      if (user.id === id) setCustomer(user);
+      console.log(customer.id);
     });
   };
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://127.0.0.1:8000/api/books/${id}`);
-      setDatas(datas.filter((user) => user.id !== id));
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   await axios.delete(`http://127.0.0.1:8000/api/carts/${id}/${book_id}`);
+    //   setDatas(datas.filter((user) => user.id !== id));
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("header-wrapper")}>
-        <h1>Books</h1>
+        <h1>Orders</h1>
       </div>
 
       <div className={cx("search-wrapper")}>
@@ -90,7 +107,7 @@ function Books() {
                 </InputAdornment>
               ),
             }}
-            placeholder="Search Books"
+            placeholder="Search Customer"
             variant="outlined"
           />
 
@@ -102,8 +119,8 @@ function Books() {
           </IconButton>
         </form>
 
-        <Link to={"/admin/book/create"}>
-          <button className={cx("btn-create")}>+ Add Books</button>
+        <Link to={"/admin/customer/create"}>
+          <button className={cx("btn-create")}>+ Add Orders</button>
         </Link>
       </div>
 
@@ -113,13 +130,9 @@ function Books() {
             <TableRow>
               <TableCell>#Id</TableCell>
               <TableCell>Name</TableCell>
-              <TableCell>#CategoryID</TableCell>
-              <TableCell>Price</TableCell>
-
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell>Quantity</TableCell>
+              <TableCell>Address</TableCell>
+              <TableCell>total</TableCell>
+              <TableCell>Phone</TableCell>
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
@@ -127,7 +140,6 @@ function Books() {
             <TableBody key={value.id}>
               <TableRow hover>
                 <TableCell>{value.id}</TableCell>
-
                 <TableCell>
                   <Box
                     sx={{
@@ -135,20 +147,17 @@ function Books() {
                       display: "flex",
                     }}
                   >
-                    <Avatar src={value.image} sx={{ mr: 2 }} />
+                    <Avatar src={value.avt} sx={{ mr: 2 }} />
                     <Typography color="textPrimary" variant="body1">
-                      {value.tittle}
+                      {value.fullname}
                     </Typography>
                   </Box>
                 </TableCell>
-                <TableCell>{value.categoryid}</TableCell>
-                <TableCell>{value.price}</TableCell>
 
-                <TableCell></TableCell>
-                <TableCell></TableCell>
+                <TableCell>{value.address}</TableCell>
+                <TableCell>{value.total}</TableCell>
+                <TableCell>{value.phone}</TableCell>
 
-                <TableCell></TableCell>
-                <TableCell>{value.quantity}</TableCell>
                 <TableCell>
                   {modal && (
                     <div className={cx("modal")}>
@@ -157,7 +166,7 @@ function Books() {
                         className={cx("overlay")}
                       ></div>
                       <div className={cx("modal-content-admin")}>
-                        <EditBook book={book} />
+                        <EditCustomer customer={customer} />
                       </div>
                     </div>
                   )}
@@ -170,6 +179,7 @@ function Books() {
                     Update
                   </Button>
                   <Button
+                    sx={{ mr: 0 }}
                     variant="contained"
                     color="error"
                     onClick={() => handleDelete(value.id)}
@@ -186,4 +196,4 @@ function Books() {
   );
 }
 
-export default Books;
+export default Orders;

@@ -8,78 +8,74 @@ import { faXmark, faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function BookCart({ databooks, hanhdleDataBook }) {
-  const [cart, setCart] = useState({
-    id: databooks.id,
-    bookid: databooks.bookid,
-    name: databooks.name,
-    image: databooks.image,
-    quanlity: databooks.quanlity,
-    price: databooks.price,
-  });
-  const [datas, setDatas] = useState([]);
+function BookCart({ cart }) {
+  // const [cartt, setCartt] = useState({
+  //   userid: cart.id,
+  //   bookid: cart.bookid,
+  //   quantity: cart.quantity,
+  // });
   const [show, setShow] = useState(true);
-
+  const [book, setBook] = useState({});
   // const [book, setBook] = useState([]);
-  // console.log(book[0]);
+  console.log(cart);
+  console.log("oke");
+  console.log(book[0]);
 
-  const [count, setCount] = useState(cart.quanlity);
+ 
   // useEffect(() => {
   //   setBook(books?.filter((book) => book.id == cart.bookid));
   // }, []);
-  // console.log(cart.quanlity);
+  // console.log(cart.quantity);
 
+  console.log(cart.bookid);
   useEffect(() => {
-    fetch(`http://localhost:3001/carts/`)
+    fetch(`http://127.0.0.1:8000/api/books/show/${cart.book_id}`)
       .then((res) => res.json())
       .then((datas) => {
-        setDatas(datas);
+        setBook(datas[0]);
+        console.log(datas[0]);
       });
   }, []);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/carts/${id}`);
-      setDatas(datas.filter((book) => book.id !== id));
+      await axios.delete(`http://127.0.0.1:8000/api/carts/${cart.customer_id}/${cart.book_id}`);
       setShow(false);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleSubmitUpdate = async (e) => {
-    axios.put(`http://localhost:3001/carts/${databooks.id}`, cart);
-  };
-
+ 
   return (
     show && (
       <div className={cx("product-container")}>
         <div className={cx("quantity")}>
           <div
-            onClick={() => {
-              setCount((prevState) => prevState + 1);
-              setCart({ ...cart, quanlity: count + 1 });
-              hanhdleDataBook({ ...cart, quanlity: count + 1 });
-            }}
+            // onClick={() => {
+            //   setCount((prevState) => prevState + 1);
+            //   setCart({ ...cart, quantity: count + 1 });
+            //   hanhdleDataBook({ ...cart, quantity: count + 1 });
+            // }}
           >
             <Add faicon={faAdd} />
           </div>
           <span
             className={cx("count")}
             // onClick={() => {
-            //   console.log(cart.quanlity);
+            //   console.log(cart.quantity);
             //   handleSubmitUpdate();
             // }}
           >
-            {count}
+            {cart.quantity}
           </span>
           <div
             onClick={() => {
-              if (count > 1) {
-                setCount((prevState) => prevState - 1);
-                setCart({ ...cart, quanlity: count - 1 });
-                hanhdleDataBook({ ...cart, quanlity: count - 1 });
-              }
+              // if (count > 1) {
+              //   setCount((prevState) => prevState - 1);
+              //   setCart({ ...cart, quantity: count - 1 });
+              //   hanhdleDataBook({ ...cart, quantity: count - 1 });
+              // }
             }}
           >
             <Add faicon={faMinus} />
@@ -87,17 +83,19 @@ function BookCart({ databooks, hanhdleDataBook }) {
         </div>
         <img
           className={cx("img")}
-          src={cart.image}
-          onClick={() => handleSubmitUpdate()}
+          src={book.image}
+          // onClick={() => handleSubmitUpdate()}
         ></img>
         <div className={cx("info")}>
           <a>
             <span className={cx("title")}>{cart.name}</span>
           </a>
           <span className={cx("price1")}>
-            ${cart.price} x {count}
+          ${book.price} x {cart.quantity}
+
           </span>
-          <span className={cx("price2")}>$ {cart.price * count}</span>
+          <span className={cx("price2")}>$ {book.price * cart.quantity}</span>
+
         </div>
         <FontAwesomeIcon
           icon={faXmark}

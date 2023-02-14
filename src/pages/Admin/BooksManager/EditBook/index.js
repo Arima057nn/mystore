@@ -12,22 +12,23 @@ function EditBook({ book }) {
 
   const [bookEdit, setBookEdit] = useState({
     id: book.id,
-    name: book.name,
+    tittle: book.tittle,
     price: book.price,
-    description: book.description,
-    quanlity: book.quanlity,
+    content: book.content,
+    quantity: book.quantity,
+    categoryid: book.categoryid,
   });
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3001/books/${book.id}`,
+        `http://127.0.0.1:8000/api/books/${book.id}`,
         bookEdit
       );
-      alert("Sign up successful!");
+      alert("Edit Book successful!");
     } catch (e) {
-      alert("Sign up failed. Please try again.");
+      alert("Edit Book failed. Please try again.");
     }
   };
 
@@ -42,14 +43,16 @@ function EditBook({ book }) {
 
       <form className={cx("info")} onSubmit={handleSubmitUpdate}>
         <div className={cx("box")}>
-          <label for="name">Name</label>
+          <label for="tittle">tittle</label>
           <input
             className={cx("input")}
-            id="name"
+            id="tittle"
             type="text"
             required
-            value={bookEdit.name}
-            onChange={(e) => setBookEdit({ ...bookEdit, name: e.target.value })}
+            value={bookEdit.tittle}
+            onChange={(e) =>
+              setBookEdit({ ...bookEdit, tittle: e.target.value })
+            }
           />
         </div>
         <div className={cx("box")}>
@@ -66,34 +69,47 @@ function EditBook({ book }) {
           />
         </div>
         <div className={cx("box")}>
-          <label for="description">description</label>
+          <label for="content">Content</label>
           <textarea
             className={cx("input")}
-            id="description"
+            id="content"
             type="description"
-            rows="6"
+            rows="4"
             required
-            value={bookEdit.description}
+            value={bookEdit.content}
             onChange={(e) =>
-              setBookEdit({ ...bookEdit, description: e.target.value })
+              setBookEdit({ ...bookEdit, content: e.target.value })
             }
           />
         </div>
 
         <div className={cx("box")}>
-          <label for="name">Quanlity</label>
+          <label for="name">Quantity</label>
           <input
             className={cx("input")}
-            id="quanlity"
+            id="quantity"
             type="text"
             required
-            value={bookEdit.quanlity}
+            value={bookEdit.quantity}
             onChange={(e) =>
-              setBookEdit({ ...bookEdit, quanlity: e.target.value })
+              setBookEdit({ ...bookEdit, quantity: e.target.value })
             }
           />
         </div>
 
+        <div className={cx("box")}>
+          <label for="categoryid">CategoryID</label>
+          <input
+            className={cx("input")}
+            id="categoryid"
+            type="text"
+            required
+            value={bookEdit.categoryid}
+            onChange={(e) =>
+              setBookEdit({ ...bookEdit, categoryid: e.target.value })
+            }
+          />
+        </div>
         <div>
           <AddtoCart addtocart={"Save Changes"} type={"submit"} />
         </div>

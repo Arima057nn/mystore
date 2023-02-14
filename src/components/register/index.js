@@ -9,7 +9,6 @@ import {
   LoginForm,
   LoginBackground,
   LoginButton,
-  FormInput,
 } from "../../styles/login";
 import { useMediaQuery } from "@mui/material/";
 
@@ -23,7 +22,7 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/users/", {
+      const res = await axios.post("http://127.0.0.1:8000/api/users/register", {
         name,
         email,
         password,
@@ -35,6 +34,7 @@ export default function Login() {
       setPassword("");
       setPhone("");
       setAddress("");
+
       alert("Sign up successful!");
     } catch (event) {
       alert("Sign up failed. Please try again.");
@@ -63,13 +63,13 @@ export default function Login() {
 
           <form onSubmit={handleSubmit}>
             <TextField
+              label="Name"
               fullWidth
-              label="YourName"
               variant="outlined"
-              required
               sx={{ marginBottom: 2 }}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <TextField
               label="Email"
@@ -103,6 +103,7 @@ export default function Login() {
               label="Password"
               variant="outlined"
               required
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               sx={{ marginBottom: 2 }}

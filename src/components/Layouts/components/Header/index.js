@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import BookCart from "../../../BookCart";
 import axios from "axios";
+import { Avatar } from "@mui/material";
 
 const cx = classNames.bind(styles);
 
@@ -21,14 +22,18 @@ function Header() {
   const [datas, setDatas] = useState([]);
   const [listChange, setListChange] = useState([]);
   const [listId, setListId] = useState([]);
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate();
+  const acc = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
-    fetch(`http://localhost:3001/carts/`)
+    fetch(`http://127.0.0.1:8000/api/carts/show/${acc.id}`)
       .then((res) => res.json())
       .then((datas) => {
         setDatas(datas);
+        console.log(datas);
+        console.log("123123123");
       });
   }, []);
 
@@ -59,12 +64,12 @@ function Header() {
 
   // call api update
   const handleUpdate = async (id, cart) => {
-    await axios.put(`http://localhost:3001/carts/${id}`, cart);
+    await axios.put(`http://127.0.0.1:8000/api/carts/${id}`, cart);
   };
 
   // handle viewcart
   const handleSubmitViewCart = () => {
-    listChange.length && listChange.map((item) => handleUpdate(item.id, item));
+    // listChange.length && listChange.map((item) => handleUpdate(item.id, item));
     navigate("/cart");
   };
   const token = localStorage.getItem("token");
@@ -87,7 +92,7 @@ function Header() {
                 />
               </div>
               {datas.map((value) => (
-                <BookCart databooks={value} hanhdleDataBook={hanhdleDataBook} />
+                <BookCart cart={value} />
               ))}
 
               <div className={cx("checkout-container")}>
@@ -116,17 +121,20 @@ function Header() {
 
           <div className={cx("action-container")}>
             <div
-              className={cx("action")}
+              // className={cx("action")}
               onClick={() => {
                 if (token === "user123") {
                   navigate("/profile");
                 } else if (token === "admin123") {
+                  navigate("/login");
                 } else {
                   navigate("/login");
                 }
               }}
             >
-              <FontAwesomeIcon icon={faUser} className={cx("icon")} />
+              <div className={cx("avt")}>
+                <Avatar src={"/images/avatar1.jpg"} sx={{ mr: 2 }} />
+              </div>
             </div>
             <div className={cx("action")} onClick={toggleModal}>
               <FontAwesomeIcon icon={faBagShopping} className={cx("icon")} />

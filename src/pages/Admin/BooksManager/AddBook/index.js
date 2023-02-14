@@ -22,7 +22,7 @@ function AddBook() {
         content,
         price,
         quantity,
-        categoryid
+        categoryid,
       });
       setTittle("");
       setContent("");
@@ -30,9 +30,9 @@ function AddBook() {
       setQuantity("");
       setCategoryid("");
 
-      alert("Sign up successful!");
+      alert("Add book successful!");
     } catch (event) {
-      alert("Sign up failed. Please try again.");
+      alert("Add book failed. Please try again.");
     }
   };
   return (
@@ -82,7 +82,7 @@ function AddBook() {
             <input
               className={cx("input")}
               id="quantity"
-              type="text"  
+              type="text"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
@@ -94,7 +94,6 @@ function AddBook() {
               className={cx("input")}
               id="categoryid"
               type="text"
-              
               value={categoryid}
               onChange={(e) => setCategoryid(e.target.value)}
             />

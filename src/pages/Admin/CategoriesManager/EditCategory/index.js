@@ -13,14 +13,13 @@ function EditCategory({ category }) {
   const [categoryEdit, setCategoryEdit] = useState({
     id: category.id,
     name: category.name,
-    description: category.description,
   });
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3001/categories/${category.id}`,
+        `http://127.0.0.1:8000/api/categories/${category.id}`,
         categoryEdit
       );
       alert("Update successful!");
@@ -52,22 +51,8 @@ function EditCategory({ category }) {
             }
           />
         </div>
-        <div className={cx("box")}>
-          <label for="description">description</label>
-          <textarea
-            className={cx("input")}
-            id="description"
-            type="description"
-            rows="10"
-            required
-            value={categoryEdit.description}
-            onChange={(e) =>
-              setCategoryEdit({ ...categoryEdit, description: e.target.value })
-            }
-          />
-        </div>
 
-        <div>
+        <div style={{ marginLeft: "680px", marginTop: "160px" }}>
           <AddtoCart addtocart={"Save Changes"} type={"submit"} />
         </div>
       </form>
