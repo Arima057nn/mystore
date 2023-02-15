@@ -1,4 +1,4 @@
-import { TextField, Typography, Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import React, { useState } from "react";
@@ -10,7 +10,10 @@ import {
   LoginBackground,
   LoginButton,
 } from "../../styles/login";
-import { useMediaQuery } from "@mui/material/";
+import classNames from "classnames/bind";
+import styles from "./register.module.scss";
+
+const cx = classNames.bind(styles);
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -41,7 +44,6 @@ export default function Login() {
     }
   };
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <LoginBackground>
@@ -62,49 +64,50 @@ export default function Login() {
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <TextField
+            <input
               label="Name"
-              fullWidth
-              variant="outlined"
+              type={"text"}
+              className={cx("input")}
               sx={{ marginBottom: 2 }}
               value={name}
+              placeholder={"Username"}
               onChange={(e) => setName(e.target.value)}
               required
             />
-            <TextField
+            <input
               label="Email"
-              fullWidth
-              variant="outlined"
+              className={cx("input")}
               sx={{ marginBottom: 2 }}
               value={email}
+              placeholder={"Email"}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <TextField
+            <input
               label="Phone"
-              fullWidth
-              variant="outlined"
+              className={cx("input")}
               required
               value={phone}
+              placeholder={"Phone"}
               onChange={(e) => setPhone(e.target.value)}
               sx={{ marginBottom: 2 }}
             />
-            <TextField
+            <input
               label="Address"
-              fullWidth
               required
-              variant="outlined"
+              className={cx("input")}
               sx={{ marginBottom: 2 }}
+              placeholder={"Address"}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
-            <TextField
-              fullWidth
+            <input
               label="Password"
-              variant="outlined"
               required
+              className={cx("input")}
               type="password"
               value={password}
+              placeholder={"Password"}
               onChange={(e) => setPassword(e.target.value)}
               sx={{ marginBottom: 2 }}
             />

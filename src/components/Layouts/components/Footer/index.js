@@ -5,117 +5,92 @@ const cx = classNames.bind(styles);
 
 function Footer() {
   return (
-    <div>
-      <footer className={cx("site-footer")}>
-        <div className={cx("container")}>
-          <div className={cx("row")}>
-            <div className={cx("col-sm-12 col-md-6")}>
-              <h6>About</h6>
-              <p className={cx("text-justify")}>
-                Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative
-                to help the upcoming programmers with the code. Scanfcode
-                focuses on providing the most efficient code or snippets as the
-                code wants to be simple. We will help programmers build up
-                concepts in different programming languages that include C, C++,
-                Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and
-                Algorithm.
-              </p>
-            </div>
-
-            <div className={cx("col-xs-6 col-md-3")}>
-              <h6>Categories</h6>
-              <ul className={cx("footer-links")}>
-                <li>
-                  <a href="http://scanfcode.com/category/c-language/">C</a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/category/front-end-development/">
-                    UI Design
-                  </a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/category/back-end-development/">
-                    PHP
-                  </a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/category/java-programming-language/">
-                    Java
-                  </a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/category/android/">Android</a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/category/templates/">
-                    Templates
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className={cx("col-xs-6 col-md-3")}>
-              <h6>Quick Links</h6>
-              <ul className={cx("footer-links")}>
-                <li>
-                  <a href="http://scanfcode.com/about/">About Us</a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/contact/">Contact Us</a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/contribute-at-scanfcode/">
-                    Contribute
-                  </a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/privacy-policy/">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/sitemap/">Sitemap</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <div className={cx("wrapper")}>
+      <div className={cx("container")}>
+        <div className={cx("about")}>
+          <h2>Về Chúng Tôi</h2>
+          <p>Lorem ipsumdolor sit...</p>
+          <ul className={cx("social-icon")}>
+            <li>
+              <a href="">
+                <i className={cx("fa fa-facebook")}></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i className={cx("fa fa-twitter")}></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i className={cx("fa fa-instagram")}></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i className={cx("fa fa-youtube")}></i>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div className={cx("container")}>
-          <div className={cx("row")}>
-            <div className={cx("col-md-8 col-sm-6 col-xs-12")}>
-              <p className={cx("copyright-text")}>
-                Copyright &copy; 2017 All Rights Reserved by
-                <a href="#">Scanfcode</a>.
-              </p>
-            </div>
 
-            <div className={cx("col-md-4 col-sm-6 col-xs-12")}>
-              <ul className={cx("social-icons")}>
-                <li>
-                  <a className={cx("facebook")} href="#">
-                    <i className={cx("fa fa-facebook")}></i>
-                  </a>
-                </li>
-                <li>
-                  <a className={cx("twitter")} href="#">
-                    <i className={cx("fa fa-twitter")}></i>
-                  </a>
-                </li>
-                <li>
-                  <a className={cx("dribbble")} href="#">
-                    <i className={cx("fa fa-dribbble")}></i>
-                  </a>
-                </li>
-                <li>
-                  <a className={cx("linkedin")} href="#">
-                    <i className={cx("fa fa-linkedin")}></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className={cx("links")}>
+          <h2>Đường Dẫn</h2>
+          <ul>
+            <li>
+              <a href="#">Trang Chủ</a>
+            </li>
+            <li>
+              <a href="#">Về Chúng Tôi</a>
+            </li>
+            <li>
+              <a href="#">Thông Tin Liên Lạc</a>
+            </li>
+            <li>
+              <a href="#">Dịch Vụ</a>
+            </li>
+            <li>
+              <a href="#">Điều Kiện Chính Sách</a>
+            </li>
+          </ul>
         </div>
-      </footer>
+
+        <div className={cx("contact")}>
+          <h2>Thông Tin Liên Hệ</h2>
+          <ul className={cx("info")}>
+            <li>
+              <span>
+                <i className={cx("fa fa-map-marker")}></i>
+              </span>
+              <span>
+                Đường Số 1<br />
+                Quận 1, Thành Phố Hồ Chí Minh
+                <br />
+                Việt Nam
+              </span>
+            </li>
+            <li>
+              <span>
+                <i className={cx("fa fa-phone")}></i>
+              </span>
+              <p>
+                <a href="#">+84 123 456 789</a>
+                <br />
+                <a href="#">+84 987 654 321</a>
+              </p>
+            </li>
+            <li>
+              <span>
+                <i className={cx("fa fa-envelope")}></i>
+              </span>
+              <p>
+                <a href="#">diachiemail@gmail.com</a>
+              </p>
+            </li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

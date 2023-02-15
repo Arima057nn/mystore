@@ -8,15 +8,18 @@ import { faXmark, faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import AddDisable from "../Button/AddDisable";
 const cx = classNames.bind(styles);
 
-function BookCart2({ cart }) {
+function BookCart2({ cart, props }) {
   const [book, setBook] = useState({});
+  const [price, setPrice] = useState(0);
+
   console.log(cart.bookid);
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/books/show/${cart.book_id}`)
       .then((res) => res.json())
       .then((datas) => {
         setBook(datas[0]);
-        console.log(datas[0]);
+        props.callback(datas[0].price);
+        // console.log(datas[0]);
       });
   }, []);
 
