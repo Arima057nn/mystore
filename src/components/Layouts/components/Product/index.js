@@ -100,17 +100,13 @@ function Product({ isFav, book }) {
                 </BookFavButton>
               </div>
               <h1>{book.tittle}</h1>
-              <div className={cx("rated")}>
-                {/* <h6>Rated:</h6>
-                <Rated /> */}
-              </div>
 
               <h2 className={cx("price")}>$ {book.price}</h2>
-              <span>{book.description}</span>
+              <span>{book.content}</span>
               <br />
-              <div className={cx("button")}>
+              {/* <div className={cx("button")}>
                 <AddtoCard addtocart={"Add to cart"} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

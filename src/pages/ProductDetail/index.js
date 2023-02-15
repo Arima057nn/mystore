@@ -59,10 +59,7 @@ function ProductDetail() {
         </div>
         <div className={cx("content")}>
           <h1>{book.tittle}</h1>
-          <div className={cx("rated")}>
-            {/* <h6>Rated:</h6> */}
-            {/* <Rated /> */}
-          </div>
+          <div className={cx("rated")}></div>
           <h6 className={cx("type")}>Type:</h6>
           <div className={cx("type-container")}>
             <button className={cx("type-btn")}>type1</button>
@@ -70,34 +67,10 @@ function ProductDetail() {
             <button className={cx("type-btn")}>type3</button>
           </div>
 
-          <h2 className={cx("price")}>$ {book.price}</h2>
           <h4>{book.content}</h4>
+          <h2 className={cx("price")}>$ {book.price}</h2>
           <span>Chỉ còn lại {book.quantity} sản phẩm</span>
           <br />
-
-          {/* <div className={cx("button")}>
-            {show ? (
-              <div onClick={() => setShow(false)}>
-                <AddtoCard addtocart={"Add to cart"} />
-              </div>
-            ) : (
-              <div className={cx("quantity")}>
-                <div
-                  onClick={() => {
-                    if (count > 1) {
-                      setCount(count - 1);
-                    } else setShow(true);
-                  }}
-                >
-                  <AddButton faicon={faMinus} />
-                </div>
-                <span className={cx("count")}>{count}</span>
-                <div onClick={() => setCount(count + 1)}>
-                  <AddButton faicon={faAdd} />
-                </div>
-              </div>
-            )}
-          </div> */}
         </div>
       </div>
       <div className={cx("title-container")}>

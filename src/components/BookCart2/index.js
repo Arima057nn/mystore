@@ -8,7 +8,7 @@ import { faXmark, faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
 import AddDisable from "../Button/AddDisable";
 const cx = classNames.bind(styles);
 
-function BookCart2({ cart, props }) {
+function BookCart2({ cart }) {
   const [book, setBook] = useState({});
   const [price, setPrice] = useState(0);
 
@@ -18,7 +18,7 @@ function BookCart2({ cart, props }) {
       .then((res) => res.json())
       .then((datas) => {
         setBook(datas[0]);
-        props.callback(datas[0].price);
+
         // console.log(datas[0]);
       });
   }, []);

@@ -136,16 +136,6 @@ function Login() {
               />
               Remember me
             </div>
-            <Link
-              href="#"
-              underline="hover"
-              textAlign={"right"}
-              // color="success"
-              fontSize={"1.1rem"}
-              className={cx("btn-forgot")}
-            >
-              Forgot Password?
-            </Link>
 
             <LoginButton variant="contained" type="submit">
               Sign in
